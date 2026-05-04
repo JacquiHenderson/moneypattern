@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyMind Profile — Understand Your Relationship With Money</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bl:  #5298BF;
+  --bm:  #3C7AA8;
+  --bd:  #1D4A75;
+  --bdd: #133354;
+  --bp:  #EBF4FA;
+  --bt:  #F4F9FD;
+  --w:   #ffffff;
+  --g50: #F8F9FB;
+  --g100:#F1F3F5;
+  --g200:#E4E8EC;
+  --g400:#ADB5BD;
+  --g600:#6C757D;
+  --g800:#343A40;
+  --g900:#1A2026;
+  --ff:  'Playfair Display', Georgia, serif;
+  --fb:  'DM Sans', system-ui, sans-serif;
+  --r8:  8px; --r14: 14px; --r22: 22px; --r32: 32px;
+  --s1: 0 1px 3px rgba(29,74,117,.07), 0 1px 2px rgba(29,74,117,.05);
+  --s2: 0 4px 18px rgba(29,74,117,.10), 0 2px 6px rgba(29,74,117,.06);
+  --s3: 0 12px 42px rgba(29,74,117,.12), 0 4px 12px rgba(29,74,117,.07);
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--fb); background: #fff; color: var(--g900); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.93); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(82,152,191,.13);
+  height: 68px; padding: 0 6%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--bl), var(--bd));
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-mark svg { width: 18px; height: 18px; }
+.nav-name { font-family: var(--ff); font-size: 17px; font-weight: 600; color: var(--bd); letter-spacing: -.3px; }
+.nav-links { list-style: none; display: flex; align-items: center; gap: 30px; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--g600); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--bm); }
+.nav-cta { background: var(--bd) !important; color: white !important; padding: 9px 22px; border-radius: 50px; transition: background .2s, transform .15s !important; }
+.nav-cta:hover { background: var(--bm) !important; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  padding: 148px 6% 96px; text-align: center;
+  background: linear-gradient(180deg, var(--bt) 0%, #fff 75%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 960px; height: 640px;
+  background: radial-gradient(ellipse at center, rgba(82,152,191,.09) 0%, transparent 68%);
+  pointer-events: none;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bp); border: 1px solid rgba(82,152,191,.28);
+  color: var(--bd); font-size: 13px; font-weight: 500;
+  padding: 6px 16px; border-radius: 50px; margin-bottom: 30px;
+  animation: up .55s ease both;
+}
+.badge-dot { width: 7px; height: 7px; background: var(--bl); border-radius: 50%; }
+.hero h1 {
+  font-family: var(--ff); font-size: clamp(40px,5.5vw,70px); font-weight: 700;
+  line-height: 1.08; letter-spacing: -1.5px; color: var(--bdd);
+  max-width: 800px; margin: 0 auto 26px;
+  animation: up .55s .08s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--bm); }
+.hero-sub {
+  font-size: 18px; color: var(--g600); max-width: 540px; margin: 0 auto 44px; line-height: 1.65;
+  animation: up .55s .16s ease both;
+}
+.hero-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; animation: up .55s .24s ease both; }
+.btn-p {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bd); color: white;
+  font-family: var(--fb); font-size: 15px; font-weight: 600;
+  padding: 14px 30px; border-radius: 50px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(29,74,117,.24);
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-p:hover { background: var(--bm); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,74,117,.28); }
+.btn-s {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--bd); font-family: var(--fb); font-size: 15px; font-weight: 500;
+  padding: 14px 26px; border-radius: 50px; text-decoration: none;
+  border: 1.5px solid rgba(29,74,117,.22); transition: border-color .2s, background .2s;
+}
+.btn-s:hover { border-color: var(--bm); background: var(--bp); }
+.pills-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 68px; animation: up .6s .32s ease both; }
+.pill {
+  display: flex; align-items: center; gap: 10px;
+  background: white; border: 1px solid rgba(82,152,191,.18);
+  border-radius: 50px; padding: 9px 18px 9px 10px;
+  box-shadow: var(--s1); font-size: 14px; font-weight: 500; color: var(--g800);
+}
+.pill-ico { width: 30px; height: 30px; border-radius: 50%; background: var(--bp); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.stats-row {
+  display: flex; justify-content: center; align-items: center; gap: 44px;
+  margin-top: 68px; padding-top: 44px; border-top: 1px solid var(--g200);
+  flex-wrap: wrap; animation: up .6s .4s ease both;
+}
+.stat { text-align: center; }
+.stat-n { font-family: var(--ff); font-size: 38px; font-weight: 700; color: var(--bd); line-height: 1; display: block; margin-bottom: 5px; }
+.stat-l { font-size: 13px; color: var(--g400); }
+.stat-div { width: 1px; height: 44px; background: var(--g200); }
+
+/* SECTIONS */
+section.pad { padding: 96px 6%; }
+.label { display: inline-block; font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--bm); margin-bottom: 14px; }
+.title { font-family: var(--ff); font-size: clamp(28px,3.2vw,46px); font-weight: 700; line-height: 1.1; letter-spacing: -.8px; color: var(--bdd); margin-bottom: 16px; }
+.body-t { font-size: 17px; color: var(--g600); line-height: 1.7; max-width: 520px; }
+.c { text-align: center; }
+.c .body-t { margin: 0 auto; }
+.wrap { max-width: 1200px; margin: 0 auto; }
+
+/* WHAT IS */
+.what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.check-list { margin-top: 32px; display: flex; flex-direction: column; gap: 13px; }
+.check-item { display: flex; align-items: flex-start; gap: 13px; }
+.check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--bp); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+.check-icon svg { width: 11px; height: 11px; }
+.check-text { font-size: 15px; color: #495057; line-height: 1.6; }
+.dial-card { background: white; border: 1px solid rgba(82,152,191,.15); border-radius: var(--r22); padding: 26px 28px; box-shadow: var(--s3); position: relative; }
+.card-eyebrow { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--bm); margin-bottom: 8px; }
+.card-name { font-family: var(--ff); font-size: 21px; font-weight: 700; color: var(--bdd); line-height: 1.1; margin-bottom: 4px; }
+.card-sub { font-size: 12.5px; color: var(--g600); margin-bottom: 8px; font-style: italic; }
+.card-pop { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--bm); background: var(--bp); border: 1px solid rgba(82,152,191,.22); padding: 4px 12px; border-radius: 50px; margin-bottom: 14px; }
+.card-pop-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--bl); display: inline-block; }
+.card-divider { height: 1px; background: var(--g200); margin-bottom: 12px; }
+.card-pattern-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: var(--g400); margin-bottom: 6px; }
+.card-pattern-text { font-size: 12.5px; color: #495057; line-height: 1.65; margin-bottom: 14px; }
+.card-dims { display: flex; flex-direction: column; gap: 7px; }
+.card-dim-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--g100); }
+.card-dim-row:last-child { border-bottom: none; }
+.card-dim-label { font-size: 13px; font-weight: 500; color: var(--g800); }
+.card-dim-val { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px; letter-spacing: .3px; }
+.cdv-low { background: #E8F5F1; color: #0F7A58; }
+.cdv-dis { background: var(--bp); color: var(--bd); }
+.cdv-fut { background: #EEEDFE; color: #3C3489; }
+.cdv-opp { background: #FFF4E5; color: #996010; }
+.cdv-high { background: #E8F5F1; color: #0F7A58; }
+.float-chip { position: absolute; background: white; border: 1px solid rgba(82,152,191,.2); border-radius: 50px; padding: 7px 15px; box-shadow: var(--s2); font-size: 13px; font-weight: 500; color: var(--g800); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.fdot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* PROFILES */
+.bg-tint { background: var(--bt); }
+.p-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.p-card {
+  background: white; border: 1px solid rgba(82,152,191,.12);
+  border-radius: var(--r22); padding: 30px 26px;
+  transition: transform .2s, box-shadow .2s, border-color .2s; cursor: default;
+}
+.p-card:hover { transform: translateY(-4px); box-shadow: var(--s3); border-color: rgba(82,152,191,.28); }
+.p-ico { width: 50px; height: 50px; border-radius: 13px; background: var(--bp); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.p-name { font-family: var(--ff); font-size: 19px; font-weight: 600; color: var(--bd); margin-bottom: 10px; }
+.p-desc { font-size: 14px; color: var(--g600); line-height: 1.6; margin-bottom: 18px; }
+.p-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 50px; color: var(--bm); background: var(--bp); border: 1px solid rgba(82,152,191,.2); }
+
+/* STEPS */
+.steps-row { margin-top: 32px; display: grid; grid-template-columns: repeat(3,1fr); gap: 0; position: relative; }
+.steps-row::before {
+  content: ''; position: absolute; top: 27px;
+  left: calc(16.66% + 10px); right: calc(16.66% + 10px);
+  height: 1px;
+  background: repeating-linear-gradient(90deg, rgba(82,152,191,.35) 0, rgba(82,152,191,.35) 6px, transparent 6px, transparent 14px);
+}
+.step { text-align: center; padding: 20px 28px 0; }
+.step-n {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--bd); color: white; font-weight: 700; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 26px; position: relative; z-index: 1;
+  box-shadow: 0 4px 18px rgba(29,74,117,.24);
+}
+.step-title { font-family: var(--ff); font-size: 19px; font-weight: 600; color: var(--bdd); margin-bottom: 12px; }
+.step-desc { font-size: 14.5px; color: var(--g600); line-height: 1.65; }
+
+/* FEATURES */
+.f-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.f-card { background: white; border: 1px solid rgba(82,152,191,.12); border-radius: var(--r22); padding: 34px 30px; display: flex; gap: 22px; align-items: flex-start; }
+.f-ico { width: 46px; height: 46px; border-radius: 12px; background: var(--bp); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.f-ico svg { width: 21px; height: 21px; stroke: var(--bm); }
+.f-title { font-family: var(--ff); font-size: 18px; font-weight: 600; color: var(--bd); margin-bottom: 9px; }
+.f-desc { font-size: 14.5px; color: var(--g600); line-height: 1.65; }
+
+/* AUDIENCE */
+.a-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; max-width: 640px; margin-left: auto; margin-right: auto; }
+.a-card { background: white; border: 1px solid rgba(82,152,191,.12); border-radius: var(--r14); padding: 26px 18px; text-align: center; }
+.a-ico { font-size: 28px; display: block; margin-bottom: 13px; }
+.a-title { font-size: 14.5px; font-weight: 600; color: var(--bd); margin-bottom: 7px; }
+.a-desc { font-size: 13px; color: var(--g600); line-height: 1.55; }
+
+/* TESTIMONIALS */
+.t-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.t-card { background: var(--bt); border: 1px solid rgba(82,152,191,.12); border-radius: var(--r22); padding: 30px 26px; }
+.stars { color: var(--bl); font-size: 14px; letter-spacing: 2px; margin-bottom: 15px; }
+.t-quote { font-family: var(--ff); font-style: italic; font-size: 15.5px; line-height: 1.65; color: var(--g800); margin-bottom: 22px; }
+.t-author { display: flex; align-items: center; gap: 12px; }
+.t-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg,var(--bl),var(--bd)); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: white; flex-shrink: 0; }
+.t-name { font-size: 13.5px; font-weight: 600; color: var(--g800); }
+.t-role { font-size: 12px; color: var(--g400); }
+
+/* CTA BANNER */
+.cta {
+  padding: 104px 6%; text-align: center;
+  background: linear-gradient(135deg, var(--bd) 0%, var(--bdd) 100%);
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 500px;
+  background: radial-gradient(ellipse at center, rgba(82,152,191,.18) 0%, transparent 68%);
+  pointer-events: none;
+}
+.cta .label { color: rgba(255,255,255,.5); }
+.cta .title { color: white; position: relative; }
+.cta .body-t { color: rgba(255,255,255,.68); margin: 0 auto 44px; position: relative; }
+.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; }
+.btn-cta-p { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--bd); font-family: var(--fb); font-size: 15px; font-weight: 600; padding: 14px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: background .2s, transform .15s; }
+.btn-cta-p:hover { background: var(--bp); transform: translateY(-2px); }
+.btn-cta-s { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.82); font-family: var(--fb); font-size: 15px; font-weight: 500; padding: 14px 26px; border-radius: 50px; text-decoration: none; border: 1.5px solid rgba(255,255,255,.28); transition: border-color .2s, background .2s; }
+.btn-cta-s:hover { border-color: white; background: rgba(255,255,255,.1); }
+
+/* FOOTER */
+footer { background: var(--bdd); padding: 64px 6% 40px; color: rgba(255,255,255,.5); }
+.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+.f-brand p { font-size: 14px; line-height: 1.7; margin-top: 14px; max-width: 280px; }
+.f-brand-name { font-family: var(--ff); font-size: 17px; font-weight: 600; color: white; }
+.f-col-head { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.4px; color: rgba(255,255,255,.82); margin-bottom: 18px; }
+.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.f-col a { color: rgba(255,255,255,.46); font-size: 14px; text-decoration: none; transition: color .2s; }
+.f-col a:hover { color: rgba(255,255,255,.82); }
+.footer-bottom { max-width: 1200px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; font-size: 13px; flex-wrap: wrap; gap: 12px; }
+
+/* ANIMATIONS */
+@keyframes up { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:960px) {
+  .what-grid, .steps-row { grid-template-columns:1fr; }
+  .steps-row::before { display:none; }
+  .p-grid { grid-template-columns:repeat(2,1fr); }
+  .f-grid { grid-template-columns:1fr; }
+  .t-grid { grid-template-columns:1fr; }
+  .a-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  nav { padding: 0 4%; }
+  .nav-links { display:none; }
+}
+@media(max-width:600px) {
+  .p-grid { grid-template-columns:1fr; }
+  .a-grid { grid-template-columns:1fr 1fr; }
+  .stat-div { display:none; }
+  .stats-row { gap:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.4"/>
+        <path d="M9 5.5v3.5l2.2 2.2" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M6.5 12.5Q9 14 11.5 12.5" stroke="white" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <span class="nav-name">MoneyMind Profile</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#profiles">The Profiles</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#start" class="nav-cta">Take the Quiz</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="badge"><span class="badge-dot"></span> Discover your unique money psychology</div>
+  <h1>Understand <em>why</em> you make the money decisions you do</h1>
+  <p class="hero-sub">The MoneyPattern is a horoscope for your financial mind. It maps the behavioural patterns that shape how you save, invest, plan for retirement, and react when markets get messy — giving you the tools to transform your financial life.</p>
+  <div class="hero-btns">
+    <a href="https://us.moneymindprofile.com/user_link/q39SBCw86QCoee1PRDO_5Xca62W2jqQNeuU6UET9_4s/new_profile" class="btn-p" target="_blank" rel="noopener">
+      Take the free assessment
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="#how" class="btn-s">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M6.2 5.8C6.2 5 6.8 4.8 7.5 4.8c.8 0 1.4.5 1.4 1.25 0 .65-.37.97-.93 1.3L7.5 7.7V9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="7.5" cy="10.5" r=".55" fill="currentColor"/></svg>
+      How it works
+    </a>
+  </div>
+
+  <div class="pills-row">
+    <div class="pill"><div class="pill-ico">🛡️</div>The Security Seeker</div>
+    <div class="pill"><div class="pill-ico">🌱</div>The Confident Grower</div>
+    <div class="pill"><div class="pill-ico">😰</div>The Anxious Avoider</div>
+    <div class="pill"><div class="pill-ico">⚡</div>The Impulsive Optimist</div>
+    <div class="pill"><div class="pill-ico">🔍</div>The Informed Analyst</div>
+    <div class="pill"><div class="pill-ico">🌊</div>The Present-Focused Drifter</div>
+    <div class="pill"><div class="pill-ico">⚖️</div>The Pragmatic Moderate</div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><span class="stat-n">350,000+</span><span class="stat-l">Profiles completed</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-n">7</span><span class="stat-l">Distinct MoneyMinds</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-n">12 min</span><span class="stat-l">Average completion</span></div>
+    <div class="stat-div"></div>
+    <div class="stat"><span class="stat-n">94%</span><span class="stat-l">Say it was eye-opening</span></div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section class="pad" id="about">
+  <div class="wrap what-grid">
+    <div class="reveal">
+      <span class="label">What is MoneyMind Profile</span>
+      <h2 class="title">Your money behaviours have a blueprint</h2>
+      <p class="body-t">Your MoneyMind shapes every financial decision you make — often without you realising it.</p>
+      <p class="body-t" style="margin-top:15px;">MoneyMind goes beyond surface-level tips. It maps your core money behavioural patterns — then shows you exactly how to work with your natural psychology, not against it.</p>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l3 3 5-5" stroke="#3C7AA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="check-text">Grounded in 50 years of peer-reviewed behavioural intelligence</span>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><svg viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5l3 3 5-5" stroke="#3C7AA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="check-text">Actionable insights tailored to your profile — not just labels</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:.14s; position:relative;">
+      <div class="dial-card">
+        <div class="card-eyebrow">MoneyMind Profile</div>
+        <div class="card-name">The Confident Grower</div>
+        <div class="card-sub">How your relationship with money shows up in your financial life.</div>
+        <div class="card-pop"><span class="card-pop-dot"></span>Around 1 in 10 people experience money this way.</div>
+        <div class="card-divider"></div>
+        <div class="card-pattern-label">Your Pattern</div>
+        <div class="card-pattern-text">You're a natural long-term thinker. You invest consistently, stay engaged with your finances, and don't lose sleep when markets move — because you know that's part of the deal. You're motivated by what's possible, not by fear of what might go wrong, and that future-focused mindset is one of the most powerful financial advantages there is.</div>
+        <div class="card-divider"></div>
+        <div class="card-dims">
+          <div class="card-dim-row">
+            <span class="card-dim-label">Loss Aversion</span>
+            <span class="card-dim-val cdv-low">Low</span>
+          </div>
+          <div class="card-dim-row">
+            <span class="card-dim-label">Discipline</span>
+            <span class="card-dim-val cdv-dis">Disciplined</span>
+          </div>
+          <div class="card-dim-row">
+            <span class="card-dim-label">Time Orientation</span>
+            <span class="card-dim-val cdv-fut">Future Bias</span>
+          </div>
+          <div class="card-dim-row">
+            <span class="card-dim-label">Motivation</span>
+            <span class="card-dim-val cdv-opp">Opportunity &amp; Rewards</span>
+          </div>
+          <div class="card-dim-row">
+            <span class="card-dim-label">Future Confidence</span>
+            <span class="card-dim-val cdv-high">High</span>
+          </div>
+          <div class="card-dim-row">
+            <span class="card-dim-label">Risk Tolerance</span>
+            <span class="card-dim-val cdv-high">High</span>
+          </div>
+        </div>
+      </div>
+      <div class="float-chip" style="top:-14px;right:-12px;"><span class="fdot" style="background:var(--bl)"></span>Results in minutes</div>
+      <div class="float-chip" style="bottom:24px;left:-18px;"><span class="fdot" style="background:var(--bd)"></span>Free to take</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PROFILES -->
+<section class="pad bg-tint" id="profiles">
+  <div class="wrap">
+    <div class="c reveal">
+      <span class="label">The Seven MoneyMinds</span>
+      <h2 class="title">Which one are you?</h2>
+      <p class="body-t">Your unique MoneyPattern has distinct strengths, blind spots, and a clear path forward. You'll align strongly with one primary archetype — they cover 90% of the general population.</p>
+    </div>
+    <div class="p-grid">
+      <div class="p-card reveal">
+        <div class="p-ico">🛡️</div>
+        <div class="p-name">The Security Seeker</div>
+        <p class="p-desc">Consistent savers who under-invest in growth — security matters more than returns.</p>
+        <span class="p-tag">Loss-aversion driven</span>
+      </div>
+      <div class="p-card reveal" style="transition-delay:.07s">
+        <div class="p-ico">🌱</div>
+        <div class="p-name">The Confident Grower</div>
+        <p class="p-desc">Long-term thinker who invests consistently — but overconfidence creates costly blind spots.</p>
+        <span class="p-tag">Opportunity-driven</span>
+      </div>
+      <div class="p-card reveal" style="transition-delay:.14s">
+        <div class="p-ico">😰</div>
+        <div class="p-name">The Anxious Avoider</div>
+        <p class="p-desc">Anxiety creates a self-reinforcing avoidance loop that prevents financial progress.</p>
+        <span class="p-tag">Anxiety-driven</span>
+      </div>
+      <div class="p-card reveal" style="transition-delay:.07s">
+        <div class="p-ico">⚡</div>
+        <div class="p-name">The Impulsive Optimist</div>
+        <p class="p-desc">Enthusiastic and engaged — but impulsive decisions and lifestyle inflation quietly erode results.</p>
+        <span class="p-tag">Action-driven</span>
+      </div>
+      <div class="p-card reveal" style="transition-delay:.14s">
+        <div class="p-ico">🔍</div>
+        <div class="p-name">The Informed Analyst</div>
+        <p class="p-desc">Researches thoroughly before deciding — but analysis paralysis means decisions never happen.</p>
+        <span class="p-tag">Logic-driven</span>
+      </div>
+      <div class="p-card reveal" style="transition-delay:.21s">
+        <div class="p-ico">🌊</div>
+        <div class="p-name">The Present-Focused Drifter</div>
+        <p class="p-desc">Focused on today, not tomorrow — good intentions rarely convert to financial action.</p>
+        <span class="p-tag">Present-biased</span>
+      </div>
+      <div class="p-card reveal" style="transition-delay:.28s">
+        <div class="p-ico">⚖️</div>
+        <div class="p-name">The Pragmatic Moderate</div>
+        <p class="p-desc">Manages money adequately — but consistent small gaps quietly compound into a large shortfall.</p>
+        <span class="p-tag">Balanced profile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="pad" id="how">
+  <div class="wrap">
+    <div class="c reveal">
+      <span class="label">How It Works</span>
+      <h2 class="title">Three steps to financial self-awareness</h2>
+      <p class="body-t">The assessment takes around 12 minutes. Your results are ready instantly — no waiting, no email walls.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step reveal">
+        <div class="step-n">1</div>
+        <div class="step-title">Take the assessment</div>
+        <p class="step-desc">Answer 47 carefully designed questions about your money beliefs, habits, emotions, and past experiences. There are no right or wrong answers — only honest ones.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.12s">
+        <div class="step-n">2</div>
+        <div class="step-title">Discover your profile</div>
+        <p class="step-desc">Receive your full MoneyMind Profile — your primary type, secondary traits, and a personalised breakdown across five core financial psychology dimensions.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.24s">
+        <div class="step-n">3</div>
+        <div class="step-title">Put it into practice</div>
+        <p class="step-desc">Access your tailored action plan and resources — or work with a MoneyMind certified coach or therapist to go even deeper on your money transformation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="pad bg-tint" id="features">
+  <div class="wrap">
+    <div class="c reveal">
+      <span class="label">What You Get</span>
+      <h2 class="title">More than a personality label</h2>
+      <p class="body-t">Your MoneyMind Profile is a living resource — a lens to return to whenever you face a financial crossroads or moment of uncertainty.</p>
+    </div>
+    <div class="f-grid">
+      <div class="f-card reveal">
+        <div class="f-ico">
+          <svg viewBox="0 0 21 21" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="8.5"/><path d="M10.5 6.5v4l2.8 2.8"/></svg>
+        </div>
+        <div>
+          <div class="f-title">Instant, detailed results</div>
+          <p class="f-desc">Your full profile is revealed the moment you submit — with in-depth explanations of each dimension and what they mean for your financial life right now.</p>
+        </div>
+      </div>
+      <div class="f-card reveal" style="transition-delay:.08s">
+        <div class="f-ico">
+          <svg viewBox="0 0 21 21" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="16" height="16" rx="3"/><path d="M6.5 10.5h8M6.5 6.5h8M6.5 14.5h5"/></svg>
+        </div>
+        <div>
+          <div class="f-title">Personalised action plan</div>
+          <p class="f-desc">Each profile comes with specific, practical insights for saving, investing, and navigating money conversations — tailored precisely to how your mind works.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS IT FOR -->
+<section class="pad" id="for">
+  <div class="wrap">
+    <div class="c reveal">
+      <span class="label">Who It's For</span>
+      <h2 class="title">Built for anyone with a financial life</h2>
+      <p class="body-t">Which is all of us.</p>
+    </div>
+    <div class="a-grid">
+      <div class="a-card reveal">
+        <span class="a-ico">🧠</span>
+        <div class="a-title">Individuals</div>
+        <p class="a-desc">Understand your own money blocks, triggers, and strengths — and finally break the unhelpful patterns that keep repeating.</p>
+      </div>
+      <div class="a-card reveal" style="transition-delay:.07s">
+        <span class="a-ico">💑</span>
+        <div class="a-title">Couples & Families</div>
+        <p class="a-desc">Navigate money differences with empathy and find a shared language for financial decisions that brings you closer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="pad bg-tint" id="testimonials">
+  <div class="wrap">
+    <div class="c reveal">
+      <span class="label">Real Stories</span>
+      <h2 class="title">What others discovered</h2>
+      <p class="body-t">From subtle aha moments to life-changing realisations — here's what people found when they looked inward.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">"I'd read every personal finance book out there but nothing changed until I understood why I kept self-sabotaging. My MoneyMind profile described me so precisely it was almost uncomfortable."</p>
+        <div class="t-author"><div class="t-av">SR</div><div><div class="t-name">Sarah R.</div><div class="t-role">Project Manager, Melbourne</div></div></div>
+      </div>
+      <div class="t-card reveal" style="transition-delay:.09s">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">"My husband and I were fighting about money constantly. Turns out he's a Security Seeker and I'm an Impulsive Optimist. Understanding that completely transformed how we talk about finances together."</p>
+        <div class="t-author"><div class="t-av">JP</div><div><div class="t-name">Jessica P.</div><div class="t-role">Teacher, Auckland</div></div></div>
+      </div>
+      <div class="t-card reveal" style="transition-delay:.18s">
+        <div class="stars">★★★★★</div>
+        <p class="t-quote">"I knew I was procrastinating on my super but couldn't figure out why. Turns out I'm a Present-Focused Drifter. One automated contribution later, I finally feel like I'm moving forward."</p>
+        <div class="t-author"><div class="t-av">TK</div><div><div class="t-name">Tom K.</div><div class="t-role">Graphic Designer, Brisbane</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="start">
+  <div style="position:relative">
+    <span class="label">Get Started Today</span>
+    <h2 class="title">Ready to meet your MoneyMind?</h2>
+    <p class="body-t">Takes 12 minutes. No jargon, no judgment — just genuine insight into your relationship with money.</p>
+    <div class="cta-btns">
+      <a href="https://us.moneymindprofile.com/user_link/q39SBCw86QCoee1PRDO_5Xca62W2jqQNeuU6UET9_4s/new_profile" class="btn-cta-p" target="_blank" rel="noopener">
+        Start the free assessment
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="f-brand-name">MoneyMind Profile</div>
+      <p>A research-backed psychological assessment revealing your unique relationship with money — and the tools to transform it for good.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-head">Explore</div>
+      <ul class="fcl">
+        <li><a href="#">Take the assessment</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 MoneyMind Profile. All rights reserved.</span>
+    <span>Made with care for your financial wellbeing.</span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 78, behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
