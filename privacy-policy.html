@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — MoneyPattern™</title>
+<meta name="description" content="How MoneyPattern collects, uses, and protects your personal information." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Palette: F3DECA cream · FA9483 coral · 2D4057 navy · 4097AA teal */
+    --rise-cream: #F3DECA;
+    --rise-cream-warm: #E7CFB8;
+    --rise-paper: #FAE8D7;
+    --rise-black: #2D4057;
+    --rise-charcoal: #3A5068;
+    --rise-graphite: #243549;
+    --rise-ink: #1A2737;
+    --rise-red: #FA9483;
+    --rise-red-deep: #E87766;
+    --rise-teal: #4097AA;
+    --rise-text: #2D4057;
+    --rise-text-muted: #6B7C8E;
+    --rise-text-light: #F3DECA;
+    --rise-text-light-muted: #A0B0BF;
+    --rise-line: rgba(45, 64, 87, 0.15);
+    --rise-line-light: rgba(243, 222, 202, 0.14);
+    --container: 1280px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: var(--rise-cream);
+    color: var(--rise-text);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  ::selection { background: var(--rise-red); color: var(--rise-black); }
+
+  /* Nav */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom: 1px solid var(--rise-line);
+  }
+  .nav-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .logo { display: flex; align-items: center; text-decoration: none; }
+  .logo-mark { height: 32px; width: auto; display: block; }
+  @media (max-width: 540px) {
+    .logo-mark { height: 26px; }
+  }
+  .nav-back {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--rise-text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s var(--ease);
+  }
+  .nav-back:hover { color: var(--rise-red-deep); }
+  .nav-back::before { content: "←"; font-weight: 400; }
+
+  /* Page header */
+  .privacy-header {
+    padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3rem);
+    border-bottom: 1px solid var(--rise-line);
+  }
+  .privacy-header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rise-red-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--rise-red-deep);
+  }
+  h1.display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    color: var(--rise-black);
+    margin-top: 1.25rem;
+  }
+  .privacy-lead {
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--rise-text-muted);
+    margin-top: 1.25rem;
+    max-width: 52ch;
+  }
+  .privacy-meta {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--rise-text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .privacy-meta strong {
+    color: var(--rise-text);
+    font-weight: 600;
+  }
+
+  /* Body layout */
+  main.privacy {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 8vw, 7rem);
+  }
+  .privacy-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .privacy-layout {
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 4.5rem;
+      align-items: start;
+    }
+  }
+
+  /* Table of contents */
+  .privacy-toc {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--rise-line);
+    border-radius: 14px;
+    padding: 1.4rem 1.4rem;
+  }
+  @media (min-width: 1024px) {
+    .privacy-toc {
+      position: sticky;
+      top: 96px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+  }
+  .privacy-toc-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rise-red-deep);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--rise-line);
+  }
+  .privacy-toc ol {
+    list-style: none;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .privacy-toc li {
+    counter-increment: toc;
+    position: relative;
+    padding-left: 1.8rem;
+  }
+  .privacy-toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--rise-text-light-muted);
+    letter-spacing: 0.08em;
+  }
+  .privacy-toc a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--rise-text);
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s var(--ease);
+    display: inline-block;
+  }
+  .privacy-toc a:hover { color: var(--rise-red-deep); }
+
+  /* Content */
+  .privacy-content section {
+    padding: 0 0 2.5rem;
+    scroll-margin-top: 96px;
+  }
+  .privacy-content section + section {
+    border-top: 1px solid var(--rise-line);
+    padding-top: 2.5rem;
+  }
+  .privacy-content h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--rise-black);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .privacy-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--rise-black);
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.005em;
+  }
+  .privacy-content p {
+    font-size: 0.985rem;
+    line-height: 1.7;
+    color: var(--rise-text);
+    margin-bottom: 1rem;
+  }
+  .privacy-content p:last-child { margin-bottom: 0; }
+  .privacy-content ul {
+    list-style: none;
+    margin: 0.4rem 0 1.2rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .privacy-content ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--rise-text);
+  }
+  .privacy-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.65rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rise-red);
+  }
+  .privacy-content strong { font-weight: 700; color: var(--rise-black); }
+  .privacy-content a {
+    color: var(--rise-red-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+    transition: color 0.2s var(--ease);
+  }
+  .privacy-content a:hover { color: var(--rise-black); }
+
+  /* Footer */
+  footer {
+    background: var(--rise-black);
+    color: var(--rise-text-light-muted);
+    padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+  }
+  .footer-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rise-line-light);
+  }
+  .footer-logo img { height: 28px; width: auto; display: block; }
+  .footer-tagline {
+    font-size: 0.92rem;
+    color: var(--rise-text-light-muted);
+    max-width: 26rem;
+    line-height: 1.6;
+    margin-top: 0.85rem;
+  }
+  .footer-back {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--rise-text-light);
+    text-decoration: none;
+    transition: opacity 0.2s var(--ease);
+  }
+  .footer-back:hover { opacity: 0.75; }
+  .footer-bottom {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--rise-text-light-muted);
+  }
+  .footer-bottom a {
+    color: var(--rise-text-light);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s var(--ease);
+  }
+  .footer-bottom a:hover { border-color: var(--rise-text-light); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="moneypattern">
+      <img class="logo-mark" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACKA14DASIAAhEBAxEB/8QAHQABAAIDAQEBAQAAAAAAAAAAAAcIBQYJBAMCAf/EAFMQAAEDAwEFAggICQoFAwUBAAEAAgMEBREGBwgSITETQRQiMjdRYYGzFRZCcXR1kbIjNlJWc4KUsdEXGDNDVFWTlaHSJGKEkrQ0csE1U6Kl0/D/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAwQFAQL/xAAtEQACAgIBAwQCAgIBBQAAAAAAAQIDBBESITEyIjNBURNxYYEUI0JSkbHB0f/aAAwDAQACEQMRAD8AuWiIgCIvBZb1ab3DLNaLlS10cMr4ZXQSh/A9pIc046HIP7+iA96IiAIiIAiIgCLH2G+Wi/0ktXZbjTXCnimfA+WB4e0SN8puR6OX2rII1oBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAFznrazWWznXF1oae9XG23WnqHRVUsE7m9vg5Dnc/Ha7PEOLPXK6MKN9th2eE2Wh1pps32tulQaS3wU1Px1XMeOWuDmuaxvECcHkSDjPSxj28G01vZFbDkt7IK0BvSaioJRT6ztsN4piAPCKVognacdS3yHZx0Ab1PPGAvlq7en1bXPdHpuzW6zwEYD5iambPpBPC0fMWn51l9pe63VQCev0FcjVMA4m22tc1smc9GS8mn1BwGMc3FVxvNsuFmulRa7rRzUVbTP4JoJm8LmH1j5sHPeCCrlcKLHuKIJSsj0Zv0u3fazLIXu1hUAn8mlgaPsDMLMaf3kdqFtlYay4UN3iaecdXRsbkYxjij4D68nPP09FDqKZ1Vv4R45y+y0s+9lGdP5h0g9t54QMPqs0wPPLuQDiOh4fWRxcsmFdc7XNoGso5ae8ahqGUMmQ6jpQIIS0/JcG4Lx/wC8uWe2QbCtVa87O4VTX2SyOaHtrKiIl07T07JnIuGPlHDfWeinag2e7Kdk98sFNcbLV3aqvVYKWnuVybHNFBLjLQRyawl2OE8JPr5FV901PUVtkmpzXV9D0bmNkuNp2UTVVeySFlzr31VNG9pH4PgYwPwfyi04x1ABzzU3IioTnzk5FmK4rQREXg9BERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBfC41tJbqCevr6mKlpaeMyTTSuDWMaBkkk9AvutM25eZ3Vv1TP9wrsVtpHG9LY/lV2bfnxYf21n8V7LNtC0NeblDbLVqyz1tbOSIoIaprnvIBJAAPPkCucKkfdm8+mmP08nuZFfnhxjFvZXje29aL/IiLPLJjNR6gsmm6Fldf7rSWylfKImS1MoY1zyCQ0E9+Gk+wrX/wCVXZt+fFh/bWfxUcb8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" alt="moneypattern" />
+    </a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<header class="privacy-header">
+  <div class="privacy-header-inner">
+    <span class="eyebrow">Legal</span>
+    <h1 class="display">Privacy Policy</h1>
+    <p class="privacy-lead">How MoneyPattern collects, uses, and protects your personal information — and the rights you have over it.</p>
+    <div class="privacy-meta">
+      <span><strong>Effective Date:</strong> 14 May 2026</span>
+      <span><strong>Version:</strong> 3.0</span>
+    </div>
+  </div>
+</header>
+
+<main class="privacy">
+  <div class="privacy-layout">
+    <aside class="privacy-toc" aria-label="Table of contents">
+      <div class="privacy-toc-title">Contents</div>
+      <ol>
+      <li><a href="#section-1">Introduction</a></li>
+      <li><a href="#section-2">Scope and Application</a></li>
+      <li><a href="#section-3">Definitions</a></li>
+      <li><a href="#section-4">Our Role as Data Controller</a></li>
+      <li><a href="#section-5">Personal Information We Collect</a></li>
+      <li><a href="#section-6">How We Collect Personal Information</a></li>
+      <li><a href="#section-7">How We Use Personal Information</a></li>
+      <li><a href="#section-8">Legal Bases for Processing (International Users)</a></li>
+      <li><a href="#section-9">How We Share and Disclose Personal Information</a></li>
+      <li><a href="#section-10">International Data Transfers</a></li>
+      <li><a href="#section-11">Aggregated and De-Identified Data</a></li>
+      <li><a href="#section-12">Data Security</a></li>
+      <li><a href="#section-13">Data Retention</a></li>
+      <li><a href="#section-14">Your Privacy Rights</a></li>
+      <li><a href="#section-15">Cookies and Tracking Technologies</a></li>
+      <li><a href="#section-16">Third-Party Links and Services</a></li>
+      <li><a href="#section-17">Children's Privacy</a></li>
+      <li><a href="#section-18">Data Breach Notification</a></li>
+      <li><a href="#section-19">Changes to This Privacy Policy</a></li>
+      <li><a href="#section-20">Jurisdiction-Specific Information</a></li>
+      <li><a href="#section-21">Contact Us</a></li>
+      </ol>
+    </aside>
+
+    <article class="privacy-content">
+<section id="section-1">
+  <h2>1. Introduction</h2>
+  <p>MoneyPattern (operated by MoneyMind Profile Pty Ltd, ABN 33 672 152 073 — referred to in this policy as "MoneyPattern," "we," "us," or "our") values the privacy of everyone who uses our website and Services. We are committed to protecting your Personal Information and being transparent about how we handle it.</p>
+
+<p>This Privacy Policy explains:</p>
+<ul>
+  <li>What Personal Information we collect and why</li>
+  <li>How we use, share, and protect that information</li>
+  <li>Your rights regarding your Personal Information</li>
+  <li>How to contact us with privacy questions or concerns</li>
+</ul>
+
+<p>We operate globally, serving users in Australia, the United Kingdom, and the United States. This Privacy Policy is designed to comply with applicable data protection laws in all jurisdictions where we operate, including:</p>
+<ul>
+  <li><strong>Australia:</strong> Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs)</li>
+  <li><strong>United Kingdom:</strong> UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018</li>
+  <li><strong>United States:</strong> California Consumer Privacy Act (CCPA/CPRA), Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), and other applicable state privacy laws</li>
+</ul>
+</section>
+<section id="section-2">
+  <h2>2. Scope and Application</h2>
+  <h3>2.1 What This Policy Covers</h3>
+<p>This Privacy Policy applies to Personal Information we collect, use, and disclose when you:</p>
+<ul>
+  <li>Visit our websites (including www.moneymindprofile.com and related domains)</li>
+  <li>Use our MoneyPattern Profile assessment and related services ("Services")</li>
+  <li>Communicate with us via email, chat, or other channels</li>
+  <li>Attend our events, webinars, or training sessions</li>
+  <li>Subscribe to our newsletter or other communications</li>
+</ul>
+
+<h3>2.2 Our Business Model</h3>
+<p>MoneyPattern is a direct-to-consumer platform. We provide an AI-powered psychological assessment that helps you understand your unique relationship with money — the patterns shaping how you save, invest, plan for retirement, and respond when markets get messy. Our Services include:</p>
+<ul>
+  <li>The MoneyPattern™ Profile assessment</li>
+  <li>Personalised results, archetype analysis, and behavioural insights</li>
+  <li>Educational content and tools to help you act on your results</li>
+  <li>Optional access to certified coaches and additional resources</li>
+</ul>
+<p>We collect information directly from you so we can deliver and improve these Services.</p>
+</section>
+<section id="section-3">
+  <h2>3. Definitions</h2>
+  <p>For purposes of this Privacy Policy:</p>
+
+<p><strong>"Applicable Data Protection Laws"</strong> means all applicable data protection and privacy laws, including: (i) in Australia, the Privacy Act 1988 (Cth) and the Australian Privacy Principles; (ii) in the United Kingdom, the UK GDPR and the Data Protection Act 2018; (iii) in the United States, the CCPA (as amended by the CPRA), VCDPA, CPA, and other applicable state privacy laws; and (iv) any other applicable data protection or privacy laws.</p>
+
+<p><strong>"Controller"</strong> (or "Business" under US laws) means the entity that determines the purposes and means of processing Personal Information. We act as the Controller of your Personal Information.</p>
+
+<p><strong>"Data Subject"</strong> (or "Consumer" under US laws) means an identified or identifiable natural person whose Personal Information is processed.</p>
+
+<p><strong>"Personal Information"</strong> (or "Personal Data") means any information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with an identified or identifiable natural person. This includes information defined as "personal information" under the Privacy Act 1988 (Cth), "personal data" under the UK GDPR, and "personal information" under the CCPA.</p>
+
+<p><strong>"Processing"</strong> means any operation performed on Personal Information, including collection, recording, organisation, structuring, storage, adaptation, retrieval, consultation, use, disclosure, transmission, erasure, or destruction.</p>
+
+<p><strong>"Sensitive Personal Information"</strong> includes information revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health information, sex life or sexual orientation, and in some jurisdictions, financial account information, Social Security numbers, precise geolocation, and contents of communications.</p>
+
+<p><strong>"Services"</strong> means the MoneyPattern platform, the MoneyPattern™ Profile assessment, applications, tools, features, and related services we provide.</p>
+
+<p><strong>"You"</strong> and <strong>"User"</strong> mean the individual using our Services or visiting our websites.</p>
+</section>
+<section id="section-4">
+  <h2>4. Our Role as Data Controller</h2>
+  <p>We are the data controller (or business, under US laws) for all Personal Information we collect through our Services and through your interactions with us.</p>
+<p>This means we determine the purposes and means of processing your Personal Information, and we are responsible for honouring your rights under Applicable Data Protection Laws. Section 14 explains those rights in detail and how to exercise them.</p>
+</section>
+<section id="section-5">
+  <h2>5. Personal Information We Collect</h2>
+  <p>The Personal Information we collect depends on how you interact with us and which Services you use.</p>
+
+<h3>5.1 Account and Identity Information</h3>
+<p>When you create an account or use our Services, we may collect:</p>
+<ul>
+  <li>Full name</li>
+  <li>Email address</li>
+  <li>Phone number (optional)</li>
+  <li>Date of birth or age range (for assessment context and age verification)</li>
+  <li>Country and approximate location</li>
+  <li>Username and account ID</li>
+  <li>Password (stored in encrypted/hashed form)</li>
+  <li>Multi-factor authentication credentials</li>
+</ul>
+
+<h3>5.2 Assessment Responses</h3>
+<p>The MoneyPattern™ Profile is an assessment about your relationship with money. When you take it, you provide responses to questions about your beliefs, habits, emotions, and financial behaviours. We use these responses to generate your profile, your primary archetype, and your personalised insights.</p>
+
+<h3>5.3 Financial and Billing Information</h3>
+<ul>
+  <li>Billing name and address</li>
+  <li>Payment method details (processed and stored by our third-party payment processor; we do not store full credit card numbers)</li>
+  <li>Purchase history and transaction records</li>
+  <li>Subscription plan details (where applicable)</li>
+</ul>
+
+<h3>5.4 Communications</h3>
+<ul>
+  <li>Support requests and help-desk interactions</li>
+  <li>Chat messages and correspondence</li>
+  <li>Feedback and survey responses</li>
+  <li>Training, event, and webinar participation</li>
+</ul>
+
+<h3>5.5 Automatically Collected Information</h3>
+<p>When you visit our website or use our Services, we collect certain information automatically:</p>
+<ul>
+  <li>IP address and approximate geolocation</li>
+  <li>Browser type and version</li>
+  <li>Operating system and device identifiers</li>
+  <li>Referring website</li>
+  <li>Pages visited, time spent, and links clicked</li>
+  <li>Login history and session data</li>
+  <li>Features accessed and navigation patterns</li>
+  <li>Timestamps and duration of use</li>
+</ul>
+
+<h3>5.6 Sensitive Personal Information</h3>
+<p>Some of the information you choose to share with us through the assessment — for example, your responses about money attitudes, financial anxieties, or financial circumstances — may be considered Sensitive Personal Information in some jurisdictions. We process this information only to provide your profile and the related Services, and we apply enhanced protections (see Section 12). We do not require Sensitive Personal Information beyond what is reasonably needed to deliver the assessment.</p>
+
+<h3>5.7 Information From Third Parties</h3>
+<p>We may receive Personal Information about you from:</p>
+<ul>
+  <li><strong>Payment processors</strong> — confirmation that your payment was successful, partial card details, billing information</li>
+  <li><strong>Analytics providers</strong> — aggregated usage data</li>
+  <li><strong>Identity verification services</strong> — where age or identity verification is required</li>
+  <li><strong>Social sign-in providers</strong> — if you choose to register or log in using a third-party identity provider, that provider may share basic profile information with us (e.g., name and email address)</li>
+</ul>
+</section>
+<section id="section-6">
+  <h2>6. How We Collect Personal Information</h2>
+  <h3>6.1 Direct Collection</h3>
+<p>We collect information directly from you when you:</p>
+<ul>
+  <li>Register and create an account</li>
+  <li>Complete the assessment or otherwise input information into the Services</li>
+  <li>Complete forms, questionnaires, or surveys</li>
+  <li>Communicate with our support team</li>
+  <li>Subscribe to newsletters or marketing communications</li>
+  <li>Attend events or webinars</li>
+  <li>Apply for employment or contractor positions</li>
+</ul>
+
+<h3>6.2 Automatic Collection</h3>
+<p>We use the following technologies to collect information automatically:</p>
+<ul>
+  <li>Cookies and similar tracking technologies (see Section 15)</li>
+  <li>Web server logs</li>
+  <li>Analytics tools</li>
+  <li>Session recording for quality assurance and product improvement (with notice)</li>
+</ul>
+
+<h3>6.3 Third-Party Sources</h3>
+<p>We may receive information from service providers we engage on your behalf (payment processors, analytics services, identity verification providers) and from publicly available sources.</p>
+
+<h3>6.4 Anonymous and Pseudonymous Use</h3>
+<p><strong>Website:</strong> You may visit our website anonymously. However, certain features and interactive elements may not be available without providing some Personal Information.</p>
+<p><strong>Services:</strong> Due to the nature of our Services (which require secure authentication and personalised functionality), anonymous use is not practical. You may use a pseudonym for certain communications where lawful and practicable.</p>
+</section>
+<section id="section-7">
+  <h2>7. How We Use Personal Information</h2>
+  <p>We use Personal Information for the purposes described below and only where we have a lawful basis to do so (see Section 8).</p>
+
+<h3>7.1 To Provide and Maintain the Services</h3>
+<ul>
+  <li>Creating and managing your account</li>
+  <li>Authenticating you and preventing unauthorised access</li>
+  <li>Delivering the assessment and generating your results</li>
+  <li>Providing access to features, reports, and tailored content</li>
+  <li>Storing your responses and profile</li>
+  <li>Providing customer support and technical assistance</li>
+  <li>Troubleshooting and resolving issues</li>
+  <li>Performing backups and ensuring business continuity</li>
+</ul>
+
+<h3>7.2 To Improve and Develop the Services</h3>
+<ul>
+  <li>Understanding how users interact with our Services</li>
+  <li>Analysing usage patterns and trends</li>
+  <li>Identifying areas for improvement</li>
+  <li>Developing new features and functionality</li>
+  <li>Conducting research and analytics</li>
+  <li>Testing new products and beta features</li>
+  <li>Refining our assessment, scoring, and archetype models</li>
+</ul>
+
+<h3>7.3 For Business Operations</h3>
+<ul>
+  <li>Processing payments and managing subscriptions</li>
+  <li>Maintaining internal records</li>
+  <li>Performing accounting, auditing, and financial analysis</li>
+  <li>Managing vendor and service-provider relationships</li>
+  <li>Conducting due diligence for business transactions</li>
+  <li>Protecting our business interests and enforcing our rights</li>
+</ul>
+
+<h3>7.4 For Communication and Marketing</h3>
+<ul>
+  <li>Sending transactional emails (account notifications, results, service updates, billing statements)</li>
+  <li>Providing customer support via email or chat</li>
+  <li>Sending newsletters and marketing communications (with consent where required)</li>
+  <li>Inviting you to events, webinars, and training sessions</li>
+  <li>Conducting surveys and requesting feedback</li>
+  <li>Sharing product updates and feature announcements</li>
+</ul>
+<p>You may opt out of marketing communications at any time using the unsubscribe link in our emails or by contacting us.</p>
+
+<h3>7.5 For Security and Fraud Prevention</h3>
+<ul>
+  <li>Detecting and preventing fraud, abuse, and unauthorised access</li>
+  <li>Investigating security incidents and policy violations</li>
+  <li>Monitoring for malicious activity and threats</li>
+  <li>Maintaining the security and integrity of our systems</li>
+  <li>Enforcing our Terms of Use and Acceptable Use Policy</li>
+  <li>Protecting against legal liability</li>
+</ul>
+
+<h3>7.6 For Compliance and Legal Obligations</h3>
+<ul>
+  <li>Complying with applicable laws, regulations, and legal process</li>
+  <li>Responding to lawful requests from authorities</li>
+  <li>Defending legal claims and protecting legal rights</li>
+  <li>Maintaining records as required by law</li>
+  <li>Conducting internal audits and compliance reviews</li>
+  <li>Meeting regulatory reporting obligations</li>
+</ul>
+
+<h3>7.7 With Your Consent</h3>
+<p>Where required by applicable law, we will obtain your consent before using Personal Information for purposes not covered above.</p>
+</section>
+<section id="section-8">
+  <h2>8. Legal Bases for Processing (International Users)</h2>
+  <p>For users in jurisdictions requiring a legal basis for processing (such as the UK and EU under GDPR), we rely on the following legal bases:</p>
+
+<h3>8.1 Contract Performance</h3>
+<p>We process Personal Information to perform our contract with you, including:</p>
+<ul>
+  <li>Providing access to the Services</li>
+  <li>Delivering your assessment results</li>
+  <li>Providing customer support</li>
+  <li>Processing payments</li>
+</ul>
+
+<h3>8.2 Legitimate Interests</h3>
+<p>We process Personal Information for our legitimate business interests, including:</p>
+<ul>
+  <li>Improving and developing the Services</li>
+  <li>Conducting marketing and business development</li>
+  <li>Preventing fraud and enhancing security</li>
+  <li>Analysing usage and performance</li>
+  <li>Managing business operations</li>
+</ul>
+<p>We conduct balancing assessments to ensure our legitimate interests do not override your rights and interests.</p>
+
+<h3>8.3 Legal Obligations</h3>
+<p>We process Personal Information to comply with legal and regulatory obligations, including:</p>
+<ul>
+  <li>Responding to lawful requests</li>
+  <li>Meeting record-keeping requirements</li>
+  <li>Complying with tax and financial regulations</li>
+</ul>
+
+<h3>8.4 Consent</h3>
+<p>Where required or appropriate, we process Personal Information based on your consent, including:</p>
+<ul>
+  <li>Marketing communications (where consent is required)</li>
+  <li>Certain cookie uses</li>
+  <li>Processing Sensitive Personal Information (where applicable)</li>
+</ul>
+<p>You may withdraw consent at any time without affecting the lawfulness of processing based on consent before withdrawal.</p>
+
+<h3>8.5 Vital Interests</h3>
+<p>In rare circumstances, we may process Personal Information to protect vital interests (yours or another person's), such as in emergency situations.</p>
+</section>
+<section id="section-9">
+  <h2>9. How We Share and Disclose Personal Information</h2>
+  <p><strong>We do not sell, rent, or lease Personal Information to third parties.</strong> We share Personal Information only as described below.</p>
+
+<h3>9.1 Service Providers and Subprocessors</h3>
+<p>We engage trusted third-party service providers to perform functions on our behalf, including:</p>
+<p><strong>Infrastructure and hosting:</strong></p>
+<ul>
+  <li>Cloud hosting providers (data centres and servers)</li>
+  <li>Content delivery networks</li>
+  <li>Data backup and disaster recovery services</li>
+</ul>
+<p><strong>Payment processing:</strong></p>
+<ul>
+  <li>Payment gateways and processors</li>
+  <li>Billing and invoicing platforms</li>
+</ul>
+<p><strong>Communication and support:</strong></p>
+<ul>
+  <li>Email delivery services</li>
+  <li>Chat and messaging platforms</li>
+  <li>Customer relationship management systems</li>
+  <li>Help-desk and ticketing systems</li>
+</ul>
+<p><strong>Analytics and performance:</strong></p>
+<ul>
+  <li>Website and application analytics</li>
+  <li>Performance monitoring and error tracking</li>
+  <li>User-behaviour analysis</li>
+</ul>
+<p><strong>Security and fraud prevention:</strong></p>
+<ul>
+  <li>Identity verification services</li>
+  <li>Fraud detection and prevention tools</li>
+  <li>Security monitoring services</li>
+</ul>
+<p><strong>Marketing and outreach:</strong></p>
+<ul>
+  <li>Email marketing platforms</li>
+  <li>Event management systems</li>
+  <li>Webinar and video-conferencing tools</li>
+</ul>
+<p>All service providers are bound by contractual obligations to:</p>
+<ul>
+  <li>Use Personal Information only for the specified purposes</li>
+  <li>Implement appropriate security measures</li>
+  <li>Comply with Applicable Data Protection Laws</li>
+  <li>Not use Personal Information for their own purposes</li>
+</ul>
+
+<h3>9.2 Within the MoneyPattern Organisation</h3>
+<p>We may share Personal Information among MoneyPattern entities and affiliates for:</p>
+<ul>
+  <li>Internal administration and reporting</li>
+  <li>Customer support and service delivery</li>
+  <li>Business operations and management</li>
+  <li>Product development and improvement</li>
+</ul>
+<p>All internal sharing is subject to appropriate data-protection safeguards.</p>
+
+<h3>9.3 Business Transfers</h3>
+<p>If we are involved in a merger, acquisition, asset sale, reorganisation, bankruptcy, or similar transaction, Personal Information may be transferred as part of that transaction. We will:</p>
+<ul>
+  <li>Provide notice before Personal Information is transferred</li>
+  <li>Ensure the receiving party maintains protections at least as protective as this Privacy Policy</li>
+  <li>Provide you with choices regarding the use of your Personal Information</li>
+</ul>
+
+<h3>9.4 Legal and Regulatory Requirements</h3>
+<p>We may disclose Personal Information when required or permitted by law, including:</p>
+<p><strong>To comply with legal obligations:</strong></p>
+<ul>
+  <li>Court orders, subpoenas, or other legal process</li>
+  <li>Regulatory investigations and examinations</li>
+  <li>Tax authorities and financial regulators</li>
+  <li>Law-enforcement requests (where lawful)</li>
+</ul>
+<p><strong>To protect rights and interests:</strong></p>
+<ul>
+  <li>Defending legal claims</li>
+  <li>Enforcing our Terms of Use and policies</li>
+  <li>Protecting against fraud, abuse, or illegal activity</li>
+  <li>Safeguarding the security and integrity of our Services</li>
+  <li>Protecting the safety of individuals</li>
+</ul>
+<p><strong>With your consent or direction:</strong></p>
+<ul>
+  <li>When you authorise us to share your information</li>
+  <li>When you direct us to integrate with third-party services</li>
+  <li>When you participate in co-sponsored events or programs</li>
+</ul>
+<p>We will notify you of legal requests for your Personal Information unless prohibited by law or where notice would be counterproductive.</p>
+
+<h3>9.5 Aggregated and De-Identified Information</h3>
+<p>We may share aggregated, anonymised, or de-identified information that cannot reasonably be used to identify you, including:</p>
+<ul>
+  <li>Aggregated assessment data</li>
+  <li>Statistical data and research findings</li>
+  <li>Industry benchmarks and trends</li>
+  <li>Usage analytics and performance metrics</li>
+</ul>
+<p>Such information is not Personal Information and is not subject to this Privacy Policy.</p>
+
+<h3>9.6 No Sale of Personal Information</h3>
+<p>We do not sell Personal Information. Under California law (CCPA), "sale" has a broad meaning that includes sharing for monetary or other valuable consideration. We do not engage in such activities.</p>
+</section>
+<section id="section-10">
+  <h2>10. International Data Transfers</h2>
+  <h3>10.1 Global Operations</h3>
+<p>MoneyPattern operates globally and may transfer Personal Information to countries other than where you are located, including:</p>
+<ul>
+  <li>Australia (where our primary operations are based)</li>
+  <li>United States (where our cloud hosting infrastructure is located)</li>
+  <li>United Kingdom (where we maintain offices)</li>
+  <li>Other countries where our service providers operate</li>
+</ul>
+
+<h3>10.2 Adequacy Decisions</h3>
+<p>Where possible, we transfer Personal Information to countries recognised as providing adequate protection. The European Commission has recognised certain countries (including the UK, post-Brexit) as providing adequate protection for personal data.</p>
+
+<h3>10.3 Safeguards for International Transfers</h3>
+<p>When transferring Personal Information to countries not recognised as providing adequate protection, we implement appropriate safeguards, including:</p>
+<p><strong>Standard Contractual Clauses (SCCs):</strong></p>
+<ul>
+  <li>We use the European Commission's Standard Contractual Clauses for transfers from the EU/EEA</li>
+  <li>We use the UK International Data Transfer Agreement (IDTA) or Addendum for transfers from the UK</li>
+  <li>These clauses provide contractual protections for your Personal Information</li>
+</ul>
+<p><strong>Supplementary measures:</strong></p>
+<ul>
+  <li>Encryption in transit and at rest</li>
+  <li>Strict access controls and authentication</li>
+  <li>Regular security assessments</li>
+  <li>Data-minimisation practices</li>
+</ul>
+
+<h3>10.4 Your Consent</h3>
+<p>By using our Services or providing Personal Information, you acknowledge and consent (where required by law) to the transfer of your Personal Information to countries that may have different data-protection laws than your country of residence.</p>
+</section>
+<section id="section-11">
+  <h2>11. Aggregated and De-Identified Data</h2>
+  <h3>11.1 Our Use of Aggregated Data</h3>
+<p>We create aggregated, anonymised, and de-identified data from user information to:</p>
+<ul>
+  <li>Improve the Services and develop new features</li>
+  <li>Conduct research and analytics</li>
+  <li>Generate industry insights and benchmarks</li>
+  <li>Produce statistical reports and trends</li>
+  <li>Enhance our assessment, scoring, and archetype models</li>
+</ul>
+
+<h3>11.2 De-Identification Process</h3>
+<p>When we aggregate and de-identify data:</p>
+<ul>
+  <li>We remove all direct identifiers (names, email addresses, account IDs)</li>
+  <li>We apply statistical techniques to prevent re-identification</li>
+  <li>We ensure the data cannot reasonably be linked back to individuals</li>
+  <li>We combine data from multiple users to prevent identification</li>
+</ul>
+
+<h3>11.3 No Re-Identification</h3>
+<p>We commit to not attempting to re-identify aggregated or de-identified data and to implementing measures to prevent others from doing so.</p>
+</section>
+<section id="section-12">
+  <h2>12. Data Security</h2>
+  <h3>12.1 Our Commitment to Security</h3>
+<p>We take data security seriously and implement comprehensive administrative, technical, and physical safeguards to protect Personal Information against unauthorised access, use, disclosure, alteration, or destruction.</p>
+
+<h3>12.2 Technical Safeguards</h3>
+<p><strong>Encryption:</strong></p>
+<ul>
+  <li>Data in transit is encrypted using Transport Layer Security (TLS 1.2 or higher)</li>
+  <li>Data at rest is encrypted using industry-standard encryption algorithms</li>
+  <li>Database encryption protects stored information</li>
+  <li>Password storage uses strong cryptographic hashing</li>
+</ul>
+<p><strong>Access controls:</strong></p>
+<ul>
+  <li>Multi-factor authentication (MFA) for user access</li>
+  <li>Role-based access controls (RBAC) limiting access to authorised personnel</li>
+  <li>Least-privilege principle (users have only necessary access)</li>
+  <li>Regular access reviews and revocations</li>
+  <li>Secure API authentication and authorisation</li>
+</ul>
+<p><strong>Network security:</strong></p>
+<ul>
+  <li>Firewalls and intrusion detection/prevention systems</li>
+  <li>Network segmentation and isolation</li>
+  <li>DDoS protection and mitigation</li>
+  <li>Regular security patching and updates</li>
+  <li>Vulnerability scanning and penetration testing</li>
+</ul>
+<p><strong>Application security:</strong></p>
+<ul>
+  <li>Secure software development lifecycle (SDLC)</li>
+  <li>Code reviews and security testing</li>
+  <li>Input validation and sanitisation</li>
+  <li>Protection against common vulnerabilities (OWASP Top 10)</li>
+  <li>Security headers and configurations</li>
+</ul>
+
+<h3>12.3 Administrative Safeguards</h3>
+<p><strong>Policies and procedures:</strong></p>
+<ul>
+  <li>Comprehensive information-security policies</li>
+  <li>Data classification and handling procedures</li>
+  <li>Incident response and disaster recovery plans</li>
+  <li>Vendor management and due diligence</li>
+  <li>Regular policy reviews and updates</li>
+</ul>
+<p><strong>Personnel:</strong></p>
+<ul>
+  <li>Background checks for employees with access to Personal Information</li>
+  <li>Confidentiality and non-disclosure agreements</li>
+  <li>Security awareness training and education</li>
+  <li>Clear roles and responsibilities</li>
+  <li>Separation of duties</li>
+</ul>
+<p><strong>Monitoring and auditing:</strong></p>
+<ul>
+  <li>Security information and event management (SIEM)</li>
+  <li>Log monitoring and analysis</li>
+  <li>Regular security assessments and audits</li>
+  <li>Third-party security certifications (SOC 2, ISO 27001 in progress)</li>
+  <li>Continuous compliance monitoring</li>
+</ul>
+
+<h3>12.4 Physical Safeguards</h3>
+<p>Our infrastructure is hosted in secure, certified data centres with physical access controls, environmental controls, redundant power and network connectivity, and 24/7 security monitoring. Our offices employ access controls, visitor management, secure disposal of physical media, and clean-desk policies.</p>
+
+<h3>12.5 Your Responsibilities</h3>
+<p>Security is a shared responsibility. We encourage you to:</p>
+<ul>
+  <li>Use a strong, unique password</li>
+  <li>Enable multi-factor authentication</li>
+  <li>Keep your login credentials confidential</li>
+  <li>Log out when finished using the Services</li>
+  <li>Report suspicious activity immediately</li>
+  <li>Keep your devices and software up to date</li>
+  <li>Use secure networks when accessing the Services</li>
+  <li>Be cautious of phishing attempts</li>
+</ul>
+
+<h3>12.6 No Absolute Security</h3>
+<p>Despite our efforts, no security measures are perfect or impenetrable. We cannot guarantee absolute security of Personal Information. Internet transmissions are never completely private or secure, and any information you transmit may be intercepted by others.</p>
+
+<h3>12.7 Security Incidents</h3>
+<p>In the event of a data breach or security incident affecting Personal Information, we will promptly investigate and contain the incident, notify affected individuals as required by applicable law, notify relevant regulatory authorities, take steps to prevent recurrence, and cooperate with investigations. See Section 18 for more detail.</p>
+</section>
+<section id="section-13">
+  <h2>13. Data Retention</h2>
+  <h3>13.1 Retention Principles</h3>
+<p>We retain Personal Information only for as long as necessary to fulfil the purposes for which it was collected, comply with legal obligations, resolve disputes, and enforce our agreements.</p>
+
+<h3>13.2 Retention Periods</h3>
+<p><strong>Account and assessment information:</strong></p>
+<ul>
+  <li>Active accounts: For the duration of your relationship with us, plus up to 30 days after account closure to allow for reactivation</li>
+  <li>Closed accounts: Deleted or anonymised within 30 days of account closure, unless longer retention is required by law</li>
+  <li>Backup copies: Retained for an additional 90 days in backup systems, then permanently deleted</li>
+</ul>
+<p><strong>Financial and transaction records:</strong></p>
+<ul>
+  <li>Billing and payment information: Retained for 7 years to comply with tax and accounting requirements</li>
+  <li>Invoice records: Retained for 7 years</li>
+</ul>
+<p><strong>Communications and support:</strong></p>
+<ul>
+  <li>Support tickets and correspondence: Retained for 3 years</li>
+  <li>Chat logs: Retained for 1 year</li>
+  <li>Marketing communications: Until you unsubscribe, then deleted within 30 days</li>
+</ul>
+<p><strong>Website analytics and logs:</strong></p>
+<ul>
+  <li>Server logs: Retained for 90 days</li>
+  <li>Aggregated and anonymised analytics data may be retained indefinitely</li>
+</ul>
+<p><strong>Legal and compliance:</strong></p>
+<ul>
+  <li>Records required by law: Retained for the period required by applicable law</li>
+  <li>Litigation hold: Personal Information relevant to legal proceedings retained until the matter is resolved</li>
+</ul>
+
+<h3>13.3 Secure Deletion</h3>
+<p>When Personal Information is no longer needed, we delete it from production systems, overwrite or degauss physical media, ensure backups are purged according to retention schedules, and use secure deletion methods to prevent recovery.</p>
+
+<h3>13.4 Requesting Deletion</h3>
+<p>You may request deletion of your Personal Information at any time (see Section 14). We will honour such requests subject to:</p>
+<ul>
+  <li>Legal obligations requiring retention</li>
+  <li>Legitimate business needs (e.g., fraud prevention)</li>
+  <li>Technical limitations (e.g., backup retention cycles)</li>
+</ul>
+
+<h3>13.5 Exceptions</h3>
+<p>We may retain Personal Information longer than standard retention periods when required by applicable law or regulation, necessary for legal claims or disputes, needed for audit or compliance purposes, or subject to a litigation hold or investigation.</p>
+</section>
+<section id="section-14">
+  <h2>14. Your Privacy Rights</h2>
+  <p>Depending on your jurisdiction, you may have various rights regarding your Personal Information. We respect these rights and provide mechanisms to exercise them.</p>
+
+<h3>14.1 Rights Under Australian Privacy Law</h3>
+<p>If you are in Australia, you have the right to:</p>
+<ul>
+  <li><strong>Access:</strong> Request access to the Personal Information we hold about you. We will provide access unless an exception applies under the Privacy Act.</li>
+  <li><strong>Correction:</strong> Request correction of inaccurate, outdated, incomplete, or misleading Personal Information.</li>
+  <li><strong>Complaints:</strong> Lodge a complaint with us about our handling of your Personal Information. We will investigate and respond in accordance with the APPs.</li>
+</ul>
+
+<h3>14.2 Rights Under UK GDPR</h3>
+<p>If you are in the UK or EU, you have the right to:</p>
+<ul>
+  <li><strong>Access:</strong> Request a copy of the Personal Data we process about you (subject access request).</li>
+  <li><strong>Rectification:</strong> Request correction of inaccurate or incomplete Personal Data.</li>
+  <li><strong>Erasure:</strong> Request deletion of your Personal Data in certain circumstances (right to be forgotten).</li>
+  <li><strong>Restriction:</strong> Request that we restrict processing of your Personal Data in certain circumstances.</li>
+  <li><strong>Portability:</strong> Request to receive your Personal Data in a structured, commonly used, machine-readable format and transmit it to another controller.</li>
+  <li><strong>Object:</strong> Object to processing based on legitimate interests or for direct marketing purposes.</li>
+  <li><strong>Automated decision-making:</strong> Not be subject to decisions based solely on automated processing that produce legal or similarly significant effects (our Services do not make fully automated decisions with such effects).</li>
+  <li><strong>Withdraw consent:</strong> Where processing is based on consent, withdraw that consent at any time.</li>
+  <li><strong>Complain:</strong> Lodge a complaint with a supervisory authority (e.g., the Information Commissioner's Office in the UK).</li>
+</ul>
+
+<h3>14.3 Rights Under US Privacy Laws (CCPA, VCDPA, CPA, etc.)</h3>
+<p>If you are in California, Virginia, Colorado, or another state with consumer privacy rights, you have the right to:</p>
+<ul>
+  <li><strong>Know:</strong> Request information about the categories and specific pieces of Personal Information we collect, use, and disclose about you.</li>
+  <li><strong>Delete:</strong> Request deletion of your Personal Information, subject to certain exceptions.</li>
+  <li><strong>Correct:</strong> Request correction of inaccurate Personal Information (in some states).</li>
+  <li><strong>Opt out:</strong> Opt out of the "sale" or "sharing" of Personal Information (we do not sell or share Personal Information as defined by these laws).</li>
+  <li><strong>Limit use of Sensitive Personal Information:</strong> Limit the use of Sensitive Personal Information to certain permitted purposes (in some states).</li>
+  <li><strong>Non-discrimination:</strong> Not receive discriminatory treatment for exercising your privacy rights.</li>
+  <li><strong>Authorised agent:</strong> Designate an authorised agent to make requests on your behalf.</li>
+  <li><strong>Appeal:</strong> Appeal our decision regarding your privacy request (in some states).</li>
+</ul>
+
+<h3>14.4 How to Exercise Your Rights</h3>
+<p>To exercise any of these rights, please contact us at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a>. We will respond to your request within the timeframes required by applicable law. We may need to verify your identity before fulfilling your request.</p>
+</section>
+<section id="section-15">
+  <h2>15. Cookies and Tracking Technologies</h2>
+  <h3>15.1 What Are Cookies?</h3>
+<p>Cookies are small text files placed on your device when you visit a website. They help websites remember information about your visit, such as your preferences and login status.</p>
+
+<h3>15.2 Types of Cookies We Use</h3>
+<p><strong>Essential cookies</strong> — necessary for the Services to function properly and cannot be disabled:</p>
+<ul>
+  <li>Authentication cookies (to keep you logged in)</li>
+  <li>Security cookies (to detect authentication abuse and fraud)</li>
+  <li>Session cookies (to maintain your session state)</li>
+  <li>Load-balancing cookies (to distribute traffic efficiently)</li>
+</ul>
+<p><strong>Performance and analytics cookies</strong> — help us understand how visitors interact with our Services:</p>
+<ul>
+  <li>Google Analytics (website traffic and usage patterns)</li>
+  <li>Application performance monitoring</li>
+  <li>Error tracking and debugging</li>
+  <li>Heat mapping and session recording (with notice)</li>
+</ul>
+<p><strong>Functionality cookies</strong> — enable enhanced functionality and personalisation:</p>
+<ul>
+  <li>User preference settings</li>
+  <li>Language and region preferences</li>
+  <li>Feature toggles and A/B testing</li>
+  <li>Customised interface settings</li>
+</ul>
+<p><strong>Marketing and advertising cookies</strong> — track your activity across websites to deliver relevant marketing content:</p>
+<ul>
+  <li>Marketing-campaign tracking</li>
+  <li>Conversion tracking</li>
+  <li>Retargeting and remarketing</li>
+  <li>Social-media integration</li>
+</ul>
+
+<h3>15.3 Third-Party Cookies</h3>
+<p>We use cookies from trusted third-party service providers, including Google Analytics, HubSpot, Intercom, LinkedIn Insights, and Stripe (payment processing). These third parties may use cookies to collect information about your online activities over time and across different websites.</p>
+
+<h3>15.4 Other Tracking Technologies</h3>
+<ul>
+  <li><strong>Web beacons (pixels):</strong> small graphic images embedded in emails or web pages to track opens, clicks, and conversions.</li>
+  <li><strong>Local storage:</strong> HTML5 local storage and session storage to store preferences and application state.</li>
+  <li><strong>Device fingerprinting:</strong> collection of device and browser characteristics for fraud prevention and security purposes.</li>
+</ul>
+
+<h3>15.5 Managing Cookies and Tracking</h3>
+<p>You have control over cookies and tracking technologies:</p>
+<p><strong>Browser settings:</strong> Most browsers allow you to block all cookies, block third-party cookies only, delete cookies after each session, or receive notifications before cookies are stored. Blocking essential cookies may prevent you from using certain features of our Services.</p>
+<p><strong>Cookie preference centre:</strong> When you first visit our website, you can manage your cookie preferences through our cookie banner. You can update your preferences at any time by clicking the "Cookie Settings" link in the website footer.</p>
+<p><strong>Opt-out tools:</strong></p>
+<ul>
+  <li>Google Analytics Opt-Out: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a></li>
+  <li>Network Advertising Initiative: <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">optout.networkadvertising.org</a></li>
+  <li>Digital Advertising Alliance: <a href="https://optout.aboutads.info/" target="_blank" rel="noopener">optout.aboutads.info</a></li>
+</ul>
+<p><strong>Do Not Track (DNT):</strong> Our Services do not currently respond to Do Not Track signals because there is no industry standard for compliance. We continue to monitor developments in DNT technology.</p>
+<p><strong>Mobile-app tracking:</strong> For mobile applications, you can control tracking through your device settings (iOS: Settings &gt; Privacy &gt; Tracking; Android: Settings &gt; Google &gt; Ads &gt; Opt out of Ads Personalisation).</p>
+
+<h3>15.6 Cookie Retention</h3>
+<p>Session cookies are deleted when you close your browser. Persistent cookies remain until expiration date or manual deletion — our cookies typically expire between 30 days and 2 years.</p>
+</section>
+<section id="section-16">
+  <h2>16. Third-Party Links and Services</h2>
+  <h3>16.1 Links to External Websites</h3>
+<p>Our Services and website may contain links to third-party websites, applications, and services that are not operated or controlled by MoneyPattern.</p>
+
+<h3>16.2 No Responsibility for Third-Party Practices</h3>
+<p>We are not responsible for the privacy practices of third-party websites, the content or accuracy of external sites, the security of information you provide to third parties, third-party terms of use or privacy policies, or products or services offered by third parties.</p>
+
+<h3>16.3 Third-Party Privacy Policies Apply</h3>
+<p>When you click on a link to a third-party website or use a third-party service, you leave our Services and their privacy policy applies. We encourage you to read their privacy policy before providing Personal Information.</p>
+
+<h3>16.4 Social-Media Features</h3>
+<p>Our Services may include social-media features and widgets (e.g., LinkedIn share button, Twitter feed). These features may collect your IP address and which page you are visiting, set cookies to enable proper functionality, and be hosted by the social-media platform or directly on our Services. Your interactions with these features are governed by the privacy policy of the company providing them.</p>
+
+<h3>16.5 Embedded Content</h3>
+<p>We may embed content from third-party services (e.g., YouTube videos, surveys). Embedded content may place cookies on your device, track your interaction with the content, collect analytics data, and be subject to the third party's privacy policy.</p>
+
+<h3>16.6 No Endorsement</h3>
+<p>Links to third-party sites do not imply endorsement of those sites, their content, products, or services. We provide links for convenience and informational purposes only.</p>
+</section>
+<section id="section-17">
+  <h2>17. Children's Privacy</h2>
+  <h3>17.1 Age Restrictions</h3>
+<p>Our Services are not directed to, and we do not knowingly collect Personal Information from, children under the age of 18 (or the applicable age of majority in their jurisdiction). MoneyPattern is designed for adults.</p>
+
+<h3>17.2 No Intentional Collection from Children</h3>
+<p>We do not knowingly collect Personal Information from children under 18, market our Services to children, allow children to create accounts, or knowingly allow children to use our Services.</p>
+
+<h3>17.3 Parental Rights</h3>
+<p>If we become aware that we have collected Personal Information from a child under 18 without parental consent, we will delete the information as soon as possible, terminate any associated account, prevent future collection from that individual, and notify the parent or guardian if contact information is available.</p>
+
+<h3>17.4 Parent or Guardian Notice</h3>
+<p>If you are a parent or guardian and believe your child has provided Personal Information to us, please contact us immediately at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a> with subject "Children's Privacy Concern" and include your name and contact information, your child's name and age, a description of the information provided, and any relevant account details. We will promptly investigate and take appropriate action.</p>
+
+<h3>17.5 Age Verification</h3>
+<p>While we do not specifically verify the age of users, we require users to represent that they are at least 18 years old, include age restrictions in our Terms of Use, reserve the right to request age verification, and will terminate accounts if we learn the user is under 18.</p>
+
+<h3>17.6 Compliance with Children's Privacy Laws</h3>
+<p>We comply with applicable children's privacy laws, including the Children's Online Privacy Protection Act (COPPA) in the United States, age-appropriate design code in the United Kingdom, and similar laws in other jurisdictions where we operate.</p>
+</section>
+<section id="section-18">
+  <h2>18. Data Breach Notification</h2>
+  <h3>18.1 Our Commitment to Security</h3>
+<p>While we implement comprehensive security measures (see Section 12), we recognise that no system is completely secure. In the event of a data breach affecting Personal Information, we are committed to transparency and prompt action.</p>
+
+<h3>18.2 What Constitutes a Data Breach</h3>
+<p>A data breach includes unauthorised access to Personal Information, accidental or unlawful destruction of Personal Information, loss, alteration, or disclosure of Personal Information, any compromise of security leading to Personal Information exposure, ransomware or malware incidents affecting Personal Information, and insider threats or unauthorised employee access.</p>
+
+<h3>18.3 Our Incident-Response Process</h3>
+<p><strong>Detection and verification:</strong> continuous monitoring for security incidents, rapid investigation of potential breaches, verification of incident scope and impact, and documentation of all findings.</p>
+<p><strong>Containment and mitigation:</strong> immediate steps to stop the breach, isolation of affected systems, prevention of further unauthorised access, and preservation of evidence for investigation.</p>
+<p><strong>Assessment:</strong> determination of affected individuals, identification of compromised Personal Information, evaluation of potential harm, and assessment of legal notification obligations.</p>
+<p><strong>Notification:</strong> notification of affected individuals as required by law, reporting to relevant regulatory authorities, and public disclosure if required.</p>
+<p><strong>Remediation:</strong> steps to prevent recurrence, security improvements and updates, enhanced monitoring and controls, and review and update of security policies.</p>
+
+<h3>18.4 Notification to Individuals</h3>
+<p>If a data breach is likely to result in a risk to your rights and freedoms, we will notify you without undue delay. Our notification will include:</p>
+<ul>
+  <li>Description of the nature of the breach</li>
+  <li>Categories and approximate number of individuals affected</li>
+  <li>Categories and approximate number of records affected</li>
+  <li>Likely consequences of the breach</li>
+  <li>Measures we have taken or propose to take to address the breach</li>
+  <li>Contact information for questions and further information</li>
+  <li>Recommended steps you should take to protect yourself</li>
+</ul>
+<p><strong>Method of notification:</strong> email to the address on file, prominent notice on our website, direct communication through the Services, postal mail if email is not available, or other appropriate means based on the circumstances.</p>
+<p><strong>Timing:</strong> without undue delay after discovery, within 72 hours where required by law (UK GDPR), as soon as practicable (Australian Privacy Act), or without unreasonable delay (US state laws). Specific timelines vary by jurisdiction.</p>
+
+<h3>18.5 Notification to Regulatory Authorities</h3>
+<p><strong>UK and EU (GDPR):</strong> Information Commissioner's Office (ICO) in the UK within 72 hours of becoming aware; other EU supervisory authorities if applicable; documentation of breaches regardless of notification requirement.</p>
+<p><strong>Australia:</strong> Office of the Australian Information Commissioner (OAIC) if an eligible data breach, as soon as practicable after becoming aware, where serious harm is likely.</p>
+<p><strong>United States:</strong> state attorneys general as required by state breach-notification laws, Federal Trade Commission for certain breaches, and other regulatory bodies based on industry and data type. Timelines vary by state (typically 30–90 days).</p>
+
+<h3>18.6 Exceptions to Notification</h3>
+<p>We may delay or not provide notification if law enforcement requests delay for investigation purposes, notification would impede a criminal investigation, a competent authority determines notification is not necessary, the breach is unlikely to result in risk to individuals (after risk assessment), or appropriate technical and organisational measures render data unintelligible (e.g., strong encryption). We document the reasoning for any decision not to notify.</p>
+
+<h3>18.7 Your Responsibilities After a Breach</h3>
+<p>If we notify you of a data breach, we recommend you change your password immediately, enable multi-factor authentication if not already enabled, monitor your accounts for suspicious activity, review account statements and transaction history, be alert for phishing attempts exploiting the breach, consider placing fraud alerts or credit freezes (if applicable), and contact us if you notice any suspicious activity.</p>
+
+<h3>18.8 Reporting a Security Concern</h3>
+<p>If you discover or suspect a security vulnerability or data breach, contact us immediately at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a> with subject "Security Incident Report." Please include a description of the issue or incident, steps to reproduce (if applicable), potential impact, and any evidence or supporting information.</p>
+<p>Please do not publicly disclose the vulnerability before we have addressed it, access or modify data beyond what is necessary to demonstrate the issue, or disrupt our Services or other users. We appreciate responsible disclosure and will work with security researchers to address reported vulnerabilities.</p>
+</section>
+<section id="section-19">
+  <h2>19. Changes to This Privacy Policy</h2>
+  <h3>19.1 Right to Modify</h3>
+<p>We reserve the right to modify, update, or change this Privacy Policy at any time to reflect changes in our Services or business practices, new legal or regulatory requirements, feedback from users and stakeholders, industry best practices and standards, technological developments, or organisational changes.</p>
+
+<h3>19.2 Types of Changes</h3>
+<p><strong>Material changes</strong> significantly affect your rights or how we handle Personal Information, including new categories of Personal Information collected, new purposes for processing, new categories of third parties with whom we share information, significant changes to retention periods, changes to your rights or how to exercise them, and transfers to new countries or regions.</p>
+<p><strong>Non-material changes</strong> include clarifications or corrections, updates to contact information, formatting or organisational improvements, addition of examples or explanations, and updates to reflect current practices without substantive change.</p>
+
+<h3>19.3 How We Notify You of Changes</h3>
+<p><strong>For material changes:</strong> email notification to registered users (at least 30 days before effective date), prominent banner on our website and in the Services, in-app notification upon next login, update to the "Effective Date" at the top of this Policy, and a summary of key changes in the notification.</p>
+<p><strong>For non-material changes:</strong> update to the "Effective Date" at the top of this Policy. Changes are reflected in the posted Privacy Policy with no separate notification required.</p>
+
+<h3>19.4 Advance Notice Period</h3>
+<p>For material changes, we will provide at least 30 days' notice before the changes take effect, allowing you time to review the changes and make decisions about continued use. You may object to material changes or close your account during this period.</p>
+
+<h3>19.5 Your Acceptance of Changes</h3>
+<p>By continuing to use our Services after changes become effective, you accept the updated Privacy Policy. If you disagree with changes, you may stop using the Services, close your account, or exercise your privacy rights (deletion, data portability, etc.). You will not be penalised for objecting to changes.</p>
+
+<h3>19.6 Legal Requirements</h3>
+<p>Some changes may be required by law or regulatory mandate. In such cases, we will implement changes as required by applicable law, may have limited ability to provide advance notice, will explain the legal basis for the change, and your continued use may be subject to the updated terms.</p>
+
+<h3>19.7 Consulting Previous Versions</h3>
+<p>To request a copy of a previous version of this Privacy Policy, contact us at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a> with subject "Privacy Policy Previous Version Request" and include the version number or effective date requested. We will provide the requested version within 14 days.</p>
+</section>
+<section id="section-20">
+  <h2>20. Jurisdiction-Specific Information</h2>
+  <p>This section provides additional information for individuals in specific jurisdictions. These provisions supplement the rest of this Privacy Policy.</p>
+
+<h3>20.1 Australia</h3>
+<p><strong>Governing law:</strong> This Privacy Policy and our data practices comply with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs).</p>
+<p><strong>Australian Privacy Commissioner:</strong> Office of the Australian Information Commissioner (OAIC). Website: <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>. Phone: 1300 363 992. Email: enquiries@oaic.gov.au.</p>
+<p><strong>Your rights:</strong> right to access your Personal Information (APP 12), right to correct your Personal Information (APP 13), and right to make a privacy complaint (APP 1).</p>
+<p><strong>Overseas disclosure:</strong> We may disclose Personal Information to overseas recipients, including cloud service providers in the United States and service providers in various jurisdictions (see Section 10 for safeguards we implement). You acknowledge and consent to such overseas disclosure. We take reasonable steps to ensure overseas recipients comply with the APPs.</p>
+<p><strong>Direct marketing:</strong> We may use your Personal Information for direct marketing where you would reasonably expect us to do so, we provide a simple opt-out mechanism, or you have consented (for sensitive information).</p>
+<p><strong>Complaints process:</strong> If you have a privacy complaint, contact us using the details in Section 21. We will acknowledge your complaint within 7 days and investigate and respond within 30 days. If you are not satisfied, you may contact the OAIC.</p>
+<p><strong>Notifiable Data Breaches:</strong> We comply with the Notifiable Data Breaches (NDB) scheme. We will assess data breaches for likelihood of serious harm and notify you and the OAIC of eligible data breaches as soon as practicable.</p>
+<p><strong>Australian Consumer Law:</strong> Nothing in this Privacy Policy excludes, restricts, or modifies any rights you have under the Australian Consumer Law or other Australian consumer-protection laws.</p>
+
+<h3>20.2 United Kingdom</h3>
+<p><strong>Governing law:</strong> Our data practices comply with the UK General Data Protection Regulation (UK GDPR) and the EU General Data Protection Regulation (EU GDPR).</p>
+<p><strong>Supervisory authority (United Kingdom):</strong> Information Commissioner's Office (ICO). Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>. Phone: 0303 123 1113. Email: casework@ico.org.uk.</p>
+<p><strong>European Economic Area:</strong> Contact your local Data Protection Authority. Website: <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener">edpb.europa.eu</a>.</p>
+<p><strong>Your rights:</strong> You have the rights described in Section 14.2, including access (Article 15), rectification (Article 16), erasure (Article 17), restriction of processing (Article 18), data portability (Article 20), object (Article 21), and rights related to automated decision-making (Article 22).</p>
+<p><strong>Legal bases:</strong> We process your Personal Data based on performance of contract (Article 6(1)(b)), legitimate interests (Article 6(1)(f)), legal obligations (Article 6(1)(c)), consent (Article 6(1)(a)), and vital interests (Article 6(1)(d)). See Section 8 for detailed information.</p>
+<p><strong>International transfers:</strong> When we transfer Personal Data outside the UK/EEA, we use Standard Contractual Clauses (SCCs), implement supplementary measures as needed, and conduct transfer impact assessments. See Section 10 for more information.</p>
+<p><strong>Complaints:</strong> You have the right to lodge a complaint with the ICO or your local supervisory authority at any time.</p>
+<p><strong>Automated decision-making:</strong> Our Services do not make solely automated decisions that produce legal or similarly significant effects about you.</p>
+
+<h3>20.3 United States</h3>
+<p><strong>State-specific privacy laws:</strong> We comply with applicable state privacy laws, including the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA), Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), Connecticut Data Privacy Act (CTDPA), Utah Consumer Privacy Act (UCPA), and other state privacy laws.</p>
+<p><strong>Your rights:</strong> Depending on your state, you may have the rights described in Section 14.3, including the right to know what Personal Information we collect, the right to delete Personal Information, the right to correct inaccurate Personal Information, the right to opt out of sale/sharing, the right to limit use of Sensitive Personal Information, and the right to non-discrimination.</p>
+<p><strong>California-specific information:</strong> Under the CCPA/CPRA, California residents have specific rights regarding their Personal Information. We collect the categories described in Section 5, which may include identifiers (name, email, IP address), commercial information (purchase history, subscription details), internet/network activity (usage data, browsing history), and inferences (preferences, characteristics). We do not sell or share Personal Information as defined by the CCPA/CPRA. See Section 13 for retention periods. We do not use or disclose Sensitive Personal Information for purposes other than those permitted under CCPA Section 1798.121.</p>
+<p><strong>Shine the Light Law:</strong> California Civil Code Section 1798.83 permits California residents to request information about our disclosure of Personal Information to third parties for their direct-marketing purposes. We do not disclose Personal Information to third parties for their direct-marketing purposes.</p>
+<p><strong>California minor rights:</strong> If you are under 18 and a registered user, you may request removal of content you posted publicly. Contact us using the information in Section 21.</p>
+<p><strong>Virginia, Colorado, Connecticut, Utah:</strong> Residents of these states have similar rights under their respective state privacy laws. You may exercise these rights using the methods described in Section 14.4.</p>
+<p><strong>Do Not Sell My Personal Information:</strong> We do not sell Personal Information. If our practices change, we will update this Privacy Policy and provide an opt-out mechanism.</p>
+<p><strong>Financial incentives:</strong> We do not offer financial incentives in exchange for Personal Information.</p>
+<p><strong>Authorised agents:</strong> You may designate an authorised agent to make privacy requests on your behalf. The agent must provide proof of authorisation.</p>
+<p><strong>Appeal rights:</strong> If we deny your privacy request, you may appeal by contacting us at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a>. We will respond to appeals within the timeframe required by applicable law.</p>
+
+<h3>20.4 Other Jurisdictions</h3>
+<p><strong>Canada:</strong> We comply with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws.</p>
+<p><strong>New Zealand:</strong> We comply with the Privacy Act 2020.</p>
+<p><strong>Other countries:</strong> If you are located in a jurisdiction not specifically mentioned, we will comply with applicable local data-protection laws. Contact us for jurisdiction-specific information.</p>
+
+<h3>20.5 Conflicts</h3>
+<p>If there is a conflict between the general provisions of this Privacy Policy and the jurisdiction-specific provisions, the jurisdiction-specific provisions control for individuals in that jurisdiction, the more protective provision applies if ambiguity exists, and we interpret this Privacy Policy in accordance with applicable law.</p>
+
+<h3>20.6 Translation</h3>
+<p>This Privacy Policy is provided in English. If we provide translations, the English version is the authoritative version, translations are provided for convenience only, and in case of discrepancies the English version prevails.</p>
+</section>
+<section id="section-21">
+  <h2>21. Contact Us</h2>
+  <p>For privacy questions, requests, or concerns — including to exercise any of the rights described in Section 14 — please contact us:</p>
+<p><strong>Email:</strong> <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a></p>
+<p><strong>Postal mail:</strong> MoneyMind Profile Pty Ltd (trading as MoneyPattern)<br/>ABN 33 672 152 073</p>
+<p>We will respond to your inquiry as soon as practicable and within the timeframes required by applicable law.</p>
+</section>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-logo" aria-label="moneypattern">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAABgCAYAAADB0Aw1AABegElEQVR42u19d7xtV1XuN9ba+5xzW25uOkkIJaGkSAkkgIJKf1Kki2DBBwooFgR8CBKQKg8By0MEFFAQkV5FJBACBGkhhJAe0kNIub2cuvca74/5jbPHmnuuXU6591wyx+93fqftvddas4z5jW80IEuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZPlZElUt+V1UVdboPUqeqSxZsmTJkiXL/pDWCgKYovdj+FlEqrUGrOx3EdE8/VmyZMmSJUuW1ZBihYCVBMwiFYCSX2sFwJT2nKoqIqIZXGXJkiVLlixZ1jTAIpDqAigJtnStgCtVLUSkA6ACUIqIrmU3ZpYsWbJkyZIlAywAi662lojMk8Eyt+MBAzEEUYWIVIwPmwp/DrFimcHKkiVLlixZsqxZgEUgMwnglar6W6paisgcAmMkLi5rIBBS1ZaqlsYuua/a/0b4rBaBlRJcbQbwtwCeLiJdgr7MYGXJkiVLlixZVlXGCnL3AeKOIToCwIMBPBXA6ar6HgC3ish2vqeMgFzXfyRZr6ZgePX/MwaKUrnPFboCO3zdcQAeCuC3AdwLwCZV/ZD7zCxZsmTJsp/F4mCbzhYABY3h1P/6vA/uTKhG9UzEn+fiiKv4Gj7GmGfXYhhM9oRkWVGAFUnBBXlXAMcD2A7g5wE8HMBVqnoOgG8AuFZE9nGhFj6zkIzTqQRBhwLYDGCSC7kEsIdfVwO4TUQuizZWAaArIl0CvV8EcBqAXwZwBIB9AG4HsAHAJn6WhLenN3qWLFmyZDkgUgCoVLVFva4EQ9JT+31gS5YIdgRAoaqVM7ztbCgGGOKFiCzkqcqy4gDLFnG06I1FqgDMA5gFcCKAUwA8E8BtqvpvAL4sItOqeij//2sATiLwOYaAqkKP4TLLZALANgCzqnoNgIsAfAHA9SKyoKqbVfWpAJ4I4B58z14AO/l5m/jdNkwbQCe2krJkyZIly/4XFxvb5dliISYyAOjY/7s8x0bW5wRuJd8jfH/HAS//HQ6AtUVknu+tsoGeZRQUP+5mMHBVclEeDeBd/D6DEFA+y5dPESC1CIwuBPAoAirbHF0A09xUpVkR/GoRtE3xd/u8fQDOQ2CnHgTg7rzmPF9n7JoAWE9w9wrGiy2shfpcWbJkyXIHBFOScPPZmbIIrsbR0cY4jQN4yJKBQGmcay2CwTybWVYUYHk/ec8YkI6qPg/AywDchp6PunAWQoHAHE0STM271xlYi60FA0htAAvR57UInCoAFlTvN0mXn7Ge73+eiFzAzZH951myZMmy9gBW4fT44QCOcrpfnG4XZ4gXAK7EmIwSr2mfezLq3hM7g7y0ANwCYAfPvQywsgyVsV2EEW1b8fdPIrj9Ho0e3WrAZwqB2WpzcU7waw69eKsKddbJgy6Lx7ISEEKA5kFX6UDWJF+3mRvvvQAudH71MvvQs2TJkmWNWPnhXIE3flX1hQCeBmBXZIBXzjhv0WB/nohcN25cLV2SmwG8032mJoz9LoAtCKEpryapkGN4s6wswLLNABckzu87EEo1fBbA4xBiq04hCJpGz504yb8JQZZZK57NEvezRpaK31z2u4GrdQ7cfQvAuQC+KiI7XMajoOdrj62ZXB8rS5YsWQ6cVJG+b6PHbMGBKnV/j7PUxz7S0AtNset7cOXZM7t2PiuyrA7ASgETfm+JyLdV9XyCnYcDeBYC/dpCyDJsRcDKFnjXLWKNvsNtKCCwVxMESgbUBMBNAK4H8GkA/8NgRInAVZYsWbJkWftizFEc/uFZJvvfcsFO5QCWoj90pkKC3cosVpZVBVguG8N6/U2y0OgeAJ9V1c8j0LyPAHA6LZK9tBispojPQmzaaP67MVddBDfgjwmqPi8iu3kfpapuBDCdA9qzZMmSZQ0jqdGM34EZhUs5u5Z67Pn7zSAryyAplroZ3KIyxF+JyJyqvkJV/1FVD+PrPgbgTwC8EqGe1WZ3bQNZC+hRvYO+bJNNIPjEPwfgRSLy7wD2qOqEqt4dwPsBPN6Yq8xeZcmSJcvBjcOi7z7zcOwzLOoyEpcdWvJnZ8myZIAVuQS9lAwY/GUAz0HItpjma6fYp/ArIvIMAG9GYM7WEWAtoO5rT4Gqwm2EowBcAuBlIvIaEbmdKbeFiMwD+Alf97uqui5bF1myZMly0IiM8LtEv+sqXNtnGdZflM+ULCPKkgqNRoBLAczRVfibAG4Wkdfyf6WIzKrqQxDqVX1QRD6sqpcA+H0Av0AwtgkhpqqFnqvQAuONIWvxb+8E8F4WLb0HgMcC+E8A16nqBFm0NyPU5vp1BDYrrsyrq7FhYrq4KSXZZWPGG7sxgNJlQfrXGptYRUkHOu49WxwdXBKALywbPxfHdL8U2/N1ciw92rWw0Pj5nRJe8v3FRoSfs8T8+b8J76dWmycx740Hg3tdn/t8pcc70TYkZblrpDOMea7QkLI+SuJIw7qq3Uvq/2Ou73jv+1IA8Tpf7DRhxSTjPRp1ohjU9mXxOkNaw4jf93E7MiRKyjj2RZdQmgCpMU6Nber18Tj5e2oKxxjFg+Cf1615HQCeki3W4srv/p4b1oB/vURMmQ+mV6Tjs5Z0NsR/i38e5WyI3lNgCQH4qTZEw+5r0BqJxjGVmVlrNZR6/1L2/CBdEs2ZJtYaUnp6JXRtsQKHXsmN9VCEFjXvd4rY0mtvB/BbAD6lqs8QkYsAvBzAfyHUO5lGr96VZfpZLSvLHOwCeIWI/D+Cq+cD+BCAxwDYx8EoCbIuQcgk/DVVPYwHgPU9XDWXoV/sVsjOb2wbM9eQWt0YqZ8PxpGVEZ1tBfg00S+rPe5z2UHAw8Ti4sxVa822FxtkO3err7ZcNn32SoyzA1JAKAtSNDxH6YoAVitYp0b8xuPmayHtShB3OPeNg90n+jOf2m79DBy3UcZ0CeNeRMBAovVYRIq+jXpiythz6hWZa+a+yGL7MYvW3bg6q7ZXXNP3wq1z34qlbDjQFrOn3Z7smyu3Pit3jZRbajEj236NdIUHe8UAwLtsnRWBPbh9D2fsFvFatmeKK6437X23f/xnlO5Aq6L5LQYc3nA6SxMMl9dbZcRKaQOQS41r1xn/1srH75NYNzbux/h17rxoRWukRH+tL/8ZhQeSEbgtlrD/a/MRzWG8//rOAneOtdznldE6FzfeLXutOwcl2it91xxF7yUAmd/riM5bb8yUsYduJc6wAisn90GobXWBG5iu+5+BqBep6psATIrIywF8BsHtN+9A1gR6WSQbOSmvEZEvq+oxqvr/ALwEoXr7BICjVbUdLeibECrG39MA35DWCyvJBijYS2uE68UZMnDtIqpoodjhXfJ57aCecGPdt5mbvhIKu3Sbe5LzMcG/TSTYTx2kuMdpvppayM6C9/XRfB9KD1YKdzi3moDfOAePH3sHBny2UTx+Gv286OJ2SqTr9l7pFH7hgJspiMqzIKOO6RIsr8pdt5sAMqX7ip+3ioN+B82/Z2IjMIL4oLP38/uwZJjG4XDA21uufYeqjTnnQd1aG4c5s7EozbCLAHfJz4/3cBwiAVVtpa7JsR2bnfVrKGIlaveHXokEOwhND7QTf/fjPOnGS1J7KcUsGHvOuakSDBIawHzKjVebW7ePEB3yiDwlRQNza0TBQsLQWNK4R4b4ItPu1nsnAQja6HUysXmQaN6WCgY0MiSawLw6QOW9J4UDooUjRsxA8Gtmkn/vejDHe+gulTXyuoJ7rB3pWFvTlWOnNCYJmuZqv7gIPW3mLBFbrPfiItzH/y0AeL6qPgqh8XLhQNSvAThOVV8qIq9jw80nIxQkFWeVrENoi/Nmgqu7ATgLwJl0LVpB0Xfy2m8QkXN4rxfx/ZujiVi1rMKYWjQ3QwrMJP7m3QqeITKXjA649w4/cwrAfER/DnL3GOBMFV/tDGCTfILCUCp8GTR64VirYQdK132OARUdBKpHvE+NrMJkQcLINVFFh4xnCQoq0OS9R8/g6/KsVuVov+5sXmNFN99wf/a+ioUiR1kDZu16tiJZQdsxk5U77LqjjoUb89LNQZtru4oOqDjQ2ddkktg11wAaPatZpdbMKPrHj22KsV2F+ffgThPrc2HAvZbuGbspNj7FQDkXrDcQzUBaQH9YB5xetLNr1hgRN38araHY1WvzWqiq7wyygOb4rioxXn3rYImuOT8eYsDDzUHVpI9jttwbg2POf+yqm0jt+Wh9drk3NcEs1rwt0fgt+PCHmIlDc9mmge5C541RGjbdQXozcUZ2VyPcZewyDZHP3txyQCguejNZLLvpuxF4bXfupzbZpdMB/I2q/hmAvyYIexgBlW3OGQBvEZEvqOppfN2dEJo/Gzqd5fejARznbnWf27w13+v+AFnGBowAODQ6hCViFBb4zwlVPQKhgOtmfhUIQf07AMyIyA9jF4M7+OLYk8K50SpVNbZvCsDxAI5EKIFRcl6vEJHbbdHGPbmaYghG8Z3H42aHilf0qjqlqvdCyB49iuO2ifM/h+CGngFwu4hc1wBWdFxl6KpM23u6w+YyisGxGnHz7v8bAJyB4B5vAzgBwI18lr0ArhSR6yOX2rLXbcI1YRR/rLwP4Xq4C9fDXTm2OxBqzbUAfCean5YpqYTbLN4D0nCQDzIeSgyOyRm0FzvOSp8b4Gqz32MjZRgwUrcvxLlQzeJfcGNxPPfwofzax6/tPOQvZ+Fm2we2dlaDbTcdULn7n1LVkwDcj/czD+AeXJs3oVd3cBuA6wBcz7HxsWnrOIZ9uo86qeUMpk6DMVc2MCi2DqxHbRfA3gHeAg/6YqAFVZ1BvQh2E7srAGbH7QLSFMfmCnaXsdGlqqCun6ROPoy6TjkP2/h1lYjsde+biJ9hUIydmw+vy+M9khzPKHRDHaiu+JkbVHUT5+jefIYF6rmLeV7ZOZLaX6N6Pwr04kC77py8F8+J9Xzpbn7mVgDXisiN7txVx2QeGIAVWQgxg6UIJRhOcwNjRUX3uQEz198UH/RkAH8P4MUA/oq/H8pFdCSA/yS4OgnA2wjCtvH9tvhtw7Wj59nCvy84CnvVXYSOPrXrnEAWr0xQ3uoshltE5ONcMIuMjaoeS2X3bLo8pwBscM+8m8pmUlW/DeB8AF8XkZt813dVrXzwNBf3eoQYtl/iIXoEehme63jYdziG06q6FcD3AHxWRK52sWbdhFUw1oHvFEHbgcq78b4eC+BUByrX857se5djYNTzJQC+z7G4WUS2Ri7HkQMa6abpqOpRqvoYjn034S4wBdMB8AGzwtzGP5L745kEsIdx3u15ptHLqt2nqjs51ucAuCAVOL8c8O8AW5eAzwycJyK45dvo9fI8hPc1y68OQmLLRQgJJpeLyG3xGvBxa+5/NkYPUtUzCdxidsC7Kya5xv8N/Ykwo0jplP5jCRY6SBc07jpXwpdF5EqO1yQzpE+KDrC4VE0bwJdE5Cp/aKnqXRBqAT6KSn8jem53AyfT/Jzdqnoe5/48FkxuE7xWozLEgxJuyJD4dXkU99i9aaS2uB7s3uyQmnaGwyz33C5VnUWIeT2HBs5WB7o7qTOEz3IMx2STu5atkVN40BcJRqnr9CkAPFVV5yPG3vTjNoRWbscDeIo7jyrnepsYwNLZep0HcE9Vfa5z20l0tl0tIl9smqNEUkHhDNQ25+FXATySa0S59yYcUTDnxn+ahb0vAHCOiOx2cW3deM8POtep4zZxHRyB/hhL/zzrAXxERG5xTbMLfsaUqj4UIeb6aL5vC8dxigbaH1DHFW4t3BnA/0oA6dhdu01EPurODgPKdyJp82ze/0Zez+5v1rGee1V1G4DvAPhvAFc45rA7LkmwogxWk/9WVW/ngB5JsDCvqhdzA826Rewte6vGPici21T1/QD+lIf7DxAyAUElewwtaLM0zKdrVtAttKhMTkJoPn1tpDyr1SoO56yTyh00JwB4oaO8ywgcdrgYrgTwcXPXqWpbVZ/G925xG6tLJeGzLSf588O4OX9fVV8nImc79qPLTdzhzw8G8Ic89DvO9dLlgbYrigPYzPs4DcAvqeo3Abydm6rtnqnmnx9Cz3p6uqWqHT773egyfjQV44JbO/NOSc45JVA6UP9ghKzVKYTs0nfzsNpB/7zNQxf1dkyD2IlDATyPrNMcmuMxZgH8B4GDuYkejhAzeALv3yzwGWddldFYb6TB8fMArlLV9/DgbpNmr7mrRs1e9aCRPz+SY/0Lbp8Ix7vi91tRb9re4qH4CAC/AuBWVf0YgM+IyK1ujH2mcREZZwWA/x0xC4L+dllWJ+9aAOdh/DgT5Xo/FMDvcv3udbqvipR6wf+fGx2yzyebsBCzIJHb87s+rkZVXwDguej1Xe24r1nUe68K9edTeED9j6p+WkS+4FgdoWurNYxNiQC5hRvY/t8C4Ak80O/hmIs272ufm5Np9MflFTQ2DuHv9+QYXcO18FkR2cv1anMsvLZ9ziGck8M5rhq5JedRb5MTJ190Oa7PTexhA4ZX0gh4CIA/4pnQjlzv8wPWlTec7kxwIAnjah2NgC9G7tL4kC64N2xdbuAeeihZl2OdjjB9P+t0hTjPzEYCoqcDuExVP+HG3TNyjTrOjG+n4/6Q+qfb4C6d4xo9h2fuIhtNXfJMAPd35zucS97uYyYB/O7C9ePZ3zIKXVhHMPRRAG1ijA0I7fn+kPc/5zDBdBSuYW7gw7j27oOQmHc+gLeyAkEZMZeqqkP167IB1oDUdLNSzgfwDE72j7iJvoYQb3UkQnV3C2K3YLhJAB8iuGoD+AiV/QOJkK8m7Xk5F+6vkPlqR/TvEQB+CODbvO5GAE8iSNgduRdkP1d3r5zlp1FsgQeZ05y4BaL5V3DTGdgRpIM+vevLwNcGAK+l1f0WIva2YxZ+j4fbOn5+n/88UqZdt+hnCHqeBeABqvrXIvJ954YrHP2eSp2Nr2XZJAuqeqSqPgvA4wnWp92zdxNrtpZU4P4+79zERwB4A4CvquoXAHzdU+CMW5sb4ILzLMW0A/jxPKpTJiVBdpvA6pn8+zb04oi8kvf91ebdnO6kVXsigDNV9e0i8hnPGo65f43N6XBt/DYBR5vzOo908kIrdtm59TBNIPsyAA9hAss1sZssAiOgvvgyDYJd6E+i8L3hpgCcLCLfUB/sNRpDakbMGVTi2wdY5xV1x2UArnXspbE3eyP2C9EaqNxYH6uqryJA3ucO8WTKenQP81yjZwB4oKr+FoB38vkXE068xd3gFkIEcisAU6r6bIKru/M6fo9NOzcgHMuTctt0HQg33XAn6q6nqeo/Mna2PUQ3+h618YHeFOTu19VMBHY8+J11gG0veslWmtAjo7ir4/us3NgtNLm3nFG56HWhkftisvTm7dmbYGglcU17NgNgdwXw5wB+XVU/KCIfczq5bGJ9E7HA0xieJbzDfZ7FCj+XYHmS86EJ/YkB7LOthRbSLYtMx09TV8/Tu3MWjcNp6svUHovB8Cz/vo2A9hkIMeHv5VlWDrnXkWXcAEpJTI4Br6/Tt/o41qdSEbkawJvou9/saL9DyIZ8GKGlTiEiCzyMz2XMz2W0Ou0w+1uEAqNH0zIp+X0jgIsAvEtEZnhIPoRo9jwR+Wl076sdNNo0zr5wqk8XXqw/RaV4J4RirA/jQm5heDE9vwHbzo3zNG66ysXavJgsIQh6Y+Zg0DUs7s0Om1MBvFFVj+dnlxhQiyWRFSYOXN0VwN8B+D2uj73O8ilGGIfUM1iM3m6uib9CqNW2yGiKyKz77FHWfzyH/ndz+cyxk8FbCURneB+TCeo7PjTaCUt8J0HGn6vqGVGW0ahgo8XDeEJVX4IQz3g/3ttuF4dSOOUqw3SAe55byWJ8jOvLA+LKpXILS6nM011QRi4XSeyRFoAHc0y7Y6ZOW4zJadQXc+gvseGzjboAPi4iMwn31LCvkrFHxwB4L8HVbtQD+pvcLj7+cpI/7+ZeOxnA61T1F12czMKgUiRW/oDjbtmIhzIk4095sOx0zHjhXNbqGLUyuvcy+h8cs2kgawfZnr9W1ec4g3rYfmrSQzKEXR42L0B/uv441dplwP0WGFI+xOm7lhvnswC8g8DIdBSi8INBe9AMWcty3MfPOB7AK1T116JA+VFDC5rmw/bGHA34whkwZ9HAMuZTEuAGS7h26vcWjddjqV8fznU8i3qZiEFz6z0z8zQwHgLgTap6V+6rVm/6lu7tWgrYiKu5WxbabrpGNgH4YwDruMm/DuDVCOUYLuWh/m2E1jlv5yFXqepvqOrvAvg8P+cGLsB7kwrfTor3dWSrlMzW6wH8gYh8g/d1Gq8HKjm7x8rqrBzg1jlx3MYilUrF/NeMP9jlFgASyqLpyy+GrXTjPJ6I/1cA/AaRe+UOFiQWdUrBtBxtX/LzjwTwSsZz1ayehsK0hYvdM3fomVT89+Y8dyIqvDtASTcpYB+rYe7EOQAvokvBgkwnx7Bimw7H2CU1xz3wCAde7B7MrdFkpVYJZQNn6f8hgUY1aP/GNYvIxNwZwGvJXs5wL5YOYJpbcGLI2KYyqdS5Pp9N5s7mwO6lG7kEP09jah2aA87NZXdvAMe4kh2jiinL0/m86xFlELpDqAXgpwB+QOY8fjZFc8FicUzv8xASfLahXoqjaQybiiKaa2oX9epfquqDCE7LIaVIrKxIm3vsKOrKB/K+5ty8T7mxakf3W6Fea0ojl5O4z2k5BmKOa/ZPADx6gFGgK6hTB/0uQ+Zy3OvpEMAXe366zqX75/T0GGNVOFd4e0TmJG54bQBoDz/nZar6nCXsl0HXm6AO6qCXdfdKPsttXOtTkRs3BZaWKsLwiJI44D7cr20H8FOdYGJg2nHniemH3QhhSC/imdBput9xAFdrhQbeYiq+RPfOYznRr+UDXAzgR+jFbyz4zBhVfQp9qDMIwaXvpOXzYAAvVtU3isgN3LQfoa95iqzPrPuc0+kO2oSQfXh7HO9jTNEBBFheMXXcwXYIgNeQVdiRsLo6DXRxamNL5AN/AcHbrzvKOKabq4TCjwHbnNtAHUcHPxrAr4jIJ+iWkNhv7ZTNotuBoO9kujGNtSodHV84l0yB5o73inSKtb9/OwT2EfwcIyJvdO6TxmrFY4A6S89/sgNXpRtbX08npfxjVsi/zxiN0wkQ3z7KOnPFAqe4xx5LEBsX3Cvc2MZVsuPYFw8AqmiNznPP/yZCyZZ/iLI4F7OnROQ6Vb2FrPRcYk0Xbn+sB/BoVb0M42USVmRHT3QAMMUiVmTZP804skn0UvkrJDooJP6mBJcPJYjZiHpskQ4AAUXkLlbH3hnbvA7AW1T1ZSLyvQEAy+u8Luf+LN7XTneNKro3X3DYA6cyChXoROumiNzBLeeWm0JoW/Y1AJ2G7DNNgN5xDmP/3ngNx8CwShgIxYh7Pc5E9J9XDQGNQtD+CoS4t10RMLLag/OJ/a8NRm8ZPZvpCTOCX8rA9X/g2Ts/xFgaZZz9uX0aQpLUXgfA9nHOfViHDHDJjjLn8Zn5XLoFb0+4r5vcyv7/LXd/3o26m2fZd+liHStpayUYrFoRwLgQl4jsA/BGhAyuJwN4p6r+Kq36SkTmRGSfgStVPUxVXwjgpdyMRyBkhBQIsRl2oPyTqv4WFQVEpCMie9mGR1T1EFX9TTJedyG4+jcrGGiF+Uzhrio9NZwda2KwjnbWZduNtQWgT6FX/HOOf0/51v37Jvj9cDI33kXSdQCsTVA64RgjW4BeIVm9GA8EOlzoT1PVQzwdPWAszId+IhX/Jm7M0inFIqLB1bnQDiFNvd65iaciir2IQGrXffY+AE9W1ec7Gr22rpcInC1h4SVuDn2gZ4duGrP0zG1Qaz0TjQHcfFjW6OMBrPeF+RJjvVg8lmv+BXzfrgT13o0AkPA5NnKsp/h9Hdegj38pHFNlrqIO7/N3VdXYi5ZLpVcH/r7oFF6VmDOb8wXuj2JYZlRCeT/eXcNb02Wk/HciNJC398676uIxS6zoj8GbRMiEsrmfdYClxTW70a1dG1u/7n1/VrhxKbl3twB4IQ/rvmb20bi0eP/PoCtlq2NI7PnbqGdhWzDxHoQyLRdyjr5Ez8FW3vN6t741YsMrx9zNICR3PNG5ND2Y3MSvQ7g3bM2VCZ3WVMh3Y7RerYzNRrfPJtw6tmvae4Dmdmre2Cid7tnE75vddX2x69JVRrf9/ir0MhmrSA/4OFIDshvcPdvPm1wogh//VmI97kHoDfwI6tuW7zIyCgOXYNctWW0DCZR1XOfrCL4mHROOhK4oE/vc33OqhZGPOTuJRswup29mIzf3Oo6Vzcc86gHzneg6rYgxfqpzD1YjnuvLZ7AsTbgBUFh66LWq+hcIrXDuj5DN9TSWEBCEbKCjEEoD3J0LZo6DMIuQSWFp7BaYeCh9vI9X1W9xcH6EkP1yIr/uT5rydSLyEZcxt5Ybc3qAO496oDO4cY25uJ5KbR1CIOle9IL1JKI047oeFV9vC9rcA7a5byNrZuUZDuP3nc5NGWd0FO7vXYQ4kUeTxWq54pB9LkIeDEfQZXEyr9OOxkSdywLOdTFPRvR6PscmjodlsG5EPcsytihLZ4m9QFWvFJFzqQi7Q8DyKNaeH2NfaX89Fd6V7sDdTOV5OMcgVWhPIuBYcW7uB+C8hsSBRRcjXYO/A+B3IuYqdo35xJNd6NXluo33fVeO9XrebxOgW3BrrwLwZyyb8dOobIgFYn+BAOhUHsZdN0dldI9WsuT76FVgrrxeigEnjbL7cv3sQy++ydaWgctDGHJwM987P8DSbnIZVxELO0k32RGc30s4rjO83vH832bHBk+hF7jddsyAueq2Udc9V0TeZRl5Ubam7Zd5VT2BB8YeN88eJBZuX1ka+ycQMrV2unuxtTHBPft8zsU0+gOiC3cdW6+PVtVPo1eYVrhHzud6snkwA9LOgHmkK7V7dvNS9DKKNXJp3cDP/gnB4t6I3WrxHGnKmivd2O/lGimd4WtG50buFQ/WSoLcWZYueDqN0cK9xodc2BhYzatr+P0q6ue7c91sJGidc3tj3hnUZeQBOEtVr/Cle1xSzyjB/t4LYMb903mO74uM8srpgZi9slIvPvM7RTykmEO/trwLz4zaNsfIajWuo67axP212+nPMro3v1YrhM4wJ4nIj5dbf7C1QkDBFof1GLuGzNQTELII74sQ8Dnt4k/mHUiwATGL5n4I9VgsRsSC5+5NAGbWiC3O7QD+GcDn2IfQx7AcLJ3PY8S+GcDZAL6JEKdyKUHEIVRwj+f3fRz7CfTSrFNxEl4pGVN1NkKm57VURJsJUu6GUC3/V9Crrq8NLkS4659K5VwgURnX1ePqsCbRA/lsk0hnxXmwMYtQtuNqEflBgjk8gQroqQTvuyNmILbQFnjd56rqpQC2ppqcjmm5xNa1ZaXdCuAfqTAv5oae4lgfy7F+nIvDKBru2eZgHd0M5yEqIOsCTwu6h45BL4sx5YIzdmgd5/AKuh8vEpHpaIw3cl8+FiEZYZ9jaeJsuoL792gAzxaRt0ZuY3MT7mE5l/u5tVZFjJGVNDicYQPfj1wrKZeuNd0+nmNsGUrewKicwp0F8FUR2dVg4esILuIqYgW71Gf/ilCnKLVuj6cR+rtcD/4+bSys1puxh9MAnqOq54nIxZGrsNYmhu7RIxKuMc+6th078UoROdfvAf5cIRTanEaoefUtVX0Z19ZsYqzMHW7X2ABgk5VK4fxci17CTTwur3CfXSaAzzx14T4Af+aSmZJeBRH5KoCvJv43gVByQBoMYAM9hyIkTb1yBA+Gd+/Nkal/njNYuw4EV6gHq68noHo3wee0D4Nxa+aJPAOOilxdRcTSzlKvv4zzVbkyQksJBzIQ9wjUs/4MB7TcWioce28M6TrU++bqEu7B65jNNFw+iVCm6UpebxP1xb3pGj/DAU9vaMRn7yzn+gkIiXWNGZj7E2AtOAUzqaoPAHChiHxOVb9Mhul+tEjMFfRE9AqaLTjgtYGT590kXQeorkAoEDaPUIdjB4DrrDIrsws283UHowg32ccBvNFRlKWI/JivuYDFCN9AwDkTMRxosAZMMbUB/CWA/3L1kEqE+mU/BXCRqn6WTMbTHMovBrgkpwGcRGZqGxJxWC7Yeh1CnZ/b3aIvE/drsTc/AfByEbnK3auPQ1DG6N3AWI/X8L53DjgIp/h8D6L74r2+MOISwJU/dO15NpMJeI8VX+T9txGqT99G5XC2qt6AEBtWNWzo2M15nKvcHBcABl0CBULW6FHolQpJKStjE/4DwL+wbErpevLZc+0TkStU9WqEEgt/jpCdtwf1uJ+YyXuUqn4UwI2+NpNjDb9DwCgNStBcV3MATmcNp92uGnatbIWr+1QgZAcd6fROJ2IKSwcCvuwA6kKDhY0BcSXqQPJG6qZXMNHH9/mzOSzJKtzMw/+POA7T7v4m3J7tOrZiI4BnqepZCXDfJrhuI9QhPIK6ciLhBivcPnsTgK+7ki4WM7novnYtXRZo8PwCQfcs6s3B53iYWhmB4xm+sQP19jCK/gbj/kDWBoPewEOLZ06JdFymtbrShHuq49iipvIALRdOMcnYvCpygS2y7qxt5d1hC2T7HujYq5YjGVqox6z9DYDPM37Y915ddAOKyE0A/lFVz0WIXz0ycuP5chCWYfgAAKeLyHcdi2VlSEbVc13HtHbcfasLf9hN/X8t2dqdjr2/m407938H6ezaYV6feQdG/w7AR5lk58+ZvQgB8Ber6ifpUXs6x6XTwMAXjgk83j3zkmXZAMsVDZwgFXoKgPch1KT6JK3Ci2m5exT+YfqkH8cFsMBJ2MIFY5TeRt7nVrIAn04V2FPVwxGKhr0QoY3Hq5bb8HcFARPGWMBbALxfRP6G/nJTdr5ZdSki16vqHwP4IFmCWacMUqjfqOyjAbyJ4Nd/fomQodF2c/sWKovnEIw01UaxuJtjARwqIlu5eRcSirFDd5Ud+qn4BzjXwm4Af8rnnXTMgC/mJ7zvCY7Dm3mfT3CHVcwIWdmEfQDOUNUP8vllieAKzqpax2c9W0Te5CzllgNJpcXRUGl+UFUfyDW8M+HKi4NYNwM4nmyxJBiHgkr1tAQr5j9zGiGl/hV07xbuvipfPdyK1vLvl6rq3yHEPcZ9E+0AnuDnHwvgGSLytmhcTbmfR3bvNPRaXHUdu+bdDicDuDvr1UygHnDt2ccu//8Q1AO6rQDljGP6SoROFDdELvpqhL2dCq6dpL56vYic59ZthXqySte1Stmuqn9FVuYxZOXbDkBXDgy1OE6/BOAuDMvwyRQL7j6OcwA4Noq8brgJoSBnkQg36EagpEXX115VvYrAqYnpsJY2pQ8DiA5239e0wzXXQXMyC5w7sXDAJlX92z+r140tdx1BOpjcJwoZOLVCrYUzfuGMBl9+Zl5V70fvzc5ob5RuPhUhg+3jIvJ+Gjc2fjZWi/qOz9kSkcsYjvM2F2oTZ4bbNY4A8AxV/YEbh3H1XNu5roF65uNmhFi9/0BoRbN9AMsX93YdV8eWJGI+ICL/zM/0WMbaMXmD9x30pN2L+yH13B3q7gUAG1V1vYhML6fqwNjNngfQdqaMnk+leh9+PUdVf0q6cwsB01Ui8jEAL1fVsxGC1u7jFt80X2vA6nMAPsmso0NU9ffdoTHJ+JDj+b1FK/fOInLjavceXCbI8u4Qqw92Nq0TcayOop6NtEAAs0NV/53ofHYA2hZnVV8B4EtOEVSoZ550o/n+BEHweqQrHvtsDDQoM/usSlWPQ8jUqBxgi9mPjjuczyK4aqHepDeV/ThD8Dmrqm8gcLgP+tuxVE5h7iEQeShZhMVKy0ugrlvO/XQLFR+cskRkJVfR2H2UVHYKsPiyDLN8trsQmPRVsebh8Qi+bjf6s0fhGOPvAjjHrYlOFH/SV5CQ83EBFervuEPcj68xRNMAHquqn+Ae9jF61mXgMoTYotjNFrtcJgHclwdFNSBOo8tnv5eLVWmjv+SHsefvdQdZE+iPWT8kgMoMD8v3E1xNuEM55aKrbDx5IP8j16Ovh+bjgNpuLR2KUNLlWjeO4tyjh/OzjKlJBehbOMI3nQ6oAUdfaoDXWWDPN+E67zYchOpYLA9WYrYRLr1YI5YqFZPTde6oGbeuq4YOBn4N29jENbSqBobej70Zc7UM3YglU/e6km68zdwf6oBK14HuzQC+gtCbt+10oMI1/Hbza2dAKSIXkch4kTsDjPmsHGjYgVBb8XC2uCmjqvqj6jjftWPBPcsbyCSpAzxVAhjHLvzumNe3ZJ+zAbyHMZZVdB7A/c16we4hi/7qxHkTEwCzCHF5xzTo1/3HYFmbEyqHRyJk/RmdD8bFnMTYCaNHF+hH/pyIfJnU/CPR6yN0VzJeF9FlcSuvdSZp9Pugv2BgRatO6ZK8FynKA1nzCgmLShpiawqCyXMIEKxGVNHgorBA0YsdlT6oIa75+c9hGvoEQrkMHxRcJTbBtXRhnIzmZpjmEjiGwHhRETnlXPIAO4FgeNYtag+07B6meK/fdrV8ikRT176YKTd27yeF7MfGx+74WkDPFJFzqCQLLK1Ojt37BsZr3OIOTrHxdoq565iMgq6yHxFk7XVjGx/MFt/UaTKC2GPuoY7BayHdOHcGwNsI1n07q0ULN2ruLo41UCqtZ6FeU6ZAPS5wgSzWAxknEddZAoH8I7h+ZtFfRNJXwn4UgH/nPonr7fhn/HmGJeyOXNA+82oDQrbcDxvmchwjyuKCbgTwGWdFJ932zvCzg7RkYO0/02jaHhk9cTeIaQCPZKJA5Rq8l5yv3QDeGYVbpIKJS95zETFMcf+80rle7X+bE8A9dq9JBIYRs64uUSGOG5UGF6FiSC04D+DczxrpOk2wevFcJWtJRWVn4rhB+7oXeokAfvz9um0D+ARZTO+2q61nn1BmY8O5+DyN1mMSoRwtx4JOIPQA/ewSz8W4HMYE5+J1IvKfXHdmAGjUO1NHOB9H2WNdAtIfkl1qefdsgz608fwSQg3AY5COG/TAq1wJfLRSMVhG+Z1KBXkjep3Op6ODzTIofg/AY1T1nQh1J76iqucQjN0NwLdEZA8H6TTG7JxJBbYzoVAXKylzgu/POJEDzV41LaoicnUdwnicL3PTlK5HVIPukIpNTneiXsqgaa73ALjEKZha7I5blKU7+AUhY++UAQpPByk3KiJ7zZm0qGacxdB2rgjPNHzeWYtJ92fUMLpEvS7bdxGa5p7hwLePjfCxOHemxb8dg+vPDNr8Zi1uB/Bpb+k2KHp/fTvUrkOIC0uVBPDs4GEezMaNfFX1VL4GTukWkYI0RbzVuZhaCSWuCebG1sl2hESJJ9BAkIRit2Kh90eILfRuMhufK1X1KwglBWKwHfeoO5J64uLIwFos6eHirzxb5QGiZYGtQwgq3uvGYNAcy5D4kALApwiua0UjB5TUiOXr9AQUA65tAPlOPHB2UQ/7bgq7ALxnDGN50a0S1wByB36bTNGca7DbGaAXUnWmlpI4MsqhLON0UkoYvlV0f6nsRYnYMT9G3j3YUdWH0+09jeZK9uupXy3LtpVoXxMnKMRA62YaLvfkHiwSY20s3FPZbguRW3lUvDDr3JsFgO8ZuEK9Tlat0HF8xixRrMvBNQC+Ehl9Tft2Md7TubSPG+Dl8czbRCIUYDxgtBLuL1au3kRabXdkuRSO7p10B8RWvucvEdpA/A6ZsKtE5Euk9O5HV8+7EOpiTaHXK8lnS/hshUkq87uS+ViLWYQ+gLXrwNE2hOw7H4jXVAjPnmsXej3uhoHJOQA7LQh4ACO5WB2Yr71lCNgY2K3duQcnqZBnE1a1BYYb2LIA8GQh0AYr1YOQCa7L76GXfRUfVkZ3T3Mt/pxr6aKDxqlhPmyd/5TAQ0aYkyraizdGAATor4xsMS4bE3Nn73kgenEZ3Qg4eSbgYhG5kTW1OmxZtSAi8/ze4f8q95qO+/scWbdupKi88rP+ig9T1UNcdekYtF2PXp2d1KFtQahHIWQy1g4gzlfFxI2TafClWNd5pzx3IsTKLYw51ykm1WJSPj6AFRlUa81iR36C0DLsUNQbHscgax4hXf8Ee3bPJpFRKNg4vs3fU1+Tnglwn1M40FBwzmcIro5FaD11LOqp90sFTRhXtzR4A0b5WnmLuac3PTA9bcA6sDndCOAGEbmc+2nW7UHbf/Hei/dol96ejjtjU2OlADYzEam7hPN/Dr0+lVMEdq+Pinn3udaXUVswtW4mEeIF9yQAaBPo9sbazIDPN8N7gTrmkIitHHvtrFQld0N7d0I6oNYvbF99tkvf8JlUFJ9V1d0IGWAPpCVvBcwsc2EqostjmtdQ6NFrEFTFY2ZZJLYxdtDyaTlWozKrLLKW4MDBLqLypkJx5jvfDuAKt+BkwEJDxCDomM/omSV7jsNImc87cBlXrLYCe//tNhEiurnJBeDTjxe4Ia5Erx1F6jA05nMzQhDkufy9chbSOKAZPHCmeT8tflaKwfCBsfbe7ehvGlsk3BALSLfb6bLD/KnoxRttcPvCv7YCcIuqntHA2OmQeS7QSwPfjXpGqHdn+crhx6rqngh8Fq4TxK+SnZpJrFFfcPPuLhjf2vH4Glf3I8Dcg3rQr48Ps8KtV0Z10EZJIU/9bxKhnMq0O3RKV8x2mKWqrpHtlegvOBqPv8VV/hwP2HZktFRuTlKtqwqnf+L4pRRbfAivdQoN3ns4JnqcA1Qb2mgtB4iNo6fQAPBTMXKNbXgSrLSVs7C1dDoGd5wwD88eVb0Pem2cdARw6bMvZxBKEsyjXlE/BZCOBHAaa/+NY0D6c2Ge4P86t7/sPO+Os+aXML9tGiDGpJlx1ejdQD2mc/sQY7cVgcXkWbM/AZYtwiO44fainv6sEb0q0SJaz8Hai1765eMQMmRuQC9wr0CvCF9Tr6nSvfZIHiw7UwfzGnARepeXHTQ7Ylo3jpVq+KxR0l2tNtXeRErzIGq/AoNox6XdzV3lPuco1ItwasRA+k10Kw8cAygSxYNIw+JfXGN83dVkS49wbEbp1kzX3cfmpsNljHndCGCriOxjAOZCYnMOah3RdffYRb8b3O/dquGQtirTM+hlVrYT7oV5hFpnj0O9Qv+gopqxe8KAWxGN5bzTL8bCbAJwoohc7so1WFp7yfIQP0aIsdyL/gbfnl09BSGU4Eo3Fl30goLv23Dw+3o3RyMEt//UgbXlSEEWzuI7rGjmSAxIxJj+FL0Cn+ZGlwSIKNw4W4hEDJQEdZf/YtC0uXTIYh3K1x9Og22KTOBxCHGTE9xHh6LX8L21BONrkVFIxBUttYtCErgNYJsGrW2vR/qYyqZrRMbdoWRAuon964Pd9xGInYH+9lWDAJBvHeOZY99/NX5GC2E4zK2Xaowxt/2+gYbJ2YyDmogYsS5WR8xLsMcbr9H+8QWtrQdk5SoKbBvy+RKBxWXJuJXcdQi6LRLgCtFm94epxdpMAZjj4X8YQddN0fvb7oEHZff4DKyj0EuPXQugqgZ2HLia5IK9NWIq1PdsHPHzm1gXy1ZapHNTVoYVA42A3z73ezHkOpHOqSkzqyHTRr1rvEZWUIugbpGZGmJVej9/N7rmDvRKMsTp9yXqrRMO5/hYevQ4tLCiniJfYwC9AojZuCibJ9V7Mg7orYaA6U08CH3T06qBWba16NmfuF5QU78wW7s+My92FfiMJqCX0l9Fc2Vj/Q2EdjMt1NsHeZ01SyX/86zLFa/949ErXNpULXojmd//tASEeL0NaD+U6ktozJixroUF4af6cg44+C0g9wLqrsMSes/PwYQb0w76e0guxpy5jGpL9z8NIQnpKDKeJ/H1R1Mnz0RGq83z7Q7wDVuLSzHWYzfaOCzigXNRkEGn3jiOQDTeF0joh01ozrhLMWoa6VTTmXOoV4kH+tvNbEx4d8Zh6k13z5NJ8iC+igs1r/AQmwGxKxrzsuFaFkM6yvkIz+ZGhn+xVLDVWuEBiOnpVHPY2EWxmHpJir+FepEvX5htEHXq0/ctwHYtbMCYipbEZHedwkqBilGUzKBmpotj5tB8lQAnGtHdhVPiOuCQlQEKx7vO7oR6hWf/DHawl6j3h4pdgtUgsO+zb7jJpwkYm4rL+fU0E7n1ZMx5tme1dg3dFHXtgGxTzS1JjGvcGb5qsLyBeiq1RpZxStn4YPsu0gU0m/ZdJwJUTe7nvrIGUVCwga1zESq1PwD1LgJwwNPaD90tBrIcz9PJumyNGBYfELseIQlilwuC7Q7Yu0Ai0Bn9pSL22kHrSwSMarxyUahz43v3amq9pWq8lY4dXGwPwvCDzQiJBA/lftzCA36BRp71dtsXgSvvFo5jR5vWS6om1eLfI9ahSV/G69WfL9VSWMco+w8N4Ecb1r0MAQ/iWNtZApqU69325gTqtf2aWDxpuDdbs3Po710az0EVkRypRtXDGFpfDPYyV3NOlutOG1HHzjkWygzVbuLa3SgBatBcI0F+dJvGZRzwWKzQQxvlPj+Ach0GEtqRtTaLdDbEoPvwC6aN5vThtSZLbRtwINi3kd0lbiHaPEwNWYe2oKcda7YS4xozQinpAthCt95SXRVmCGwb4I7YH7KZVmp3gPUcz60p5QnUk0finyXBgDXt91RZiM0OBJSOWbVSHvMIWYnrBoAKKy/xYFW9VzSHQIjdnB5irc4jlImZZrafLLF9SAyCd4+hswYxWVV0GGPAuj08iqtczChFSBwy1+kzAXwAofH3/TkXCwjuyJ3olX4oUQ9mLiIrfsHNYQtZmljkjUOYD3GsYCtisOMG49IArv2eSIHuWA92yVhiTHDqXZJtALePmRiykmdlK+W9WIuyrM0RBQHPILi4tqDu8hllwKxOzl1pVV6PXqBrTMfrEOQZg74sB0Yqd2ipo7NlwOst43S5wN+zAPbZ1nIk7jzv186hADayEv1S2uR0yIy0Gtbl/gLqvuVMG/XYx5SbwjeabWFwssQozWGRYH4MwB0dXXvCGWZ2z5cQpE5EzKO6e7WuBCfRTdii1boeIV29qQq4ZSLtQmijkcr+Wup6bzn2UkZgOwatXVunPuyiyaj0BV4LV9W8ZMD8MQD+ECHzUgii5t26nIjYTF8Rft6xVm0E16ztq6sQ4rBOwsHT83X1rND6ebiZAGt2wF71jOwC6i17hhm2g3pjVgkW0OZ1PvG3UVyEvop/gZBZfqBIgYNmra1kFuF2hKyC46i8Rv1s33PuJBH5lqreiBAwP4wq9dJB3cU0a8pujZZq+FmX2AVsa6QxPgz1ViMTKwTygHqgcaoJuB30PwGwranm1gj7QCPGodyP4MrvxXkeohPoLykQj/8hDpD52myDxnOU/RjflwVPb4jGpoOe+6rD0ioXqerXATyJa8YnZfj7mwfwv9gNwpIaHoJQwb2DetkCH78yiRDrda1j0bpL0BOx+3IOdbdltYTP9AVb59HcngrucJzxING3oGFG6VsRgv53u/d0UM+YiscLNDgMfO3kdS7lay8C8G8I2YSv5LPLHVrh1Y26m2kkbBpwjvmG4NZKq4P+pJ9xwFW8TyUCSIc73TpOgLvfs93EvsqyEgArUTRMWH12lkW8Ho7htSmaJu9BCL31LkJoBu1TQHUExWSWgFlbnTzFB1rniI9lumXAIe1bl/gaVUu2JqnwNqLXX6p0h3SKnfEu5vjeRz0c43YSegCyWHc75T6oD2ELoeXE1ZECbWpyHMdujVIXzYPO9QCu4pjOu8/oRjFHoLHm2Rkg3Yj3Hgis+W3820P43Lc26DfTEV9wyQY+Zmqp86QJwFUthcHi9yMR3HMywprb7grtdhwTVqnqCxHqMW1DvyspjuOZQq/G4FYyVOcTLBhguDVqrDuZ1VwS3PiEkU4DCLJ+q+cBuJCs11xiv45StsHvy6aCqZbc8f1ozVZjPFvssszgaqUZrChA1w/yBegVGh1n4C2d+SRW076Q7NMUeqUbtAGVpwJgWwhuxm6e4gOKrqqIDZpHPfC6Qr0khE/x9y13vAskyUi61FyN2I578rDqoL9EiG+bM8G1awBpYRm+fV2ihbhS0nHPMT/A2GkjFBr9wAG4x6432DyTwr99jkbWndGLp/JuFSDE6R2K0CbkQ6p6NEL5hrlIN5Souzeu94dMqi3JmOwV3Lo9MWrUu1QdZAk/1ZB1ZuVrgHqrm66qnojQxmiv04td1F2ttrc2cjy/BeDDCO2DZkRkNrHXWg6oVlnT1XSQrYnbUQ9xaVpDkwAuF5F/OQD3ijFZKEF/i6ssQ6yfscFV4vfK9VK7gRt+XKttDsG9+Osi8iOEWKyJyAJI1XryCtqXcjhQh1uW+sHl5+AW9OKsfD+4OKtFAZzKlOdxDqq4MbCBug7qsVAt1LMZrXjlbYm+WUsBWQdq3dl1t3If+vpwTYzLyay232YT5tJVAB/lq+T7hF8FGwG33d8L95l92Ua+0jPnWUTkNoIsiUD4gjPgFshWnc73H49QsNjqR9Vikzj/GwGcKyK7rB4cr79UIBRb8ndGCCyvlvl5h5Hd6KDuIo319xx6cV9x5vbvUSdOo7/unN8j1i7oz0TkJSLyPRHZQa+EuDXRckyj1eYrcAd3DTaAl90IHpgmhkic7juRe2PK7Zci2lOD9p7fb+1ovsrE7xKd//mcXCsAqwFoFei1zLlkiQBrHULs1pPZ4+r9qGdY+D6GTX5pXwsrB7ivARILvdgYoYV8JXqZSSXqZQFsbmcQXD8brco5vxcD3C0tA2MO4LUQXNZbUA+k9iya/W73BrjefgfT4eEqge9GqP81iXpKeGrPHGuMEsfPv1ZBVxMBQyrt3j6/hf7CoEA9LhKuIbdEh5KPHzJA+FXUq8EbuJojcJhEiNE6RVXvjNDc+UjU6zZ50F4QjJzt1+cKZSFZVXurIZWqyTaOnIpefaRUJqEZlPsAXBHNV1dVtyDEXc0QVFYN818SjL/UGqur6rpojuJ78K2b7oQch+PPRKvev4BQy7FAc8Fbc5Nvckan31tmgHimP2Uk2TpPdSOQBDMKtycrZIC89gBWhNZ9zYiPUumN6360nmlHAHimiFyMUBPncCqRSQyubWUgzBbZTcuwSrOsiL6pFWwUEdkH4NvoFcer0J/BZczSCQi1kBRAe0DxR5NulBFmMT8PiICUrVNfUNOqnV/F//nq69VBuqd/Gj1rqi5Vl6zxXdGrSwUMj3nU6ECB64/WjfqodXxPtQE6xPd+NDfhVoSwA3N1Fm6+KseCWtPh09DrJFE49s7HgN0C4HYD7Ohl+xUrECdnmai/yOdqDVmzqXGoWKvqYWiOn4v15vXRgQuEavjr0UvwSDUNr2h8fF9EbnIlSuYS/eMWWcSo4vzxOPDlcGQtXCfqBQqEZuRNrWtM/8whFIo9gQaOGSlNdaXieey6eZkb0DPU/jaNekeEEllWTZadRejamXRZrO8yVf0KQj/B7Q1WbUphTxFIzSJkBn0UwN86RTHLzzJlGwfadlGvgZV9xAdWUg1YK4RO6KkaZ55lsN6M9xORrxpNjuFZWRaw3GJD2uMAnIjgIoE7oH0Fdwuov0JEbrT4ElXtLMPNcyDF7vmLCH39JhwQiZX8AkJg7ckici3rQXXQ0Csu4T71/38EQv/QbrQHzfqeBHCdiPyHzVXcY9OxVx0ykrtV9VtkIW/kZ3QiVs5KLjyHQGsWveKNPjt1gofZp0Rku+s9uGjFjxmQngrytc96BjMbZ6LDcSSjhIVST0TP1dk07gVCnNSP3fPYGG3i3O5D3a3qgZgguLFusSry8TNFhXCtgG9Jfb+JY36g90l3LVyHY+WTq84F8FI/dpG+A3rNy38RIdmkSgG3VMNk1+O1EJEFVX0KAvPfRX/XDcvUv0FEPsT7bGHEVk5ZDhDA8k1NnZL8GEL6rqWJpxrN+o1ssQTmBjgGwCsAvBjA2wH8X/RaUMwnrAmJPqfr72cN9iFcDatqlAyT/UkFi69k7XpBXU7gfQh6mX2VY1TEHc5PV9XviMj/pEonxO1n3Ppb4PV+m4yC9Xi0GD27jqXCtwF8zcWMLTRYpCMxO+MYJ6uxvmjoXKqqW8kwFOivyO1bFP26qp7jGJOaO9BX/o+qI7ep2E8D8Hoq8I5jkSccmN4C4O8Th02cmbwQFdq8CCEjcD16LpXCrRMztk5we79w82vrytba+W6erWWULtGVl8oMm0Ho3/d4EfkoXW6duIWIrw/nrq9sqPx41BM2vKvOxxJOADjPM4Cqav+zmnMdGq9zSDc8n0Fg+632lv2929AnUAl+uzRgjkW9ttKgGmqN1b4Tc9AdsMd8QksJYEOcqBB1Saix6Yl911SgE9Hzr3drGxHj65uwW/PyHWTsH4pQ5qIdzaN9XwDwFFX9GAHxojHp14kDVL691DoRmSHr+ScIHqDZhGFrYTjvdPc8v2LKfvm6LNXKJtWaSnEQuTSLFRjYiq64rlMYlyLUSNmIetPXFIKP27uUXGS/BOBJIvLfAP6b1pjFHdh7fDNccxm0cHCWZ9AVeJ8klOEwqztmEFbsebzStOKHInItgHPQq4fUjZglRAfDC1R1A+nz0gd/mtJxAdQT6AUY/w5CHaUdqPf38+OyQKD3YwBfNJdgFHit+wkor8a+/jx6/R9jJsTvtdMB/Im5ETiuPiBWeWhY0dJSVdcTXE0C+AMePts5pnt4cO8he9ghc/kJv+bir+h/Fnd3AUIaewv12B9/UFnxTE0wo6aXDkPITr7O4lpcfAuWwFbGDez93toH4I9U9RTG4vixLMx1aPfOdWuutxch9GLciXocWXwtm7/vm8uOQDgu6lslDlKvJzYCOMaxh4X7rNiAa7trtQA8nftnfoihZ3u7T/9EsV4yhAX3f7NaYRsA/Jx1jLBgb465lZwwHdGOjHGva4B05XRfc+2+ANY5r03LeVW8UdDlfM4ihMzMoV57Kq4/1qGB8GKnc1q+P6nNh8uWtir9MwTlryGAuo0Aaxa9QPt9CK7zGQDfHNFYHGRIDDToUzGWYwIsjwtS879abXhG6UixfwGWt/QtA4i//xtCHMg6DO5nJg0PNA3g95lq/CrSrRtQb2gZZ5/BWXa5BtZozNZ+BZFcGx8lK1Ei3cpF3aH5cwDepKr3cHE8bfRnVhUiMs9D/8kAnkvlUjRYqr7tw6ctq+xgL0prCtqVOrgWvTT+JlZhOy3oZ6vqFo5x5faSZ1BKi+VQ1VMAvAPAmRzrqchYsizRCYR4lN2JzNKhBhxC2QAdwsIWDUrbDqPdAN7nenGmdNhyDBzv3jZW9G9V9QEWm5YwfgqO5zwB5XMA/CbBlc+arvUORS8b8tsAvuFYDs887kHPXdpBuraZAdS7uYN9UP/LrqpOsZ3RPQE803keUuIbuAMDXIkOTIjzrjS93gBbh5/9q6p6QhT752MCO6jH7MX3smEExqzLs+zZqrqJ15h3X91oHMxA+DZCLbEJ9DdRV6fHZgA8XlX/D4ANBOZGKLTdfbQJrDrUdccCeDWAR6BXA9Iz9IUzML4M4CK3XnJw+yrLSrgIaxSsO+ymVfUdAF5L5SYYrT6WOqp1C10PLwXwfwC8ESEeY69T3t4lUOHgLc8gy3ifrGFQVTssCWKuYYzKc2hxtQco6B0AfhnAA1T1/wK4RESuaViLpwH4DTIA+9CLsdLIOqnc+roOwCfjBtgHK5h1SSciIttU9X20bgexmMYgvhjAk1T1LQB+yIMpPni6qvpIhF52D0Vok7LVHeTWVsVnbe4E8Cbu26W4E67hNax33jiGYZeHy+Wc65ViHzXB8Cygl0Fdkd35W1V9P4Avi8gN0WeYK/reBFZP4n5okYEy5sMDJQ/kPs5Yw3bE5oPG7V70Wjd1I9bGPmcfgMeo6g9E5DMO7NRaSrmEoa6q3gchhGNftD5i8GxlUCbQkKCUYM/NBbcTvVCBMrHPbIzbCHFH/6CqP+D7wPHZyDH4l6g4qncTdshgW8xbHHrivSLCeTpDVa/h8/uyGj8QkY+7cAZhq6KPca9Mc30soF6YVt38PAfAfVX18za/ifUM1nz7VQBPQXDT7naMZxu9sBy7/70APuGb2a/B808a5nktkwarC7Aii9kK3Fn8zeeojH+ZE9wZA2QVfM9pAN5GN8RfUFEbyKqcsimjRbhpico8y/4BAe9DiFX5OfTiDlJWqgUxt6jUd7JjwOU8gDYgxOydiBAsugm91iGe2dCI9rd4oQ+IyJ6fBfbK1jsVaMnYn88zaPqpHMemmlhWnPMYAP8A4FZVvYzgZp5/38yvUznWu9ArCKwRo2wMw2YAH2J/x3LczF66z/YC+C+Euk7bxgRBlg7/XQA7mACxXHa7yfo3kD6PXqZjAeCPAPyGqv4IwGX8/2aO6V0QAsU3ExxY5p+P05lw7IVlKp4P4Cuc645v08L9dTnB2onufjqJA81i017OoPUvENB1yFTZPGxEiO95EoBncF/ORuCj6RA0AFE2HZAutsj+tw3NHRd80VmLyzsWId5wwgGjzWRO/4PsacsBlIKkgLmQO4lrqDsjfe2++wE4A72YYeG87bX3U5d0eZ1zVfUjCIlfM9HnAb2uI12yyadSNz5LVa/nXLe4TjYiZNbfhc+7l0Zoy53pcUzcYQhhNuer6gRBn499zbJWAZa3CChx5+63c5MfzQ2pIyowQ+LbEaozvwshaPkvuagfRwXvq4L7OiBb1mCA+1qyDg4UsLLA4ttV9VU8zI9BfxCuWZdtdxC0EeocHQPgF5xlbqC6Q4VTor/heC2wmUro3SLysZi9GrBuBvnp15JYnIdlX74XwY13DK3oOI7JH942FscilHCAG0djqGZ5eCv6+6f5oNr1ZJ4+OU6pgigl3Q7fi91hNq6OmwXwnRVqiTOIxbJxmoqYiT08GB/GLz9u/jWCemFR/3vl2KAbALzLsRE+QN0M3b2qegEZxirBcAH9zYX/jCDgBoKDm92z3IXG0HqChBk0x7tKxDzNodf8eJS1C+r2WQwukgu3ZqdRr8um1AW73Gt9TT7bG/M0Iu7hjIxU4+TSjdVu1BO0FmjoWe1FiTpLACG4/EyO406n1+z94Fhb7GLF/Xdn6roqWgfz3Ftwc7SA/o4HhwD4EXWdndGtSCdmkLVKUqzkh7nAUavu3iYt/lb04mY0wSwUDUrLFvYeMlmv4ee8GiG+ZNJZit4i6AC4O4AJl+KPqIrtajIIqeyzJuCT6h21FAA1iutjlHsa5b0pRTe0A7yL87BMt5sQCsquQ89NGH9eB/UegfNkvGaoPPdRuZolO+m+zycUZgfBNXiBiHzQDiiEQFIfPD+oV2Ex4jgVqfTqFZ7TFIiFiMy6Kvg/QWjIuxW94OduBAr883V4WNhBupd7cN6xjSXnrBWNrd3veh5Er0CItxu5bUwU9GxZhd9HaDS8CeO5Nyyb6wdWtHaFDJZ4bZiuug4992gVHcIz7gDdzXU7h7rbsxt9n0A9a+5QMoLfJRtn8T8+m9bm4LPotWNBBHo0sc92kRV5GL0OzwXwa/yyEhx70WtfZszYoGwvdWDbAFbp2bbowLeuIOcjlOZYDLx3Y+mBQduxfaVb0xb7VyTY7MV75R65OGIc48ShuKSHBbeXjoFqoT+Zy3RdISI7AZzFeZ9IrMOWYwR94oatE9N3th87kWGkkQ61um8/AXAWyycZ6KosntVV4x/FEC/QnOG3UsaKrf1ixL0tw87jBiNZhxhLawdgDThAulQCX6NLaBPqMVZwLER8+PvBa9EV8RQAfwfgOBF5JUJc1lYemH6RLfDQtorh4gP7VgtkWQuDKPtsUOdzW0gTSwQ9/nN0yHx20Z96PcohByRS96ON3BllLTngWToA/mkE1+8+9FLxESkwX927g3oWlVe4XgFYoHGccXoogH8H8Bq6n4YBQ4nuoUpY7dIAmCvXXmT/0ZUuHlJEOgSzFwH4czLCExEzUKBecbpAOmPNGJRO5Fqp3MFjLq0dAF4tIt/C0ium+0DwnQjB7qPGYNkePATAB0XEGCJZ4ZRyz3RMIlRVfzN68UGpdPkp9Lf+8iDNG6Jdt363APh3EfnwkJhBq1X1YwAfot7tRkZofEjZGvCA+jayLbv5hcgYnOJrygYjq+v2Q4Xg4rI9DOeW78aMkYjcjOCu3IxeP03frL0bMVhw4CqViWb70RcdttZN/4PQzHpdtI79s1hR0DIxZnEwf5/uV9VJtoB7PffHJvccVrtswt1zEek9cQAqTn7wxIL9z1y4bxaRK6jrUvdVJs6JsmG9L6Duul7OmZUSG9sW6sXLm1jOrjeORzDW4OZpWKP6FXGf7g/FX3Fy3wPgK6hnGhWOBvZKq4gG0jbXdgD3BvBuZud8lVbW3/N9R6AXv7AOwOO8dYdeK4nVchuqiyUoh1gF4iyeDpYedFhFFm41CO17FmmMg6QasobaI1y/ds+8Dzv8P4cQX3MhXVNlgn3qREoGCVeHbcqpCBR0CKxaXCtvQS+GT3tYJFk2IN5wvr5Sio3UaO5XIulCxvx7DLi6BLMXImTk3kwwK6g3Ri6H3GvXKfG2U/Btx4pt4j59rYh80zGESwE2i+NHkHoegfio1acnEGKRznENw2UFAG/Tnq4ATInIFwH8E3oNm2ccAPPVt+PPNIZtjvpLnbF4FIAPi8hrHUtZNRi5nlV8N0L8zaEOsHajvSEJsN2KDIeWe0ZrMH0dmdFbUHd5xf0vp6jni8h1plG9KnXlFgqEbOP/QYghiquPlwPYeEl4Sryh6Fv/FCJyHYIbfTL6XInmph0d0N54q10rUeqlw/inLyMEsn8HIZZqHXoFZTtD9nWqsv68Y6Xt/4cjuHn/mHuw7QiNeK1UEcMnCXbNEx3tVQBWsbEuifUnCXxQROfJqAxZMcCb5IHe2mCwRhi4DrMhXs+JX+cW5zqk/fi2gCZQb1K6i0DqLFV9IoBtIvJPCG7DL/HzDicdfYZbGDqCe2elGIQ+yyn60gihd1Bvejzu+Joi9jE0VWQ9VpH1WYzwDGXCIqsSX/NIx1Al15w7GKy44iTrY/0FQkDqHEK8UCcCUJ0GF09cy2bWgYE2QvzfxQDeJiLvS4zHIBDpgZZ9Zgf1+kQV+gNlF/fXEoBFNcbXqNIhyPo+QsD72xDiRo5Gr1bWwgC2Es6yN2U4g3pR0c0APgngeSLyDdbIMpZ2KcU8WxFTMEuXRzGCgu/y+a5HL+u4MCNopQ0rz/yx5cwH0cvePJZrYwH1WLemtVY6ILmFgPXVAN5sDapTjKADKh0zLNme6uUINcjabiyNPUl1vfAxsHG/0A1kBb8G4AVkZS5weroTGY0GAjoIvSIX4yY5DxIVrxW67UREdtEgOB8h9tLXs/OxSxXqrbdS+g/euPY9/uh1+CiAv+HzbXJjZWz4bMSadNxcxfq+CXybQXkpQuLDOxDc50c74gHu3oe5rXxojAX1b0AoDfFKEfkBr7cYuxjrokjP+4LPTfpmBv0xlyuJFcStzaphTvvwS5NuaQjZaXo22xfzWKEsyxZWT3zgp1GzOxCC1P+OAGi2QVn6QL0Zh6yNRt1NpfVWAI9T1bPYUuXbCLFaJ9NKOFNVTxORi6ns573VtErAKqU0p9zh5As+CupFNssljvMUlYK33P0CNKC6PmIWk+PgFmTl1sk61Btue3bG+gdODFpTjrXydVjsby0At4rIa1hf6Un88ko13nwpFsnucz0/+wqEmmxni8gs2dSFCGT65sBNh55ZsJscVR6P8RSvO2pPvyajZ33EgmnCNbAezeUt0KB4KpfJ9yFVvQ6heOJDEIqNWnzVPOpFEGMWz9pubHQM2FYA/yQin+J1W9EBuJSYMpsnpasTCAG7p7jrDnI37AXwXyzGaBWvVyrIPW6EDMdsLBAgfE5Vb0TIunscX2uZr9Poj1UyZsgnFZwH4B0icnmicnjTeIqqwhVr7QJ4HULphuc5Zm0+crf5teZT/Dc5EHEJgov9PADTXF+3E3TFoQIaMRJ3B3Ain6VkYH5fqyRWo7cA/q0AXoZe9uKR6MU8rXNrtUR/LTCL7Ww716kkwL71ovwAs/YexT2x2e1rK5fRQj0uy/4/5XRfqu1Sae566qCuiLxbVT/OZ3sY13Ur4fbroD++rYV6jSwF8EMaOF9hkkOb46kY3K4u1nGHoFcNPmby4mddKXe7uVqnUO+2EWcnT8aeEJcRmtoHVtkA0VkWnx/2c9udlcsmY1YTYMFZGT577GLWMzoL9WyvKuEqtAHtJKh067H1IAAfV9W/BPA1EfkegO+p6mcBPNgp+YUhQGhlTNn+nm03cNHHtUe8H9ue/5pRF61D5rMIKeyXoxd8WjXQ3DO+pUTTOLjSG7bAbqYFvCeibr3lXvHA3e6fIXUNy+by1K5rjNumhXcp+1GegVCW4xhaekKFP4F6PM4Mn387x/xqhIrxV7CnXeHAld2DRmBxkNwO4DN0tXSG7KkfemDBw06HzKX9eimAj6C/IKFXNJYddGXMvg24zuIzupIq3wTwTVX9V7IL90HIWFrHax2GXu0pn5m0CyGNfhsP3I8DuFlE9jlXXOrQ1lHBYHQAWlJEh6UjWkMOCzMopgFcw8+aN2DfsCZ1GbGZkmB5C8afXsh7vhAhUPwBHJvNEWsBAsLbybrdCuBsAN92QEl9OYamMbB6c9HBKiLyHlU9l2D6lxEyDNdxb/k5a6MXSL2P63k7mZEvWW0mB1rPR4iP2xsZLT5LUdErqXK5B5ZRq6SO06HG+GwH8H5V/RRByF0RgvFPcYAUEVid49cPUW94LVEtqMWwDh7GX1PV86hjziAoPJlekVYEaEzv7eVe+FbKZWUtjFy9ssVuCSKyDcD7WMbhXgCeyDVicZKHoZ7YYeflDq6VnWTnzwNwIYGVr+pvyT/aYEx7w3IPgE9zbaZKb6gDy1es8NF5E8+YCdQ7F2hCv17rSYIhLtU4ae5CekkW0Fz0fJbjfvsQ78bIVth+E6tDo6rPInW9m4t2zrE77cTAVglq1CbiMISA2k9xEesK1LrJcoDEDhBvlajq8Qip1CWV3Qb0ivYtcDN0CTpuJC1u7y0xmp/+jjbOJYGWH6spHioVD7LjqOB3UrntoiK+WkSuSszb2DGOUR+5VGFYIQMwp6p/gBCvtzvB8vkg7imE9kdnDbBwm4yjxefh4bseIabqRGeoxcx7xXH6AoBXOcOhjAyJkwnSj6LeOpTPMs9D8wqO7ShlQ5Zq/NlcnYoQbnE3x/raAbOTRsstIvKDeJ73ZyN0X2Mx8b91jrX2BtOupdzjoFptqnq4m38DGrN0w67Ys6nqFoSEAOFePJLAo839N0kQfiVZ/xl/vpIdy7puDUhrtTdGpLDMYmnRSj8ewP+mtTYR0XZxymwqG8AsiFkA3/OWk7fyDuRiG4Kw+16+lHsdJ2h3iUpn1Z8hdY8ufRss6XDTqErSWYs6bnHLFRjnJY/B/hxrMiPq+5uxf9qlfMnlYwAjLPXQjdgjA1ML0VgYA3AXpLOOxTGa9vP7x23Ns9KGqfXg7HnD5LJR1tkwlmqp6ypisH/Ef391yHvbzpjti2Fb7TXrinbGTZlLgouZAQbEWDF3piui9Whs+7YBekGwhPi+6NlsjexAr0H9JSOulcWg++XohNU+Sw603tvfZ9lquwhTitQXD3w3adEHEpn7eJtURpPvH2eW6nrSfjsI6Oxw9gv4gMmQhsErdY3qYH+GBqlitiVSev5AraUN84AuV3Js9ofVvr/H2vXmq5wryvaXWemdBsZmxQLGzU3jQF+tzyj//zwAj0HdFWViesHKRFxF615Xu/bdOGuZRoOPQYzj06pYwbuYxWWvK2NonBupSNyHT3SoJZA0uVf3x5qNXOmLgeZRk+vFtbwcw8oXu7VQApcdvphd7V+3nL0QXa/lzkGfoBWHz2j0BaTjv9aUjjuQem9/69f9CrCoKEoi9pKxMX+CUM37AQh+fp9JkELTZXSYFgj+71mnTIuVYi2yHFCJ/ecd1GPXxLFU3vVhVl2Vh3D0cXYW/5yz9HwweRxXJSvhLuJcraNeWDCg52JlJlX1oQjNhasEcPFlOuYR3G7/hRCEXR5IXeBAo9drfVmaHgj6oG9vNK4AQ+CNFgNtXYuJdMap/3kRdK0FnepAlgUvlxEwqNy460pd01gmC1RHr/6SOiC87Gu6LEq4wqC1zLkGV2mqJ3CWAyyt/alo3CHZQi9tfJ+qvhHAGxBqXO1Cr1hoHIvhxYLz1iPE3HTdwtdYUWQ5KKVGu7vDqkyAA4lA17Kt/jsEsqq70KpEWrMv+1HrPepqvi3nMLEq369DaAtyraruBbBOVX+MEEZwX37votfqx1uiBXpFIDcjhBx81zPmBxgQ1LL/PKBxMamLmdPMoqu9f7l6LNEixjMmEu2jRbAQ3f/aUQwEGVHvW40SJVYC/PeBXr9PVtpDEj2DRvtRHYAs/HoykJnPvDsQwIozKTwq5+8LXBBXqeprEOpknYQQROv7LtnCMrrUH6AzCFkUpmg7cS+zLAcpumpQFC5OYvGgcIqoWgsH60E2zpo4TOxg77ikAx20x5ch1vvwZITAenNLPgG9+lHzDvAZc20uYivfYqEFFwG4iQbcwoEGsHHAul/bEbhSx17IsH2wDPZHHXDzwAspFuRgOLB9fasEa7diZ5gHVQ01pVZ0P7rEkSoC6ppyd2VwtbbkQFgmsTI3K+5yhNIN1yOk+5uyNAVs7IRZ08Ze3YDQEgIYnD6f5WcECHhl4quuRz/nrMElGkEJZa2JQ3elx9Z69e1Fr//adhpbc04PmIFl+qFweszqJn16OZld+9No8GxFPL6rVavP7xEPqCNG62DSAzqOgbaS197P56WiofxN1nUZYNU2eLQgug5kvQShBcMWZ7VaK4AFZ8Va3MZNInKTp7HXuoLIkuVgBrarcYmGr7jRrzhgZYH4Plh8C0Jphq8x8+2gGNsGnXiHvI8szXOS5yYDrOUspA5B1jUI9bGuRCimqA5Y+ZYpoMV7nVO+WbJkOfhE0d9vrKl/J9BjsK0YY4XAZl8E4COM0RvULPaOOciMVbKvPCJZsvyMAax4k5ufmY0wrXLvVQRZ1yK4C33MlXcNdBGqCwN1N2KWn8EDoekrj9TBb6yjXiIgBlp+jlvufxVCpfEjAdyGUODzJiytLc9+W8t5urNk4JwB1upo0ojqdP7/qrdetCUiVwP4K4SCa9bWwCo1+wD3i+L11hSEmOVnV8HkUTjopXJgyie3eKBl8VcWgyUIhUd/AOAlInK11fRaIXClDSCwCbytVhJAliwDz9S83tamtNbCwrBeTfy5surSInK+ql6O0Cdtj7tn6xz+NQB7nFLNC+xnVHFk+dnGyOi1x7IK/HFTdMsctGzBQwHcAuADAP5VRG5I1LzS5ay36Pc2ejXYJlDvPSjR6/oy8tbCWs77KevKLHcggBUzEHHtFSqpiwGc6axaz7p9l4BsAitYVTpLliz7XfYhJLXsQ0heWQCLEvPnNvf/DQis9rkAvm+tZ1ajoKhLyS8R2HIrFeMbxXqgtYA6+6a5D2aWLHdg4LtmTNhEQTcCrbsDeC9Cc98FWq+TAG4G8CIR+Snjt+bzdGbJcnAKGyqbG+5OBDUGrEDDagaha8OM1bdK9MnTFb4vaxd0T7iCqwndaQk4cwCuQY9xy4Zflix3UGmtpZuJ20WwTcZtAH6KUIDU4i7WA/gJgJ1kr3JbnCxZDm6ZceDoqmGGGHWDxW5asdE+Q22FpCMil4wJzMydWDLeITNYWbLcwWTNtECIFJA4RbkXwIcIBs1FOAfgP9lJ/UA1Is6SJcsK6iJVLVW1raoTDBEo+d0yjS3DUJxRZckvTbpkyeIqrC9eP7qvMvq7fS32akR2D2bJkgHWGr03U0xXoNd01lphXG6tUZBLM2TJctCK9Zjknu/S3a8EJ5XLNDZ3m0WQd/m/OQNWqwBm/OfZ9avof4v3xv9LbteVJUuWtQywFL3GpNcDOA/AFEJMxtdE5DqCLclKLEuWg1dcNvGCz7qL089TLZFWEVghAkm+ZYlvW9JXEsY3383sVZYsGWCtGUs2UmhdAAUDWv+VAOtLAD7FGAyriaO5FlKWLFn2o/G3quAuS5YsWVYdcPGr5O8nq+ph/NliM0rfh7ABsGXJkiXLcg2/rFOyZMnyM6PYfFDplP87v1uQaSsDrCxZsmTJkiXLWpE1AUCaUqsJpArrUYh69pDFQpgLMUuWLHcMw2ug3orLvSz3WqN8RnxPdg/ZfZglS5afWWWbJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmSJUuWLFmyZMmyMvL/AU6VuUsI4ckYAAAAAElFTkSuQmCC" alt="moneypattern" />
+        </a>
+        <p class="footer-tagline">MoneyPattern™ Profile is a research-backed psychological assessment — revealing your unique relationship with money, and the tools to transform it for good.</p>
+      </div>
+      <a href="index.html" class="footer-back">← Back to home</a>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 MoneyMind Profile™ and MoneyPattern™. All rights reserved.</div>
+      <div>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
