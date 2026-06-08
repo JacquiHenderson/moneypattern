@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyPattern — Privacy Policy</title>
+<meta name="description" content="How MoneyPattern collects, uses, shares, and protects your personal information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#0A1020;
+  --navy-deep:#06090F;
+  --card:rgba(255,255,255,0.025);
+  --card-2:rgba(255,255,255,0.04);
+  --gold:#E4B45C;
+  --gold-pale:#F4DCA0;
+  --gold-deep:#C2954A;
+  --blue-light:#5298BF;
+  --blue-mid:#3C7AA8;
+  --blue-deep:#1D4A75;
+  --blue-200:#9cc1da;
+  --fg-1:#EEF0F8;
+  --fg-2:#C3C9DE;
+  --fg-3:#8E96B6;
+  --fg-4:#5C6488;
+  --hair:rgba(238,240,248,0.08);
+  --hair-soft:rgba(238,240,248,0.15);
+  --serif:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+body{background:var(--navy);color:var(--fg-2);font-family:var(--sans);font-weight:400;font-size:16px;
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1100px 760px at 50% -8%, rgba(36,62,108,0.20), transparent 60%),
+    radial-gradient(900px 600px at 92% 8%, rgba(82,152,191,0.07), transparent 55%)}
+.wrap{position:relative;z-index:1}
+
+h1,h2,h3,h4{font-family:var(--serif);color:var(--fg-1);letter-spacing:-0.02em;line-height:1.18;text-wrap:balance}
+a{color:inherit}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;background:rgba(8,12,22,0.78);backdrop-filter:blur(18px) saturate(1.2);
+  border-bottom:1px solid var(--hair)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:26px;height:26px;flex-shrink:0}
+.brand-name{font-family:'DM Sans',var(--sans);font-size:20px;font-weight:600;color:var(--fg-1);letter-spacing:-0.01em;
+  display:inline-flex;align-items:flex-start}
+.brand-name .tm{font-style:normal;font-size:9px;font-weight:500;color:var(--fg-3);margin-left:2px;margin-top:2px}
+.back{font-family:var(--sans);font-size:13.5px;color:var(--fg-3);text-decoration:none;display:flex;align-items:center;gap:8px;
+  transition:color .18s var(--ease)}
+.back:hover{color:var(--fg-1)}
+.back .arr{transition:transform .2s var(--ease)}
+.back:hover .arr{transform:translateX(-3px)}
+
+/* LAYOUT */
+.page{max-width:820px;margin:0 auto;padding:0 28px 120px}
+.titleblock{padding:78px 0 30px;border-bottom:1px solid var(--hair);margin-bottom:46px}
+.eyebrow{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--blue-light);margin-bottom:20px}
+h1{font-size:clamp(2.3rem,5.4vw,3.4rem);font-weight:400}
+.meta{font-family:var(--sans);font-size:13.5px;color:var(--fg-4);margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.meta .dot{width:3px;height:3px;border-radius:50%;background:var(--fg-4)}
+
+/* CALLOUTS */
+.callout{border-radius:14px;padding:20px 22px;margin:30px 0;font-size:14px;line-height:1.65}
+.callout .clabel{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  display:block;margin-bottom:9px}
+.callout.draft{background:rgba(228,180,92,0.07);border:1px solid rgba(228,180,92,0.28);color:var(--fg-2)}
+.callout.draft .clabel{color:var(--gold)}
+.callout.review{background:rgba(82,152,191,0.07);border:1px solid rgba(82,152,191,0.30);color:var(--fg-2)}
+.callout.review .clabel{color:var(--blue-light)}
+.ph{color:var(--gold-pale);background:rgba(228,180,92,0.10);border-radius:4px;padding:0 5px;font-style:normal}
+
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:30px 32px;margin-bottom:64px}
+.toc h2{font-size:13px;font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--fg-3);margin-bottom:22px}
+.toc ol{list-style:none;counter-reset:toc;columns:2;column-gap:48px}
+.toc li{counter-increment:toc;break-inside:avoid;margin-bottom:13px}
+.toc a{font-size:14px;color:var(--fg-2);text-decoration:none;display:flex;gap:12px;transition:color .16s var(--ease)}
+.toc a::before{content:counter(toc,decimal-leading-zero);font-family:var(--sans);font-size:12px;color:var(--blue-light);
+  font-weight:600;flex-shrink:0;width:22px}
+.toc a:hover{color:var(--fg-1)}
+
+/* SECTIONS */
+section{margin-bottom:52px;scroll-margin-top:90px}
+section > h2{font-size:clamp(1.4rem,2.6vw,1.85rem);font-weight:500;margin-bottom:20px;padding-bottom:0;
+  display:flex;gap:16px;align-items:baseline}
+section > h2 .sn{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--blue-light);letter-spacing:0.04em;
+  flex-shrink:0;padding-top:6px}
+h3{font-size:1.08rem;font-weight:500;color:var(--fg-1);margin:30px 0 12px;letter-spacing:-0.01em}
+p{margin-bottom:16px;max-width:68ch}
+p:last-child,ul:last-child{margin-bottom:0}
+strong{color:var(--fg-1);font-weight:600}
+em{font-style:italic;color:var(--fg-2)}
+ul{list-style:none;margin:0 0 16px;padding:0}
+ul li{position:relative;padding-left:22px;margin-bottom:11px;max-width:66ch}
+ul li::before{content:'';position:absolute;left:4px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.8}
+a.inline{color:var(--blue-200);text-decoration:underline;text-decoration-color:rgba(156,193,218,0.4);text-underline-offset:2px}
+a.inline:hover{text-decoration-color:var(--blue-200)}
+.lead{font-size:17px;color:var(--fg-2);line-height:1.7}
+
+/* FOOTER */
+footer{border-top:1px solid var(--hair);padding:40px 0}
+.foot{max-width:820px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-brand .brand-name{font-size:16px}
+.foot-links{display:flex;gap:26px}
+.foot-links a{font-family:var(--sans);font-size:13px;color:var(--fg-3);text-decoration:none;transition:color .18s var(--ease)}
+.foot-links a:hover{color:var(--fg-1)}
+
+@media(max-width:680px){
+  .nav{padding:15px 20px}
+  .page{padding:0 20px 84px}
+  .titleblock{padding:52px 0 26px;margin-bottom:36px}
+  .toc{padding:24px 22px;margin-bottom:48px}
+  .toc ol{columns:1}
+  .back span.txt{display:none}
+  section > h2{gap:11px}
+  section > h2 .sn{padding-top:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="sky"></div>
+<div class="wrap">
+
+<nav class="nav">
+  <a href="MoneyPattern.html" class="brand" aria-label="MoneyPattern home">
+    <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
+      <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
+      <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+    </svg>
+    <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
+  </a>
+  <a href="MoneyPattern.html" class="back"><span class="arr">←</span><span class="txt">Back to home</span></a>
+</nav>
+
+<div class="page">
+
+  <div class="titleblock">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <span>Document version 1.0</span><span class="dot"></span>
+      <span>Effective date: 4 June 2026</span>
+    </div>
+  </div>
+
+  <div class="callout draft">
+    <span class="clabel">Drafting note — remove before publishing</span>
+    The legal entity name, ABN, and contact email addresses below are adapted from the MoneyMind source and must be confirmed for the MoneyPattern entity before publication. Bracketed <em class="ph">[…]</em> items require input. The description of what MoneyPattern does (Section 2.2) is written generically and should be tailored to the actual consumer feature set.
+  </div>
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#s1">Introduction</a></li>
+      <li><a href="#s2">Scope and Application</a></li>
+      <li><a href="#s3">Definitions</a></li>
+      <li><a href="#s4">Our Role as Data Controller</a></li>
+      <li><a href="#s5">Personal Information We Collect</a></li>
+      <li><a href="#s6">How We Collect Personal Information</a></li>
+      <li><a href="#s7">How We Use Personal Information</a></li>
+      <li><a href="#s8">Legal Bases for Processing</a></li>
+      <li><a href="#s9">How We Share and Disclose</a></li>
+      <li><a href="#s10">International Data Transfers</a></li>
+      <li><a href="#s11">Aggregated and De-Identified Data</a></li>
+      <li><a href="#s12">Data Security</a></li>
+      <li><a href="#s13">Data Retention</a></li>
+      <li><a href="#s14">Your Privacy Rights</a></li>
+      <li><a href="#s15">Cookies and Tracking</a></li>
+      <li><a href="#s16">Third-Party Links and Services</a></li>
+      <li><a href="#s17">Children's Privacy</a></li>
+      <li><a href="#s18">Data Breach Notification</a></li>
+      <li><a href="#s19">Changes to This Policy</a></li>
+      <li><a href="#s20">Jurisdiction-Specific Information</a></li>
+    </ol>
+  </nav>
+
+  <section id="s1">
+    <h2><span class="sn">01</span>Introduction</h2>
+    <p class="lead">MoneyMind Profile Pty Ltd ABN 33 672 152 073 ("MoneyMind Profile," "we," "us," or "our") values your privacy. MoneyPattern is software you use directly to understand your own financial behaviour. We are committed to protecting your personal information and being transparent about how we handle it.</p>
+    <p>This Privacy Policy explains:</p>
+    <ul>
+      <li>What personal information we collect and why</li>
+      <li>How we use, share, and protect that information</li>
+      <li>Your rights regarding your personal information</li>
+      <li>How to contact us with privacy questions or concerns</li>
+    </ul>
+    <p>We serve individuals only in Australia, the United Kingdom, the United States, and Canada — these are the only countries in which we operate. This Privacy Policy is designed to comply with applicable data protection laws in each of these jurisdictions, including:</p>
+    <ul>
+      <li><strong>Australia:</strong> Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs)</li>
+      <li><strong>United Kingdom:</strong> UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018</li>
+      <li><strong>United States:</strong> California Consumer Privacy Act (CCPA/CPRA), Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), and other applicable state privacy laws</li>
+      <li><strong>Canada:</strong> Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws (including Quebec's Law 25, Alberta's PIPA, and British Columbia's PIPA)</li>
+    </ul>
+  </section>
+
+  <section id="s2">
+    <h2><span class="sn">02</span>Scope and Application</h2>
+    <h3>2.1 What This Policy Covers</h3>
+    <p>This Privacy Policy applies to personal information we collect, use, and disclose when you visit our websites, create a MoneyPattern account, use the MoneyPattern software and services, or otherwise communicate with us.</p>
+    <h3>2.2 About MoneyPattern</h3>
+    <p>MoneyPattern is a direct-to-consumer product. You use it yourself to complete a financial assessment to understand your behaviors toward saving, spending, investing and risk, to generate a personal financial profile and insights. You interact with us directly: there is no financial advisor, advisory firm, or other organisation sitting between you and us in providing the Service to you.</p>
+    <p>If you later choose to share your results with a financial professional or another person, you do so at your own direction, and their handling of your information is governed by their own privacy practices, not this Policy.</p>
+    <h3>2.3 We Are the Data Controller for Your Information</h3>
+    <p>Because you use MoneyPattern directly, MoneyPattern is the data controller for the personal information you provide and that we collect about you. This means we determine the purposes and means of processing your personal information, and we are responsible for handling it in accordance with this Policy and applicable law.</p>
+  </section>
+
+  <section id="s3">
+    <h2><span class="sn">03</span>Definitions</h2>
+    <p>For purposes of this Privacy Policy, key terms include: <strong>"Applicable Data Protection Laws"</strong> means all applicable data protection and privacy laws; <strong>"Controller"</strong> means the entity that determines the purposes and means of processing personal information; <strong>"Personal Information"</strong> means any information that identifies or is reasonably capable of being associated with an identified natural person; <strong>"Sensitive Information"</strong> means personal information that receives heightened protection under Applicable Data Protection Laws, which may include information about your financial circumstances; <strong>"Services"</strong> means the MoneyPattern software, websites, and related services; and <strong>"you"</strong> or <strong>"your"</strong> means the individual who uses the Services.</p>
+  </section>
+
+  <section id="s4">
+    <h2><span class="sn">04</span>Our Role as Data Controller</h2>
+    <p>We are the data controller for the personal information of everyone who interacts with us, including people who create an account and use the Services, website visitors, newsletter subscribers, event attendees, and people who contact us.</p>
+    <p>We process your personal information only for the purposes described in this Policy and on a lawful basis. We do not use third parties to make decisions about your personal information on our behalf except as described in Section 9 (service providers), and those parties act only on our instructions.</p>
+  </section>
+
+  <section id="s5">
+    <h2><span class="sn">05</span>Personal Information We Collect</h2>
+    <h3>5.1 Information You Give Us When You Create an Account and Use the Services</h3>
+    <p>When you register and use MoneyPattern, we may collect:</p>
+    <ul>
+      <li><strong>Identity and contact information:</strong> name, email address, phone number, and, where relevant, date of birth or other details needed to provide the Service.</li>
+      <li><strong>Account and authentication information:</strong> username, password, and multi-factor authentication (MFA) credentials.</li>
+      <li><strong>Financial behaviour information you provide:</strong> the responses, inputs, goals, attitudes, and preferences you choose to enter so that the Service can generate your profile, insights, and reports. This is information about you, provided by you, for your own use of the Service.</li>
+      <li><strong>Usage and activity information:</strong> login history, features accessed, and device information.</li>
+      <li><strong>Communications and billing information:</strong> support requests and, where the Service is paid, payment method details processed by our third-party payment processor.</li>
+    </ul>
+    <h3>5.2 Information We Collect Automatically</h3>
+    <p>When you visit our website or use the Service, we may automatically collect your IP address and approximate geolocation, browser type and version, operating system, referring website, pages visited, links clicked, and in-app activity and diagnostic data.</p>
+    <h3>5.3 Information From Third Parties</h3>
+    <p>We may receive personal information from service providers and integration partners; from publicly available sources; and, if you choose to sign in using a third-party provider (for example, a Google or Apple sign-in) or to connect a third-party account, from those providers as authorised by you.</p>
+    <h3>5.4 Sensitive Information</h3>
+    <p>Some of the information you enter to use MoneyPattern — particularly information about your financial circumstances and attitudes — may be treated as Sensitive Information under Applicable Data Protection Laws. We collect this information only to provide the Service to you, and only where you choose to provide it. Where Applicable Data Protection Laws require it, we rely on your explicit consent to process Sensitive Information, and you may withdraw that consent at any time (see Section 8). We do not require you to provide more sensitive information than is necessary to deliver the features you use.</p>
+  </section>
+
+  <section id="s6">
+    <h2><span class="sn">06</span>How We Collect Personal Information</h2>
+    <p>We collect personal information directly (when you provide it through registration, the assessment or questionnaire, forms, or communications), automatically (through cookies, web and app logs, and analytics tools), and from third-party sources (service providers, third-party sign-in or account providers you choose to use, and publicly available sources).</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="sn">07</span>How We Use Personal Information</h2>
+    <p>We use personal information to:</p>
+    <ul>
+      <li><strong>Provide and maintain the Services:</strong> create and manage your account, authenticate you, generate your financial profile, insights, and reports, provide customer support, and maintain backups.</li>
+      <li><strong>Improve and develop the Services:</strong> usage analytics, feature development, and research, using de-identified data wherever practicable (see Section 11).</li>
+      <li><strong>Operate our business:</strong> payment processing, accounting, and vendor management.</li>
+      <li><strong>Communicate with you and market our Services:</strong> send transactional and service messages, and — with your consent where required — newsletters and product updates. You may opt out of marketing communications at any time.</li>
+      <li><strong>Protect security and prevent fraud.</strong></li>
+      <li><strong>Comply with our legal obligations.</strong></li>
+    </ul>
+  </section>
+
+  <section id="s8">
+    <h2><span class="sn">08</span>Legal Bases for Processing (International Users)</h2>
+    <p>For users in jurisdictions requiring a legal basis for processing (such as the UK and EU under GDPR), we rely on: performance of a contract (providing the Service you have signed up for); legitimate interests (improving the Services, security, and fraud prevention — for which we conduct balancing tests); legal obligations; consent (including explicit consent for processing Sensitive Information and for marketing, which you may withdraw at any time); and vital interests in rare emergency circumstances.</p>
+  </section>
+
+  <section id="s9">
+    <h2><span class="sn">09</span>How We Share and Disclose Personal Information</h2>
+    <p>We do not sell, rent, or lease personal information to third parties, and we do not share your personal information with financial advisors or other third parties for their own purposes unless you direct us to.</p>
+    <p>We share personal information:</p>
+    <ul>
+      <li>with service providers and subprocessors bound by contractual obligations, for infrastructure, payment processing, analytics, security, and marketing;</li>
+      <li>within the MoneyPattern group for administration and business operations;</li>
+      <li>in connection with a business transfer (merger, acquisition, or asset sale), with prior notice; and</li>
+      <li>as required by law or to establish, exercise, or defend legal claims.</li>
+    </ul>
+    <p>We may share aggregated, anonymised, or de-identified information that cannot identify you (see Section 11).</p>
+  </section>
+
+  <section id="s10">
+    <h2><span class="sn">10</span>International Data Transfers</h2>
+    <p>MoneyPattern may transfer personal information to Australia (primary operations), the United States (cloud hosting infrastructure), the United Kingdom (offices), and other countries where our service providers operate. When transferring to countries not recognised as providing adequate protection, we implement Standard Contractual Clauses (SCCs), the UK International Data Transfer Agreement (IDTA), and supplementary measures including encryption in transit and at rest, strict access controls, and data minimisation.</p>
+  </section>
+
+  <section id="s11">
+    <h2><span class="sn">11</span>Aggregated and De-Identified Data</h2>
+    <p>We create aggregated, anonymised, and de-identified data to improve the Services, conduct research, and generate benchmarks. We remove all direct identifiers, apply statistical techniques to prevent re-identification, and ensure the data cannot reasonably be linked back to you. We apply our Data Aggregation and De-Identification Policy (supplied upon request).</p>
+    <div class="callout review">
+      <span class="clabel">Review note</span>
+      Because MoneyPattern aggregates consumers' own financial information (rather than firm-supplied client data), confirm that the de-identification standard and any consent disclosures here meet the bar required for sensitive financial data in each jurisdiction.
+    </div>
+  </section>
+
+  <section id="s12">
+    <h2><span class="sn">12</span>Data Security</h2>
+    <p>We implement comprehensive administrative, technical, and physical safeguards including: encryption (TLS 1.2+ in transit, industry-standard encryption at rest); access controls (MFA, role-based access control, least privilege, regular access reviews); network security (firewalls, intrusion detection, DDoS protection, penetration testing); and application security (secure SDLC, code reviews, OWASP Top 10 protection). Our infrastructure is hosted in secure, certified data centres with 24/7 monitoring.</p>
+    <p><strong>No absolute security.</strong> Despite our efforts, no security measures are perfect. We cannot guarantee the absolute security of personal information. Internet transmissions are never completely private or secure.</p>
+  </section>
+
+  <section id="s13">
+    <h2><span class="sn">13</span>Data Retention</h2>
+    <p>We retain personal information only as long as necessary. We retain your information for as long as your account is active, plus up to 30 days after you close it. Closed accounts are deleted or anonymised within 30 days (backups retained for an additional 90 days). Financial and transaction records are retained for 7 years. Support tickets are retained for 3 years. Server logs are retained for 90 days. Aggregated and anonymised analytics data may be retained indefinitely. You may request deletion of your personal information, or close your account, at any time, subject to our legal obligations.</p>
+  </section>
+
+  <section id="s14">
+    <h2><span class="sn">14</span>Your Privacy Rights</h2>
+    <h3>14.1 Rights Under Australian Privacy Law</h3>
+    <p>If you are in Australia, you have the right to access the personal information we hold about you, request correction of inaccurate information, and lodge a complaint with us about our handling of your personal information.</p>
+    <h3>14.2 Rights Under UK GDPR</h3>
+    <p>If you are in the UK or EU, you have the right to access, rectification, erasure, restriction of processing, data portability, objection to processing, and to lodge a complaint with the Information Commissioner's Office (ICO).</p>
+    <h3>14.3 Rights Under US Privacy Laws</h3>
+    <p>If you are in California, Virginia, Colorado, or another state with consumer privacy rights, you have the right to know what personal information we collect, request deletion, request correction, opt out of sale/sharing (note: we do not sell or share), limit the use of Sensitive Information, and not be discriminated against for exercising your rights.</p>
+    <h3>14.4 How to Exercise Your Rights</h3>
+    <p>To exercise any of these rights, please contact us at <em class="ph">[contact@moneypattern.ai]</em>. We may need to verify your identity before responding to your request.</p>
+  </section>
+
+  <section id="s15">
+    <h2><span class="sn">15</span>Cookies and Tracking Technologies</h2>
+    <p>We use essential cookies (necessary for the Services to function — cannot be disabled), performance and analytics cookies (analytics and error tracking), functionality cookies (preferences, A/B testing), and marketing and advertising cookies (campaign tracking, retargeting). You can manage cookies through your browser settings or our Cookie Preference Center. Our Services do not currently respond to Do Not Track signals.</p>
+  </section>
+
+  <section id="s16">
+    <h2><span class="sn">16</span>Third-Party Links and Services</h2>
+    <p>Our Services may contain links to third-party websites not operated or controlled by MoneyPattern. We are not responsible for the privacy practices or content of external sites. When you click on a third-party link, their privacy policy applies. We encourage you to read their privacy policy before providing personal information.</p>
+  </section>
+
+  <section id="s17">
+    <h2><span class="sn">17</span>Children's Privacy</h2>
+    <p>Our Services are not directed to children under the age of 18. If we become aware that we have collected personal information from a child under 18 without parental consent, we will delete the information, terminate any associated account, and prevent future collection. If you are a parent or guardian and believe your child has provided personal information to us, please contact us at <em class="ph">[contact@moneypattern.ai]</em> with the subject "Children's Privacy Concern."</p>
+  </section>
+
+  <section id="s18">
+    <h2><span class="sn">18</span>Data Breach Notification</h2>
+    <p>In the event of a data breach affecting personal information, we are committed to transparency and prompt action. Our incident response process covers detection and verification, containment and mitigation, assessment of affected individuals and compromised information, notification as required by law, and remediation to prevent recurrence.</p>
+    <p><strong>Notification timing:</strong> UK/EU GDPR — ICO within 72 hours; Australia — OAIC as soon as practicable and within 72 hours; United States — state attorneys general as required by state breach notification laws (typically 30–90 days). To report a security vulnerability, contact <em class="ph">[contact@moneypattern.ai]</em> with the subject "Security Incident Report."</p>
+  </section>
+
+  <section id="s19">
+    <h2><span class="sn">19</span>Changes to This Privacy Policy</h2>
+    <p>For material changes, we will provide prominent notice through email notification to users with an account at least 30 days before the effective date, a prominent banner on our website, and an in-app notification. By continuing to use our Services after changes become effective, you accept the updated Privacy Policy. If you disagree with the changes, you may stop using the Services or close your account.</p>
+  </section>
+
+  <section id="s20">
+    <h2><span class="sn">20</span>Jurisdiction-Specific Information</h2>
+    <h3>20.1 Australia</h3>
+    <p>Our data practices comply with the Privacy Act 1988 (Cth) and the Australian Privacy Principles. The Australian privacy regulator is the Office of the Australian Information Commissioner (OAIC) — <a class="inline" href="https://oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>. We comply with the Notifiable Data Breaches (NDB) scheme.</p>
+    <h3>20.2 United Kingdom</h3>
+    <p>Our data practices comply with the UK GDPR and the EU GDPR. The supervisory authority is the Information Commissioner's Office (ICO) — <a class="inline" href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>. When transferring personal data outside the UK/EEA, we use Standard Contractual Clauses (SCCs) and supplementary measures.</p>
+    <h3>20.3 United States</h3>
+    <p>We comply with the CCPA (as amended by the CPRA), Virginia CDPA, Colorado Privacy Act, and other applicable state privacy laws. We do not sell or share personal information as defined by the CCPA/CPRA. You may designate an authorised agent and appeal our decisions by contacting <em class="ph">[contact@moneypattern.ai]</em>.</p>
+    <h3>20.4 Canada</h3>
+    <p>Our data practices comply with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws (including Quebec's Law 25, Alberta's PIPA, and British Columbia's PIPA). If you are in Canada, you have the right to access the personal information we hold about you, request correction, and withdraw consent, subject to legal and contractual restrictions. The federal regulator is the Office of the Privacy Commissioner of Canada (OPC) — <a class="inline" href="https://priv.gc.ca" target="_blank" rel="noopener">priv.gc.ca</a>.</p>
+    <h3>20.5 Countries We Cover</h3>
+    <p>We operate only in Australia, the United Kingdom, the United States, and Canada. We do not offer the Services in, or tailor this Privacy Policy to, any other country. If you contact us from outside these four countries, please <a class="inline" href="#s14">get in touch</a> for jurisdiction-specific information.</p>
+  </section>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="foot">
+    <div class="foot-brand">
+      <svg class="brand-mark" style="width:22px;height:22px" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
+        <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
+        <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+      </svg>
+      <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
+    </div>
+    <div class="foot-links">
+      <a href="Privacy Policy.html">Privacy</a>
+      <a href="Terms of Use.html">Terms</a>
+      <a href="MoneyPattern.html#top">Home</a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /wrap -->
+</body>
+</html>
