@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyPattern — Your Financial Horoscope</title>
+<meta name="description" content="A horoscope for your financial mind. Understand the behavioral patterns that shape how you save, plan, invest, and respond when markets get messy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500;1,9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  /* ground */
+  --navy:#0A1020;
+  --navy-deep:#06090F;
+  --card:rgba(255,255,255,0.06);
+  --card-2:rgba(255,255,255,0.09);
+  /* single gold accent */
+  --gold:#E4B45C;
+  --gold-pale:#F4DCA0;
+  --gold-deep:#C2954A;
+  /* cool blues (brand) */
+  --blue-light:#5298BF;
+  --blue-mid:#3C7AA8;
+  --blue-deep:#1D4A75;
+  --blue-200:#9cc1da;
+  /* foreground — neutral cool greys, no purple cast */
+  --fg-1:#FFFFFF;
+  --fg-2:#E9EBEF;
+  --fg-3:#C2C6CE;
+  --fg-4:#8C909B;
+  /* lines */
+  --hair:rgba(244,245,248,0.08);
+  --hair-soft:rgba(244,245,248,0.15);
+  --serif:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+
+body{
+  background:var(--navy);
+  color:var(--fg-2);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.6;
+  letter-spacing:0;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* fixed atmosphere */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1200px 820px at 50% -6%, rgba(36,62,108,0.22), transparent 58%),
+    radial-gradient(1000px 760px at 14% 4%, rgba(28,50,92,0.16), transparent 60%),
+    linear-gradient(180deg, #0B1326 0%, #0A1020 46%, #06090F 100%);
+}
+#stars{position:fixed;inset:0;z-index:1;pointer-events:none}
+.grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:0.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{position:relative;z-index:3}
+
+.container{max-width:1140px;margin:0 auto;padding:0 40px}
+.narrow{max-width:760px;margin:0 auto;padding:0 40px}
+
+/* ── type helpers ── */
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.26em;
+  text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:18px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow.center::after{content:'';width:18px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.eyebrow.blue{color:var(--blue-light)}
+.eyebrow.blue::before{background:linear-gradient(90deg,transparent,var(--blue-light))}
+
+h1,h2,h3{font-family:var(--serif);font-weight:var(--heading-weight,600);color:var(--fg-1);letter-spacing:-0.01em;
+  line-height:1.08;text-wrap:balance}
+.serif-em{font-family:var(--sans);font-style:italic;color:var(--gold-pale);font-weight:500;letter-spacing:-0.01em}
+.serif-em.blue{color:var(--blue-200)}
+
+/* ── buttons ── */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;
+  font-weight:500;letter-spacing:0.02em;text-decoration:none;border-radius:999px;cursor:pointer;
+  border:1px solid transparent;transition:all .2s var(--ease);white-space:nowrap}
+.btn-gold{background:var(--blue-light);color:#fff;padding:14px 30px;
+  box-shadow:0 10px 36px -12px rgba(82,152,191,0.5)}
+.btn-gold:hover{background:#6CACD0;transform:translateY(-2px);
+  box-shadow:0 16px 44px -12px rgba(82,152,191,0.6);color:#fff}
+.btn-ghost{background:transparent;color:var(--fg-1);border-color:var(--hair-soft);padding:13px 26px}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-pale);background:rgba(228,180,92,0.05)}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;transition:background .3s var(--ease),border-color .3s var(--ease),padding .3s var(--ease);
+  border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(8,12,22,0.78);backdrop-filter:blur(18px) saturate(1.2);
+  border-bottom-color:var(--hair);padding:14px 40px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:32px;height:32px;flex-shrink:0}
+.brand-name{font-family:'DM Sans',var(--sans);font-size:22px;font-weight:600;color:var(--fg-1);letter-spacing:-0.01em;
+  display:inline-flex;align-items:flex-start}
+.brand-name .tm{font-style:normal;font-size:9px;font-weight:500;color:var(--fg-3);margin-left:2px;margin-top:2px;letter-spacing:0}
+.tm-hero{font-size:0.32em;font-weight:400;font-style:normal;vertical-align:top;position:relative;top:0.18em;
+  margin-left:0.04em;color:var(--gold-pale);opacity:.75;letter-spacing:0}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-family:var(--sans);font-size:13.5px;font-weight:400;color:var(--fg-3);
+  text-decoration:none;transition:color .18s var(--ease);letter-spacing:0.01em}
+.nav-links a:hover{color:var(--fg-1)}
+.nav-right{display:flex;align-items:center;gap:26px}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:140px 24px 90px;position:relative}
+.hero-orbit{position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);
+  width:min(680px,92vw);aspect-ratio:1;pointer-events:none;opacity:0.5}
+.hero-orbit svg{width:100%;height:100%;animation:spin 120s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;max-width:780px}
+.hero-star{width:54px;height:54px;margin:0 auto 30px;display:block;
+  filter:drop-shadow(0 0 22px rgba(228,180,92,0.4));animation:pulse 6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.hero h1{font-size:clamp(2.9rem,7.4vw,5.6rem);font-weight:300;line-height:1.02;margin:26px 0 0}
+.hero-sub{font-family:var(--sans);font-size:clamp(1rem,1.6vw,1.12rem);color:var(--fg-3);
+  font-weight:300;max-width:500px;margin:30px auto 0;line-height:1.75}
+.hero-actions{margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.hero-note{font-family:var(--sans);font-size:12.5px;color:var(--fg-4);letter-spacing:0.04em;
+  display:flex;align-items:center;gap:10px}
+.hero-note .dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.7}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint span{font-family:var(--sans);font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:var(--fg-4)}
+.scroll-line{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:-46px;left:0;width:1px;height:46px;
+  background:linear-gradient(var(--gold-pale),transparent);animation:drop 2.4s var(--ease) infinite}
+@keyframes drop{to{top:46px}}
+
+/* ── section frame ── */
+section{position:relative}
+.sec{padding:118px 0}
+.sec-head{max-width:680px;margin:0 auto 70px;text-align:center}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:300;margin-top:18px}
+.sec-head p{font-family:var(--sans);font-size:16px;color:var(--fg-3);font-weight:300;
+  margin-top:20px;line-height:1.7;max-width:540px;margin-left:auto;margin-right:auto}
+
+.rule{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto}
+.rule::before,.rule::after{content:'';width:60px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--hair-soft),transparent)}
+.rule .gem{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);opacity:.6}
+
+/* ── WHAT IS (two-col) ── */
+.split{display:grid;grid-template-columns:1.05fr 0.95fr;gap:72px;align-items:center}
+.split h2{font-size:clamp(2rem,4vw,3rem);font-weight:300;margin:18px 0 26px}
+.split p{font-family:var(--sans);font-size:16px;color:var(--fg-3);font-weight:300;line-height:1.78;margin-bottom:18px}
+.split p strong{color:var(--fg-2);font-weight:500}
+.chart{width:100%;max-width:440px;margin:0 auto;aspect-ratio:1;position:relative}
+.chart svg{width:100%;height:100%;animation:float 9s ease-in-out infinite}
+.pattern-card{width:100%;max-width:420px;margin:0 auto}
+.pattern-card img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--hair-soft);
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.75);animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ── DIMENSIONS ── */
+.dims{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.dim{position:relative;background:var(--card);border:1px solid var(--hair);border-radius:18px;
+  padding:34px 32px;transition:border-color .25s var(--ease),background .25s var(--ease);overflow:hidden}
+.dim::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;opacity:0;
+  background:linear-gradient(135deg,var(--gold),transparent 40%);transition:opacity .3s var(--ease);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.dim:hover{background:var(--card-2);border-color:transparent}
+.dim:hover::before{opacity:.55}
+.dim-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.dim-icon{width:50px;height:50px;color:var(--gold)}
+.dim-num{font-family:var(--sans);font-style:italic;font-size:30px;color:var(--fg-4);font-weight:500}
+.dim-tag{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--blue-light);margin-bottom:12px;display:block}
+.dim h3{font-family:var(--serif);font-size:25px;font-weight:400;color:var(--fg-1);margin-bottom:14px;line-height:1.15}
+.dim p{font-family:var(--sans);font-size:14.5px;color:var(--fg-3);font-weight:300;line-height:1.72}
+
+/* ── GAP ── */
+.gap-wrap{text-align:center}
+.gap-wrap h2{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:300;margin-bottom:22px}
+.gap-lead{font-family:var(--sans);font-size:16px;color:var(--fg-3);font-weight:300;
+  max-width:520px;margin:0 auto 60px;line-height:1.75}
+.gap-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:stretch;text-align:left;margin-bottom:58px}
+.gap-card{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:34px 32px}
+.gap-card.want{border-color:rgba(82,152,191,0.32);background:rgba(82,152,191,0.10)}
+.gap-label{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.18em;
+  text-transform:uppercase;margin-bottom:10px;color:var(--fg-4)}
+.gap-card.want .gap-label{color:var(--blue-light)}
+.gap-card h3{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:22px;color:var(--fg-1)}
+.gap-list{list-style:none}
+.gap-list li{font-family:var(--sans);font-size:14.5px;font-weight:300;color:var(--fg-3);
+  padding:13px 0;border-top:1px solid var(--hair);display:flex;align-items:flex-start;gap:12px}
+.gap-list li:first-child{border-top:none}
+.gap-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--fg-4);margin-top:8px;flex-shrink:0}
+.gap-card.want .gap-list li::before{background:var(--blue-light)}
+.gap-mid{display:flex;align-items:center;justify-content:center;width:44px}
+.gap-mid svg{width:44px;height:44px;color:var(--gold);opacity:.65}
+.gap-close{font-family:var(--sans);font-size:clamp(1.3rem,2.4vw,1.7rem);font-weight:400;font-style:italic;
+  color:var(--fg-1);line-height:1.5;max-width:560px;margin:0 auto;text-wrap:balance}
+.gap-viz{max-width:860px;margin:0 auto 52px}
+
+/* ── HOW IT WORKS ── */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.step{position:relative;padding:36px 30px;background:var(--card);border:1px solid var(--hair);border-radius:18px}
+.step-ico{width:40px;height:40px;color:var(--gold);margin-bottom:20px}
+.step h3{font-family:var(--serif);font-size:23px;font-weight:400;color:var(--fg-1);margin-bottom:12px;
+  display:flex;align-items:baseline;gap:14px}
+.step-no{font-family:var(--sans);font-style:normal;font-weight:500;font-size:30px;color:var(--fg-1);line-height:1}
+.step p{font-family:var(--sans);font-size:14.5px;color:var(--fg-3);font-weight:300;line-height:1.72}
+.steps-cta{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:58px}
+
+/* ── ARCHETYPES (constellation) ── */
+.constellation{position:relative;width:100%;aspect-ratio:1000/500;max-width:980px;margin:0 auto}
+.cz-lines{position:absolute;inset:0;width:100%;height:100%}
+.cz-node{position:absolute;transform:translate(-50%,-50%);background:none;border:none;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;z-index:2;color:inherit}
+.cz-dot{width:13px;height:13px;border-radius:50%;background:var(--gold);position:relative;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  box-shadow:0 0 0 4px rgba(228,180,92,0.12),0 0 16px rgba(228,180,92,0.5)}
+.cz-dot::after{content:'';position:absolute;inset:-9px;border-radius:50%;border:1px solid var(--gold);
+  opacity:0;transition:opacity .25s var(--ease),transform .25s var(--ease);transform:scale(.6)}
+.cz-label{font-family:var(--sans);font-size:15px;font-style:normal;color:var(--fg-3);
+  white-space:nowrap;transition:color .25s var(--ease);letter-spacing:0.01em}
+.cz-node:hover .cz-dot,.cz-node.active .cz-dot,.cz-node:focus-visible .cz-dot{
+  transform:scale(1.45);box-shadow:0 0 0 5px rgba(228,180,92,0.18),0 0 26px rgba(228,180,92,0.8)}
+.cz-node:hover .cz-dot::after,.cz-node.active .cz-dot::after{opacity:.7;transform:scale(1)}
+.cz-node:hover .cz-label,.cz-node.active .cz-label,.cz-node:focus-visible .cz-label{color:var(--gold-pale)}
+.cz-desig{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-4);opacity:.85;transition:color .25s var(--ease)}
+.cz-node:hover .cz-desig,.cz-node.active .cz-desig,.cz-node:focus-visible .cz-desig{color:var(--gold)}
+.cz-node.b1 .cz-dot{width:18px;height:18px}
+.cz-node.b3 .cz-dot{width:10px;height:10px}
+.cz-readout{max-width:540px;margin:54px auto 0;text-align:center;min-height:120px}
+.cz-readout .idx{font-family:var(--sans);font-style:italic;font-size:15px;color:var(--gold);display:block;margin-bottom:10px}
+.cz-readout h3{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:400;color:var(--fg-1);margin-bottom:16px}
+.cz-readout p{font-family:var(--sans);font-size:15.5px;color:var(--fg-3);font-weight:300;line-height:1.75;
+  transition:opacity .3s var(--ease)}
+.cz-hint{font-family:var(--sans);font-size:12.5px;color:var(--fg-4);margin-top:30px;text-align:center;letter-spacing:0.02em}
+
+/* ── TESTIMONIALS (carousel) ── */
+.tcarousel{position:relative}
+.tviewport{overflow:hidden}
+.ttrack{display:flex;gap:22px;transition:transform .55s var(--ease)}
+.tcard{flex:0 0 calc((100% - 44px) / 3);box-sizing:border-box;background:var(--card);border:1px solid var(--hair);
+  border-radius:18px;padding:32px 30px;display:flex;flex-direction:column}
+.tctrl{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:42px}
+.tarrow{width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--hair-soft);
+  color:var(--fg-2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s var(--ease);flex-shrink:0}
+.tarrow:hover{border-color:var(--blue-light);color:var(--blue-light);background:rgba(82,152,191,0.06)}
+.tarrow svg{width:20px;height:20px}
+.tdots{display:flex;gap:9px;align-items:center}
+.tdot{width:8px;height:8px;border-radius:50%;background:var(--hair-soft);border:none;padding:0;cursor:pointer;transition:all .3s var(--ease)}
+.tdot.on{background:var(--blue-light);width:24px;border-radius:4px}
+.tstars{display:flex;gap:4px;margin-bottom:20px;color:var(--gold)}
+.tstars svg{width:15px;height:15px}
+.tcard blockquote{font-family:var(--serif);font-size:20px;font-weight:400;font-style:normal;
+  line-height:1.5;color:var(--fg-1);margin-bottom:24px;flex:1}
+.tauthor{font-family:var(--sans);font-size:13px;color:var(--fg-3);font-weight:400;
+  display:flex;align-items:center;gap:9px}
+.tauthor b{color:var(--gold-pale);font-weight:500;font-style:normal}
+.tauthor .sep{width:3px;height:3px;border-radius:50%;background:var(--fg-4)}
+
+/* ── ABOUT / FOUNDER ── */
+.about-grid{display:grid;grid-template-columns:0.62fr 1.38fr;gap:60px;align-items:stretch;margin-top:14px}
+.about-media{position:relative;display:flex}
+.about-photo{position:relative;width:100%;border-radius:18px;overflow:hidden;border:1px solid var(--hair-soft);
+  background:var(--card);box-shadow:0 40px 80px -50px rgba(0,0,0,.8)}
+.about-photo::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(8,10,20,0.55));mix-blend-mode:multiply}
+.about-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 14%}
+.about-cap{margin-top:18px;display:flex;flex-direction:column;gap:4px}
+.about-cap b{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--fg-1);letter-spacing:-.01em}
+.about-cap span{font-family:var(--sans);font-size:12.5px;color:var(--fg-3);font-weight:300}
+.about-body{max-width:640px}
+.about-body p{font-family:var(--sans);font-size:16px;line-height:1.74;color:var(--fg-2);font-weight:300;margin-bottom:20px}
+.about-lead{font-size:21px!important;line-height:1.5!important;color:var(--fg-1)!important;font-weight:400!important;
+  margin-bottom:26px!important;text-wrap:pretty}
+.about-pull{font-family:var(--sans)!important;font-size:23px!important;line-height:1.35!important;
+  color:var(--gold-pale)!important;font-weight:400!important;margin:30px 0!important;
+  padding-left:22px;border-left:2px solid var(--gold);text-wrap:balance}
+.about-sign{margin-top:34px;padding-top:26px;border-top:1px solid var(--hair);display:flex;flex-direction:column;gap:3px}
+.about-sign-name{font-family:var(--sans);font-size:20px;font-weight:500;color:var(--fg-1);letter-spacing:-.01em}
+.about-sign-role{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-light)}
+
+/* ── CTA ── */
+.cta{text-align:center;padding:130px 0 140px;position:relative}
+.cta h2{font-size:clamp(2.4rem,5.6vw,4.4rem);font-weight:300;margin-bottom:24px}
+.cta p{font-family:var(--sans);font-size:16px;color:var(--fg-3);font-weight:300;max-width:440px;
+  margin:0 auto 40px;line-height:1.75}
+.cta-sub{font-family:var(--sans);font-size:12.5px;color:var(--fg-4);margin-top:20px;letter-spacing:0.04em}
+.cta-badges{display:flex;align-items:center;justify-content:center;gap:34px;margin-top:48px;flex-wrap:wrap}
+.cta-badge{font-family:var(--sans);font-size:12.5px;color:var(--fg-3);display:flex;align-items:center;gap:9px}
+.cta-badge svg{width:15px;height:15px;color:var(--gold);opacity:.85}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--hair);padding:40px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-brand{display:flex;align-items:center;gap:10px}
+.foot-brand .brand-name{font-size:18px}
+.foot-powered{font-family:var(--sans);font-size:11.5px;color:var(--fg-4);display:flex;align-items:center;gap:8px}
+.foot-powered img{height:15px;opacity:.55;width:auto}
+.foot-links{display:flex;gap:26px}
+.foot-links a{font-family:var(--sans);font-size:12.5px;color:var(--fg-4);text-decoration:none}
+.foot-links a:hover{color:var(--fg-2)}
+
+/* ── reveal ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ── QUIZ OVERLAY ── */
+.quiz{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+.quiz.open{display:flex}
+.quiz-scrim{position:absolute;inset:0;background:rgba(4,7,14,0.88);backdrop-filter:blur(8px);
+  animation:fade .3s var(--ease)}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.quiz-modal{position:relative;width:100%;max-width:600px;background:linear-gradient(180deg,#0e1628,#0a111e);
+  border:1px solid var(--hair-soft);border-radius:24px;padding:44px 44px 38px;
+  box-shadow:0 40px 120px -30px rgba(0,0,0,0.8);animation:rise .4s var(--ease)}
+@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+.quiz-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;
+  background:var(--card-2);border:1px solid var(--hair);color:var(--fg-3);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .2s var(--ease)}
+.quiz-close:hover{color:var(--fg-1);border-color:var(--hair-soft);background:rgba(255,255,255,0.07)}
+.quiz-close svg{width:15px;height:15px}
+.qdots{display:flex;gap:8px;justify-content:center;margin-bottom:30px}
+.qdot{width:7px;height:7px;border-radius:50%;background:var(--hair-soft);transition:all .3s var(--ease)}
+.qdot.on{background:var(--gold);width:22px;border-radius:4px}
+.qdot.done{background:var(--gold-deep)}
+.qcard{animation:fade .35s var(--ease)}
+.qeyebrow{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:18px}
+.qtitle{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2rem);font-weight:400;color:var(--fg-1);
+  text-align:center;line-height:1.2;margin-bottom:34px;text-wrap:balance}
+.qopts{display:flex;flex-direction:column;gap:12px}
+.qopt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;
+  background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:18px 20px;cursor:pointer;
+  font-family:var(--sans);font-size:15px;font-weight:300;color:var(--fg-2);transition:all .18s var(--ease)}
+.qopt:hover{border-color:var(--gold);background:rgba(228,180,92,0.06);color:var(--fg-1);transform:translateX(3px)}
+.qopt.chosen{border-color:var(--gold);background:rgba(228,180,92,0.12);color:var(--fg-1)}
+.qopt-star{color:var(--gold);font-size:15px;flex-shrink:0;transition:transform .2s var(--ease)}
+.qopt:hover .qopt-star{transform:rotate(90deg) scale(1.1)}
+.qresult{text-align:center}
+.qresult-mark{margin:0 auto 8px;animation:pulse 6s ease-in-out infinite;width:92px}
+.qresult-name{margin-bottom:18px;color:var(--gold-pale)}
+.qresult-line{font-family:var(--sans);font-size:15.5px;color:var(--fg-2);font-weight:300;
+  line-height:1.72;max-width:440px;margin:0 auto 24px}
+.qresult-note{font-family:var(--sans);font-size:13px;color:var(--fg-4);font-weight:300;line-height:1.6;
+  max-width:420px;margin:0 auto 30px;padding-top:22px;border-top:1px solid var(--hair)}
+.qresult-cta{margin:0 auto}
+.qrestart{display:block;margin:18px auto 0;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:12.5px;color:var(--fg-4);letter-spacing:0.03em;transition:color .18s var(--ease)}
+.qrestart:hover{color:var(--gold-pale)}
+
+/* ── APP SHOWCASE (bento) ── */
+.ap-bento{display:grid;grid-template-columns:0.8fr 1.2fr;gap:22px;align-items:stretch}
+.ap-side{display:flex;flex-direction:column;gap:22px}
+.ap-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--hair);
+  border-radius:20px;padding:28px;transition:border-color .25s var(--ease),background .25s var(--ease)}
+.ap-card:hover{border-color:var(--hair-soft);background:var(--card-2)}
+.ap-ico{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(228,180,92,0.08);border:1px solid rgba(228,180,92,0.18);color:var(--gold);margin-bottom:20px}
+.ap-ico svg{width:22px;height:22px}
+.ap-tag{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--blue-light);display:block;margin-bottom:10px}
+.ap-card h3{font-family:var(--serif);font-size:23px;font-weight:400;color:var(--fg-1);margin-bottom:10px;line-height:1.15}
+.ap-card p{font-family:var(--sans);font-size:13.5px;color:var(--fg-3);font-weight:300;line-height:1.65}
+.ap-results{list-style:none;margin-top:20px}
+.ap-result{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--hair)}
+.ap-result:first-child{border-top:none}
+.ap-result .rl{display:flex;align-items:center;gap:11px;font-family:var(--sans);font-size:13px;color:var(--fg-3);font-weight:300}
+.ap-result .rl .rdot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(228,180,92,.6);flex-shrink:0}
+.ap-result b{font-family:var(--sans);font-style:italic;font-size:15px;color:var(--gold-pale);font-weight:500;white-space:nowrap}
+.ap-mini{flex-direction:row;align-items:center;gap:16px}
+.ap-mini .ap-ico{margin-bottom:0;flex-shrink:0}
+.ap-mini h4{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--fg-1);margin-bottom:3px}
+.ap-mini p{font-size:12.5px}
+.ap-stage{position:relative;display:flex;align-items:center;justify-content:center;gap:16px;overflow:hidden;
+  border:1px solid var(--hair);border-radius:24px;padding:30px 24px;
+  background:radial-gradient(440px 380px at 50% 36%, rgba(82,152,191,0.16), transparent 70%)}
+.ap-stage .ap-glow{position:absolute;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(228,180,92,0.10),transparent 65%);top:6%;left:4%;pointer-events:none}
+.ap-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+
+/* ── realistic app phones (HTML/CSS, crisp at any size) ── */
+.ap-phones{display:flex;justify-content:center;margin:48px auto 14px}
+.px-fit{display:flex;justify-content:center;width:100%}
+.px-stage{display:flex;gap:30px;justify-content:center;align-items:stretch;transform-origin:top center}
+.px-phone{width:272px;flex-shrink:0;border-radius:42px;padding:10px;align-self:flex-start;
+  background:linear-gradient(150deg,#23252e,#0a0b12);
+  box-shadow:0 50px 90px -42px rgba(0,0,0,.85),inset 0 0 0 1px rgba(255,255,255,.06),0 0 0 1.5px #000}
+.px-screen{position:relative;border-radius:33px;overflow:hidden;display:flex;flex-direction:column;height:576px;
+  font-family:var(--sans);-webkit-font-smoothing:antialiased}
+.px-status{position:relative;display:flex;align-items:center;justify-content:space-between;padding:7px 19px 0;font-size:12.5px;font-weight:600}
+.px-status .px-time{font-variant-numeric:tabular-nums}
+.px-sys{display:flex;align-items:center;gap:6px}
+.px-sys svg{height:11.5px;width:auto}
+.px-sys .px-batt{height:11.5px}
+.px-sys .px-x{height:15px;width:15px;margin-left:2px}
+.px-light{color:#fff}
+.px-dark{color:#0B0B45}
+.px-dark .px-plan-title{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8aa0b8;white-space:nowrap;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.px-segs{display:flex;gap:4px;padding:11px 19px 2px}
+.px-segs i{flex:1;height:3px;border-radius:99px;background:rgba(255,255,255,.28)}
+.px-segs i.on{background:#fff}
+.px-segs i.on.half{background:linear-gradient(90deg,#fff 55%,rgba(255,255,255,.28) 55%)}
+.px-segs-dark i{background:rgba(11,11,69,.16)}
+.px-segs-dark i.on{background:#0B0B45}
+/* phone 1 */
+.px-stat{background:linear-gradient(170deg,#2f80c4 0%,#2c73ad 38%,#296497 72%,#26567f 100%)}
+.px-stat-body{position:relative;flex:1;display:flex;flex-direction:column;padding:15px 19px 16px}
+.px-hex{position:absolute;top:16px;right:8px;width:88px;height:auto;pointer-events:none}
+.px-eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#9cc4dd}
+.px-big{display:flex;align-items:flex-start;gap:2px;margin-top:10px;color:#fff;line-height:.85}
+.px-big b{font-size:54px;font-weight:800;letter-spacing:-.04em}
+.px-big .px-pct{font-size:25px;font-weight:800;font-style:normal;margin-top:4px;letter-spacing:-.02em}
+.px-statsub{margin-top:9px;font-size:12px;color:rgba(255,255,255,.84)}
+.px-stat-h{font-size:18px;line-height:1.22;font-weight:700;letter-spacing:-.02em;color:#fff;margin-top:18px;text-wrap:balance}
+.px-stat-p{font-size:11.5px;line-height:1.5;color:rgba(255,255,255,.78);margin-top:10px}
+.px-stat-p strong{color:#fff;font-weight:600}
+.px-note{display:flex;gap:8px;align-items:flex-start;margin-top:14px;padding:11px 12px;border-radius:11px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16)}
+.px-note svg{height:14px;width:14px;flex-shrink:0;color:rgba(255,255,255,.7);margin-top:1px}
+.px-note span{font-size:11px;line-height:1.45;color:rgba(255,255,255,.82)}
+.px-note strong{color:#fff;font-weight:700}
+.px-stat-nav{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:16px;color:rgba(255,255,255,.55)}
+.px-stat-nav svg{height:16px;width:16px}
+.px-next{display:flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+/* phone 2 */
+.px-plan{background:#fbfcfe}
+.px-plan-scroll{flex:1;display:flex;flex-direction:column;gap:9px;padding:4px 14px 0;overflow:hidden}
+.px-plan-head{text-align:center;padding:4px 2px 0}
+.px-plan-h{font-size:18px;line-height:1.2;font-weight:700;letter-spacing:-.02em;color:#0B0B45;text-wrap:balance}
+.px-plan-h em{font-style:italic;font-weight:700;color:#2f6db0}
+.px-plan-intro{font-size:11px;line-height:1.42;color:#46586c;margin-top:8px;text-wrap:pretty}
+.px-plan-intro strong{color:#0B0B45;font-weight:700}
+.px-pcard{position:relative;background:#fff;border-radius:12px;padding:12px 13px 13px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(11,11,69,.05),0 8px 20px -14px rgba(11,11,69,.28),inset 0 0 0 1px rgba(11,11,69,.05)}
+.px-pcard-rule{position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,#4a93c4,#2f6db0)}
+.px-pcard-top{display:flex;align-items:center;gap:10px}
+.px-pico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff}
+.px-pico svg{height:17px;width:17px}
+.px-pcard-tt h5{font-size:14.5px;font-weight:700;letter-spacing:-.01em;color:#0B0B45;line-height:1.1}
+.px-pcard-tt span{display:block;margin-top:2px;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#90a0b3;white-space:nowrap}
+.px-pcard p{font-size:11px;line-height:1.46;color:#46586c;margin-top:8px;text-wrap:pretty}
+.px-plan-foot{padding:9px 13px 12px;background:linear-gradient(0deg,#fbfcfe 72%,rgba(251,252,254,0))}
+.px-save{width:100%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px;border-radius:12px;font-family:var(--sans);font-size:13.5px;font-weight:600;color:#fff;
+  background:linear-gradient(180deg,#1d4a75,#13315a);box-shadow:0 10px 22px -12px rgba(13,49,90,.7)}
+.px-save svg{height:15px;width:15px}
+.ap-frame{position:relative;margin-bottom:22px}
+.ap-frame .ap-window{max-width:1000px;margin:0 auto}
+.ap-screens{display:block;width:100%;max-width:820px;height:auto;margin:0 auto;position:relative;
+  filter:drop-shadow(0 40px 60px rgba(0,0,0,0.55))}
+.ap-frame::before{content:'';position:absolute;left:8%;right:8%;top:6%;bottom:4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(82,152,191,0.16),transparent 78%);filter:blur(50px)}
+.ap-split{display:grid;grid-template-columns:1.45fr 1fr;gap:22px;align-items:stretch;margin-bottom:22px}
+.ap-window{position:relative;border:1px solid var(--hair-soft);border-radius:16px;overflow:hidden;background:#0c1422;
+  box-shadow:0 40px 100px -45px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.03) inset}
+.ap-bar{display:flex;align-items:center;gap:14px;padding:11px 16px;background:rgba(255,255,255,0.025);border-bottom:1px solid var(--hair)}
+.ap-dots{display:flex;gap:7px}
+.ap-dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.14)}
+.ap-url{font-family:var(--sans);font-size:12px;color:var(--fg-4);letter-spacing:0.02em}
+.ap-url b{color:var(--fg-3);font-weight:500}
+.ap-window img{display:block;width:100%;height:auto}
+
+/* PHONE FRAME */
+.phone{width:228px;flex-shrink:0;border-radius:42px;background:linear-gradient(150deg,#15161d,#0a0b10);
+  padding:8px;position:relative;box-shadow:0 50px 100px -42px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05) inset}
+.phone.back{transform:translateY(22px)}
+.phone.front{transform:translateY(-10px);z-index:2}
+.phone-screen{position:relative;border-radius:35px;overflow:hidden;height:580px;background:#fff}
+.phone-island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:80px;height:23px;
+  background:#000;border-radius:99px;z-index:9}
+
+/* PROFILE SCREEN (light) */
+.mp{height:100%;background:#fff;display:flex;flex-direction:column;font-family:var(--sans);color:#0B0B45}
+.mp-status{display:flex;align-items:center;justify-content:space-between;padding:13px 20px 0;font-size:12px;font-weight:600;color:#0B0B45}
+.mp-status .bt{width:13px;height:13px;border:1.5px solid rgba(11,11,69,.4);border-radius:50%}
+.mp-body{flex:1;display:flex;flex-direction:column;padding:8px 18px 10px}
+.mp-top{display:flex;align-items:center;justify-content:space-between}
+.mp-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#3C7AA8}
+.mp-streak{font-size:10px;font-weight:600;color:#C2742A;background:#FBEBD8;border-radius:99px;
+  padding:4px 9px;display:inline-flex;align-items:center;gap:4px}
+.mp-title{font-size:20px;font-weight:700;letter-spacing:-0.02em;margin-top:3px}
+.mp-title sup{font-size:9px;font-weight:600;top:-0.7em}
+.mp-hex{display:flex;justify-content:center;padding:6px 0 6px}
+.mp-meter{display:flex;align-items:flex-end;justify-content:space-between}
+.mp-meter-q{font-size:14px;font-weight:600;color:#0B0B45}
+.mp-meter-sub{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9099b8;margin-top:3px}
+.mp-meter-pct{font-size:22px;font-weight:700;color:#0B0B45}
+.mp-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.mp-row{display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(11,11,69,.09);
+  border-left:3px solid #5298BF;border-radius:11px;padding:7px 13px;font-size:13.5px;font-weight:600;color:#0B0B45}
+.mp-row.ready{border-left-color:#E0A23C;background:#FCF3E4}
+.mp-rt{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:right;line-height:1.35}
+.mp-rt.done{color:#3E9E73}
+.mp-rt.ready{color:#C2742A}
+.mp-nudge{display:flex;gap:10px;align-items:flex-start;background:#F1F3F7;border-radius:12px;padding:9px 12px;margin-top:8px}
+.mp-nudge-dot{width:9px;height:9px;border-radius:50%;background:#0B0B45;margin-top:3px;flex-shrink:0}
+.mp-nudge p{font-size:11px;line-height:1.5;color:#36406b;font-weight:400}
+.mp-nudge em{font-style:normal;color:#3C7AA8;font-weight:600}
+.mp-cta{margin-top:auto;background:#0B0B45;color:#fff;border-radius:999px;padding:11px;text-align:center;font-weight:600;font-size:14px}
+
+/* DISCOVERY SCREEN (dark) */
+.md{height:100%;background:linear-gradient(165deg,#0B2A4A 0%,#06183A 100%);color:#fff;position:relative;
+  overflow:hidden;font-family:var(--sans);padding:42px 22px 0}
+.md-prog{position:absolute;top:16px;left:22px;right:22px;display:flex;gap:4px;z-index:2}
+.md-prog i{flex:1;height:3px;border-radius:99px;background:rgba(255,255,255,.18)}
+.md-prog i.on{background:#fff}
+.md-wm{position:absolute;top:56px;right:-26px;z-index:0;pointer-events:none}
+.md-label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px;position:relative;z-index:1}
+.md-disc{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#A8C8DE;margin-top:26px;position:relative;z-index:1}
+.md-stat{display:flex;align-items:baseline;gap:7px;margin-top:8px;position:relative;z-index:1}
+.md-stat b{font-size:78px;font-weight:800;letter-spacing:-.04em;line-height:.85}
+.md-stat span{font-size:22px;font-weight:600;color:rgba(255,255,255,.85)}
+.md-statsub{font-size:13px;color:rgba(255,255,255,.7);margin-top:8px;position:relative;z-index:1}
+.md-headline{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-top:26px;position:relative;z-index:1}
+.md-headline em{font-style:italic;font-weight:700}
+.md-text{font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.8);margin-top:13px;position:relative;z-index:1;font-weight:400}
+.md-text b{font-weight:700;color:#fff}
+.md-cite{margin-top:18px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);border-radius:12px;
+  padding:12px 14px;font-size:12px;line-height:1.5;color:rgba(255,255,255,.8);position:relative;z-index:1}
+.md-cite b{color:#fff;font-weight:700}
+.md-next{position:absolute;bottom:24px;right:22px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);z-index:2}
+
+/* ── RESPONSIVE ── */
+@media(max-width:920px){
+  .nav-links{display:none}
+  .about-grid{grid-template-columns:1fr;gap:34px}
+  .about-media{position:static;max-width:420px}
+  .split{grid-template-columns:1fr;gap:48px}
+  .chart{max-width:360px}
+  .steps{grid-template-columns:1fr}
+  .ap-bento{grid-template-columns:1fr}
+  .ap-split{grid-template-columns:1fr}
+  .tcard{flex:0 0 calc((100% - 22px) / 2)}
+  .constellation{aspect-ratio:auto;max-width:420px;display:flex;flex-direction:column;gap:6px}
+  .cz-lines{display:none}
+  .cz-node{position:static!important;transform:none;left:auto!important;top:auto!important;
+    flex-direction:row;width:100%;justify-content:flex-start;gap:14px;padding:15px 18px;
+    background:var(--card);border:1px solid var(--hair);border-radius:14px}
+  .cz-label{font-size:17px}
+  .cz-node.active{border-color:var(--gold);background:rgba(228,180,92,0.06)}
+}
+@media(max-width:680px){
+  .container,.narrow{padding:0 22px}
+  .nav{padding:16px 22px}
+  .nav.scrolled{padding:12px 22px}
+  .sec{padding:84px 0}
+  .dims{grid-template-columns:1fr}
+  .tcard{flex:0 0 100%}
+  .ap-row{grid-template-columns:1fr}
+  .phone.back{transform:none;margin-bottom:18px}
+  .phone.front{transform:none}
+  .gap-grid{grid-template-columns:1fr;gap:18px}
+  .gap-mid{width:auto;margin:0 auto;transform:rotate(90deg)}
+  .cta-badges{flex-direction:column;gap:16px}
+  .foot{flex-direction:column;text-align:center}
+  .quiz-modal{padding:36px 24px 30px}
+}
+</style>
+</head>
+<body>
+
+<div class="sky"></div>
+<canvas id="stars"></canvas>
+<div class="grain"></div>
+
+<div class="wrap">
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#top" class="brand" aria-label="MoneyPattern home">
+    <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
+      <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
+      <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+    </svg>
+    <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
+  </a>
+  <div class="nav-links">
+    <a href="#what">What it is</a>
+    <a href="#dimensions">The dimensions</a>
+    <a href="#archetypes">Archetypes</a>
+    <a href="#app">The app</a>
+    <a href="#how">How it works</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="btn btn-gold" data-open-quiz>Discover yours</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-orbit" aria-hidden="true">
+    <svg viewBox="0 0 680 680" fill="none">
+      <circle cx="340" cy="340" r="330" stroke="rgba(228,180,92,0.10)" stroke-width="1"/>
+      <circle cx="340" cy="340" r="250" stroke="rgba(238,240,248,0.05)" stroke-width="1"/>
+      <circle cx="340" cy="340" r="170" stroke="rgba(82,152,191,0.10)" stroke-width="1"/>
+      <g fill="#E4B45C">
+        <circle cx="340" cy="10" r="2.6" opacity="0.9"/>
+        <circle cx="610" cy="250" r="2" opacity="0.6"/>
+        <circle cx="500" cy="600" r="2.4" opacity="0.75"/>
+        <circle cx="120" cy="520" r="1.8" opacity="0.5"/>
+        <circle cx="80" cy="220" r="2.2" opacity="0.7"/>
+      </g>
+      <g fill="#5298BF">
+        <circle cx="510" cy="170" r="1.6" opacity="0.6"/>
+        <circle cx="190" cy="90" r="1.6" opacity="0.5"/>
+        <circle cx="590" cy="430" r="1.6" opacity="0.55"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="eyebrow center" style="justify-content:center">Your financial horoscope</div>
+    <h1>Your financial mindset follows a <span class="serif-em">pattern.</span><br>Discover yours.</h1>
+    <p class="hero-sub">A horoscope for your financial mind — map the psychological patterns that shape how you save, spend, invest, plan, and react when the markets get messy.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-gold" data-open-quiz>Discover your MoneyPattern <span class="arr">→</span></a>
+      <span class="hero-note"><span class="dot"></span>Takes 5 minutes</span>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT IS -->
+<section class="sec" id="what">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <div class="eyebrow blue">What is MoneyPattern</div>
+        <h2>Your money has a <span class="serif-em">pattern.</span> Meet it.</h2>
+        <p>Just as a horoscope reveals tendencies in how you love, work, and relate — your MoneyPattern reveals the deep-rooted instincts behind every financial decision you make.</p>
+        <p>It isn't about what you earn or what you own. It's about understanding <strong>why you do what you do with money</strong> — and how those patterns quietly shape the distance between the life you have and the life you actually want.</p>
+      </div>
+      <div class="reveal" data-delay="120">
+        <div class="pattern-card">
+          <img src="assets/money-pattern-card.png" width="686" height="900" loading="lazy" alt="The Money Pattern map — a brain illustration resolving into hexagons, with your five dimension results: Steady Saver, Considered Spender, Retirement-Ready, Steady-Responder, Cautious Investor.">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSIONS -->
+<section class="sec" id="dimensions">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="rule"><span class="gem"></span></div>
+      <div style="margin-top:34px" class="eyebrow blue">The four dimensions of your pattern</div>
+      <h2>Self-discovery across every layer of your <span class="serif-em">financial life</span></h2>
+    </div>
+    <div class="dims">
+      <div class="dim reveal">
+        <div class="dim-top">
+          <svg class="dim-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M24 8 a16 16 0 1 0 0.01 0" stroke-opacity="0.25"/>
+            <path d="M24 8 a16 16 0 0 1 0 32" stroke-opacity="0.9"/>
+            <circle cx="24" cy="24" r="6.5"/>
+            <path d="M24 18.5 v11 M21 21.5 h6 M21 26.5 h6" stroke-width="1.1"/>
+          </svg>
+          <span class="dim-num">01</span>
+        </div>
+        <span class="dim-tag">Saving &amp; Spending</span>
+        <h3>How you spend and save</h3>
+        <p>Are you a natural acquirer who saves instinctively — or do you spend freely and save what's left? Your saving pattern reveals the emotional relationship you have with money, and whether you build by habit, by willpower, or have blocks getting in the way.</p>
+      </div>
+      <div class="dim reveal" data-delay="80">
+        <div class="dim-top">
+          <svg class="dim-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M8 34 h32" stroke-opacity="0.5"/>
+            <path d="M16 34 a8 8 0 0 1 16 0" />
+            <path d="M24 14 v-6 M12 18 l-3.5 -3.5 M36 18 l3.5 -3.5" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="33" cy="13" r="1.4" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="dim-num">02</span>
+        </div>
+        <span class="dim-tag">Retirement</span>
+        <h3>How you plan for your future</h3>
+        <p>Do you imagine retirement vividly — or does the future feel abstract, far away, easy to defer? Your planning pattern reveals how connected you are to your future self: optimistic or grounded, long-term or present-focused, or simply legacy-driven.</p>
+      </div>
+      <div class="dim reveal" data-delay="40">
+        <div class="dim-top">
+          <svg class="dim-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M10 32 L20 24 L27 28 L38 16" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M31 16 h7 v7" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="24" r="1.6" fill="currentColor" stroke="none"/>
+            <circle cx="27" cy="28" r="1.6" fill="currentColor" stroke="none"/>
+            <path d="M10 38 h28" stroke-opacity="0.3"/>
+          </svg>
+          <span class="dim-num">03</span>
+        </div>
+        <span class="dim-tag">Investing</span>
+        <h3>How you invest</h3>
+        <p>Are you bold, cautious, or conflicted? Your investment pattern reveals how much uncertainty you're comfortable with, how you'll respond when values drop, and whether your signals tilt toward loss-aversion, regret, or confidence in your own judgement.</p>
+      </div>
+      <div class="dim reveal" data-delay="120">
+        <div class="dim-top">
+          <svg class="dim-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M7 22 q5 -9 10 0 t10 0 t10 0" stroke-linecap="round"/>
+            <path d="M7 30 q5 -9 10 0 t10 0 t10 0" stroke-opacity="0.4" stroke-linecap="round"/>
+            <circle cx="24" cy="13" r="1.6" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="dim-num">04</span>
+        </div>
+        <span class="dim-tag">Market Response</span>
+        <h3>How you react under pressure</h3>
+        <p>When markets fall, do you buy, hold, or panic? Your market-response pattern is one of the most powerful predictors of your outcomes. It reveals how you're wired to react under pressure — and whether that wiring is working for you or against you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAP -->
+<section class="sec">
+  <div class="narrow gap-wrap">
+    <div class="reveal">
+      <div class="rule" style="margin-bottom:40px"><span class="gem"></span></div>
+      <h2>The life you have vs the life <span class="serif-em">you want.</span></h2>
+      <p class="gap-lead">The distance between them is rarely about income. It's almost always about your MoneyPattern — the subtle, automatic decisions you make every day without realising you're making them.</p>
+    </div>
+    <div class="gap-grid reveal" data-delay="80">
+      <div class="gap-card">
+        <div class="gap-label">Where you are</div>
+        <h3>The life you have</h3>
+        <ul class="gap-list">
+          <li>Savings that don't seem to grow</li>
+          <li>Plans that never quite start</li>
+          <li>Investments you second-guess</li>
+          <li>Anxiety every time markets move</li>
+          <li>A gap between knowing and doing</li>
+        </ul>
+      </div>
+      <div class="gap-mid" aria-hidden="true">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M8 22 h26 M27 14 l8 8 -8 8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="gap-card want">
+        <div class="gap-label">Where you want to be</div>
+        <h3>The life you want</h3>
+        <ul class="gap-list">
+          <li>Clarity on how you think about money</li>
+          <li>A future that feels real, not abstract</li>
+          <li>Time freedom and life enjoyment</li>
+          <li>Calm when things get uncertain</li>
+          <li>Safety and security in your choices</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gap-viz reveal" data-delay="60">
+      <div class="ap-window">
+        <div class="ap-bar">
+          <span class="ap-dots"><i></i><i></i><i></i></span>
+          <span class="ap-url"><b>app.moneypattern.ai</b> / satisfaction</span>
+        </div>
+        <img src="assets/financial-life-satisfaction.png" width="881" height="380" loading="lazy" alt="Financial Life Satisfaction index — a gradient bar mapping the gap between the life you have and the life you want.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHETYPES -->
+<section class="sec" id="archetypes">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="rule"><span class="gem"></span></div>
+      <div style="margin-top:34px" class="eyebrow">Which pattern are you</div>
+      <h2>Seven financial <span class="serif-em">archetypes.</span> One is yours.</h2>
+      <p>Every MoneyPattern resolves into a constellation — a named archetype that captures how your financial instincts move. Understand yours.</p>
+    </div>
+
+    <div class="reveal" data-delay="80">
+      <div class="constellation">
+        <svg class="cz-lines" viewBox="0 0 1000 500" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="rgba(228,180,92,0.30)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="110,300 240,200 370,270 510,230 700,155 800,250 750,365"/>
+          </g>
+          <g fill="#E4B45C">
+            <circle cx="762" cy="182" r="2.2" opacity="0.5"/>
+            <circle cx="300" cy="332" r="2" opacity="0.45"/>
+          </g>
+          <g fill="#ffffff">
+            <circle cx="150" cy="300" r="1.3" opacity="0.4"/>
+            <circle cx="620" cy="205" r="1.3" opacity="0.4"/>
+            <circle cx="845" cy="330" r="1.3" opacity="0.4"/>
+            <circle cx="430" cy="175" r="1.1" opacity="0.35"/>
+          </g>
+        </svg>
+        <button class="cz-node active b1" style="left:70%;top:31%" data-idx="Loss-aversion driven"
+          data-name="The Security Seeker" data-blurb="Consistent savers who under-invest in growth — security matters more than returns.">
+          <span class="cz-dot"></span><span class="cz-label">Security Seeker</span>
+        </button>
+        <button class="cz-node b2" style="left:80%;top:50%" data-idx="Opportunity driven"
+          data-name="The Confident Grower" data-blurb="Long-term thinker who invests consistently — but overconfidence creates costly blind spots.">
+          <span class="cz-dot"></span><span class="cz-label">Confident Grower</span>
+        </button>
+        <button class="cz-node b2" style="left:75%;top:73%" data-idx="Anxiety driven"
+          data-name="The Anxious Avoider" data-blurb="Anxiety creates a self-reinforcing avoidance loop that prevents financial progress.">
+          <span class="cz-dot"></span><span class="cz-label">Anxious Avoider</span>
+        </button>
+        <button class="cz-node b2" style="left:51%;top:46%" data-idx="Action driven"
+          data-name="The Impulsive Optimist" data-blurb="Enthusiastic and engaged — but impulsive decisions and lifestyle inflation quietly erode results.">
+          <span class="cz-dot"></span><span class="cz-label">Impulsive Optimist</span>
+        </button>
+        <button class="cz-node b3" style="left:37%;top:54%" data-idx="Logic driven"
+          data-name="The Informed Analyst" data-blurb="Researches thoroughly before deciding — but analysis paralysis means decisions never happen.">
+          <span class="cz-dot"></span><span class="cz-label">Informed Analyst</span>
+        </button>
+        <button class="cz-node b3" style="left:24%;top:40%" data-idx="Present-biased"
+          data-name="The Present-Focused Drifter" data-blurb="Focused on today, not tomorrow — good intentions rarely convert to financial action.">
+          <span class="cz-dot"></span><span class="cz-label">Present-Focused Drifter</span>
+        </button>
+        <button class="cz-node b3" style="left:11%;top:60%" data-idx="Balanced profile"
+          data-name="The Pragmatic Moderate" data-blurb="Manages money adequately — but consistent small gaps quietly compound into a large shortfall.">
+          <span class="cz-dot"></span><span class="cz-label">Pragmatic Moderate</span>
+        </button>
+      </div>
+
+      <div class="cz-readout">
+        <span class="idx" id="cz-index">Loss-aversion driven</span>
+        <h3 id="cz-name">The Security Seeker</h3>
+        <p id="cz-blurb">Consistent savers who under-invest in growth — security matters more than returns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SHOWCASE -->
+<section class="sec" id="app">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="rule"><span class="gem"></span></div>
+      <div style="margin-top:34px" class="eyebrow">The app</div>
+      <h2>A powerful tool for <span class="serif-em">self-discovery</span></h2>
+      <p>MoneyPattern lives in your pocket — a quiet, daily practice that turns behavioral insight into an action plan with lasting results.</p>
+    </div>
+
+    <div class="ap-phones reveal" data-delay="80">
+      <div class="px-fit">
+        <div class="px-stage">
+
+          <!-- PHONE 1 · STAT -->
+          <div class="px-phone">
+            <div class="px-screen px-stat">
+              <div class="px-segs"><i class="on"></i><i class="on half"></i><i></i><i></i></div>
+              <div class="px-status px-light">
+                <span class="px-time">9:55</span>
+                <span class="px-sys">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0"></path><path d="M8.5 16.1a6 6 0 0 1 7 0"></path><path d="M12 19.5h.01"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path></svg>
+                  <svg class="px-batt" viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="1.5" width="20" height="11" rx="3"></rect><rect x="3" y="3.5" width="13" height="7" rx="1.5" fill="currentColor" stroke="none"></rect><path d="M23.5 5v4" stroke-linecap="round"></path></svg>
+                  <svg class="px-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+                </span>
+              </div>
+              <div class="px-stat-body">
+                <svg class="px-hex" viewBox="0 0 150 190" aria-hidden="true">
+                  <polygon points="92,38 116,52 116,80 92,94 68,80 68,52" fill="#fff" opacity="0.13"></polygon>
+                  <polygon points="60,86 84,100 84,128 60,142 36,128 36,100" fill="#fff" opacity="0.11"></polygon>
+                  <polygon points="106,96 130,110 130,138 106,152 82,138 82,110" fill="#fff" opacity="0.09"></polygon>
+                </svg>
+                <div class="px-eyebrow">Impulsive Spender</div>
+                <div class="px-big"><b>27</b><i class="px-pct">%</i></div>
+                <div class="px-statsub">spend to soothe stress — then regret it</div>
+                <h4 class="px-stat-h">The relief is real. It just doesn't last.</h4>
+                <p class="px-stat-p">Emotional spending gives a genuine hit of relief, then leaves the worry intact. The lever is naming the feeling first — and automating savings before the urge hits.</p>
+                <div class="px-note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                  <span><strong>27%</strong> of adults spend to cope with stress — and the share is rising. Credit&nbsp;Karma / Qualtrics&nbsp;2023.</span>
+                </div>
+                <div class="px-stat-nav">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+                  <span class="px-next">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PHONE 2 · PLAN -->
+          <div class="px-phone">
+            <div class="px-screen px-plan">
+              <div class="px-segs px-segs-dark"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+              <div class="px-status px-dark">
+                <span class="px-time">9:57</span>
+                <span class="px-plan-title">Your Action Plan</span>
+                <span class="px-sys">
+                  <svg class="px-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+                </span>
+              </div>
+              <div class="px-plan-scroll">
+                <div class="px-plan-head">
+                  <h4 class="px-plan-h">Put a pause between you and the <em>impulse</em>.</h4>
+                  <p class="px-plan-intro">Impulse buys happen in seconds, before thinking catches up. These three habits put a beat of space back in — <strong>small and repeatable</strong>.</p>
+                </div>
+                <div class="px-pcard">
+                  <span class="px-pcard-rule"></span>
+                  <div class="px-pcard-top">
+                    <span class="px-pico" style="background:#5298BF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path></svg></span>
+                    <div class="px-pcard-tt"><h5>Mindset</h5><span>The story you tell</span></div>
+                  </div>
+                  <p>Most impulse buys are really about a feeling — stress, boredom, a quick lift. Name what you're actually reaching...</p>
+                </div>
+                <div class="px-pcard">
+                  <span class="px-pcard-rule"></span>
+                  <div class="px-pcard-top">
+                    <span class="px-pico" style="background:#3C7AA8"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1.6"></rect><rect x="14" y="5" width="4" height="14" rx="1.6"></rect></svg></span>
+                    <div class="px-pcard-tt"><h5>The pause</h5><span>In the moment</span></div>
+                  </div>
+                  <p>When the urge hits, put time between you and the tap. Leave the cart, remove saved cards, sleep on it.</p>
+                </div>
+                <div class="px-pcard">
+                  <span class="px-pcard-rule"></span>
+                  <div class="px-pcard-top">
+                    <span class="px-pico" style="background:#1D4A75"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"></path><path d="M4 10V3"></path><path d="M12 21v-9"></path><path d="M12 8V3"></path><path d="M20 21v-5"></path><path d="M20 12V3"></path><path d="M1 14h6"></path><path d="M9 8h6"></path><path d="M17 16h6"></path></svg></span>
+                    <div class="px-pcard-tt"><h5>Structure</h5><span>Built in, not willpower</span></div>
+                  </div>
+                  <p>Move savings out before you can touch them, and keep a set amount for guilt-free fun. Good defaults...</p>
+                </div>
+              </div>
+              <div class="px-plan-foot">
+                <button class="px-save" type="button">Save to my plan
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="ap-row reveal" data-delay="120">
+      <div class="ap-card ap-mini">
+        <div class="ap-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+        </div>
+        <div>
+          <h4>Action Plan</h4>
+          <p>A plan tailored to your pattern, shift insights into action.</p>
+        </div>
+      </div>
+      <div class="ap-card ap-mini">
+        <div class="ap-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V4Z"/><path d="M9 9h6M9 13h4" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h4>Dashboard</h4>
+          <p>Your MoneyPattern in one view, watch it sharpen over time.</p>
+        </div>
+      </div>
+      <div class="ap-card ap-mini">
+        <div class="ap-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h4>Private &amp; secure</h4>
+          <p>Your inner financial life stays yours. Encrypted, and never sold.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  function fitPX(){
+    document.querySelectorAll('.px-fit').forEach(function(fit){
+      var stage=fit.querySelector('.px-stage'); if(!stage)return;
+      stage.style.transform='none';
+      var natW=stage.offsetWidth, natH=stage.offsetHeight; if(!natW)return;
+      var s=Math.min(1, fit.clientWidth/natW);
+      stage.style.transform='scale('+s+')';
+      fit.style.height=(natH*s)+'px';
+    });
+  }
+  window.addEventListener('resize',fitPX);
+  window.addEventListener('load',fitPX);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitPX);
+  if(document.readyState!=='loading')fitPX(); else document.addEventListener('DOMContentLoaded',fitPX);
+})();
+</script>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="how">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="rule"><span class="gem"></span></div>
+      <div style="margin-top:34px" class="eyebrow blue">How it works</div>
+      <h2>Three steps from curiosity to <span class="serif-em">clarity</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <svg class="step-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+          <circle cx="18" cy="18" r="11"/><path d="M26 26 l8 8" stroke-linecap="round"/>
+          <path d="M18 13 v10 M13 18 h10" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+        <h3><span class="step-no">01</span>Discover</h3>
+        <p>A set of questions about how you actually feel and behave around money. Five minutes of self-discovery.</p>
+      </div>
+      <div class="step reveal" data-delay="90">
+        <svg class="step-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M20 6 L22.6 16.4 L33 18 L22.6 19.6 L20 30 L17.4 19.6 L7 18 L17.4 16.4 Z"/>
+          <path d="M31 30 l1 3 3 1 -3 1 -1 3 -1 -3 -3 -1 3 -1 z" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3><span class="step-no">02</span>Reveal</h3>
+        <p>Your answers resolve into the hidden biases that shape your financial decisions.</p>
+      </div>
+      <div class="step reveal" data-delay="180">
+        <svg class="step-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M14 22 a8 8 0 1 1 4 7" stroke-linecap="round"/>
+          <path d="M12 20 v6 h6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="18" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3><span class="step-no">03</span>Shift</h3>
+        <p>Understand your levers. Work with your instincts instead of against them.</p>
+      </div>
+    </div>
+    <div class="steps-cta reveal" data-delay="120">
+      <a href="#" class="btn btn-gold" data-open-quiz>Discover your MoneyPattern <span class="arr">→</span></a>
+      <span class="hero-note"><span class="dot"></span>Takes 5 minutes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / FOUNDER -->
+<section class="sec" id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="rule"><span class="gem"></span></div>
+      <div style="margin-top:34px" class="eyebrow">The founder</div>
+      <h2>The <span class="serif-em">why</span>, behind the MoneyPattern<sup class="tm-hero">™</sup></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <div class="about-photo">
+          <img src="assets/jacqui-henderson.jpg" width="1667" height="1489" loading="lazy" alt="Jacqui Henderson, Founder of MoneyPattern, speaking on stage.">
+        </div>
+      </div>
+      <div class="about-body reveal" data-delay="90">
+        <p class="about-lead">For most of my career, I helped build the future of money in fintech. For most of my life, I was quietly afraid of it.</p>
+        <p>I grew up with a scarcity mindset I never chose — one handed down through generations. It showed up as a low hum of anxiety, a shortage of financial confidence, and a belief that there would never quite be enough, no matter what the numbers said. It sometimes appeared in my spending habits — filling voids and making poor financial choices. It wasn't a budgeting problem. It was wiring: the kind of inherent pattern that runs silently down a family line until someone decides it stops with them.</p>
+        <p class="about-pull">I decided it would stop with me.</p>
+        <p>Breaking an intergenerational cycle turned out to be less about willpower and more about understanding the subconscious programming underneath the behaviour — the automatic stories, internal dialogue, fears, and reactions that fire long before a single financial decision is consciously made. As I did that work on myself, the shift was real and measurable in how I lived. The scarcity loosened into a sense of abundance. The anxiety that used to spike around money settled into something calmer and more regulated. Money stopped being a threat and started being a tool.</p>
+        <p>That transformation didn't come from nowhere. I've spent 20+ years across technology and wealth management, working as a thought leader in fintech and watching, up close, how often brilliant financial tools fail people — not because the advice is wrong, but because the behaviour underneath it never changes. The missing layer was always the same: the human mind, and the patterns it inherits.</p>
+        <p>Behavioural science became my obsession and, eventually, my purpose. It's the driving force behind the MoneyPattern — built on the conviction that lasting financial change begins beneath the surface, by helping people see and reshape the subconscious patterns that have quietly shaped their relationship with money for generations.</p>
+        <div class="about-sign">
+          <span class="about-sign-name">Jacqui Henderson</span>
+          <span class="about-sign-role">Founder, MoneyPattern</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head reveal" style="margin-bottom:54px">
+      <div class="rule"><span class="gem"></span></div>
+      <div style="margin-top:34px" class="eyebrow">Written in the stars</div>
+    </div>
+    <div class="tcarousel reveal" data-delay="80">
+      <div class="tviewport">
+        <div class="ttrack" id="ttrack">
+          <div class="tcard">
+            <div class="tstars" aria-label="Five stars">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg>
+            </div>
+            <blockquote>"I always thought I was bad with money. Turns out I'm not bad — I just have a pattern no one ever helped me understand before."</blockquote>
+            <div class="tauthor"><b>Sarah T.</b><span class="sep"></span>The Security Seeker</div>
+          </div>
+          <div class="tcard">
+            <div class="tstars" aria-label="Five stars">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg>
+            </div>
+            <blockquote>"Reading my MoneyPattern felt like someone finally explained me to myself. It changed how I talk to my partner about our finances."</blockquote>
+            <div class="tauthor"><b>James R.</b><span class="sep"></span>The Impulsive Optimist</div>
+          </div>
+          <div class="tcard">
+            <div class="tstars" aria-label="Five stars">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg>
+            </div>
+            <blockquote>"I've done personality tests before. This was the first one that actually changed what I did the following week."</blockquote>
+            <div class="tauthor"><b>Priya M.</b><span class="sep"></span>The Anxious Avoider</div>
+          </div>
+          <div class="tcard">
+            <div class="tstars" aria-label="Five stars">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg>
+            </div>
+            <blockquote>"It named something I'd felt for years but could never articulate. Suddenly my money decisions made sense — including the bad ones."</blockquote>
+            <div class="tauthor"><b>Daniel K.</b><span class="sep"></span>The Informed Analyst</div>
+          </div>
+          <div class="tcard">
+            <div class="tstars" aria-label="Five stars">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg>
+            </div>
+            <blockquote>"My partner and I took it together. The conversation it started was worth more than any budgeting app we'd ever tried."</blockquote>
+            <div class="tauthor"><b>Mara L.</b><span class="sep"></span>The Confident Grower</div>
+          </div>
+          <div class="tcard">
+            <div class="tstars" aria-label="Five stars">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1 L12 7 L18 7.5 L13.5 11.5 L15 18 L10 14.5 L5 18 L6.5 11.5 L2 7.5 L8 7 Z"/></svg>
+            </div>
+            <blockquote>"I kept putting off my finances for 'someday'. Seeing my pattern in black and white was the nudge that finally got me moving."</blockquote>
+            <div class="tauthor"><b>Tom B.</b><span class="sep"></span>The Present-Focused Drifter</div>
+          </div>
+        </div>
+      </div>
+      <div class="tctrl">
+        <button class="tarrow" id="tprev" aria-label="Previous testimonials">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="tdots" id="tdots"></div>
+        <button class="tarrow" id="tnext" aria-label="Next testimonials">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="narrow reveal">
+    <svg class="hero-star" style="width:42px;height:42px;margin-bottom:22px" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+      <path d="M27 2 L30.6 23.4 L52 27 L30.6 30.6 L27 52 L23.4 30.6 L2 27 L23.4 23.4 Z" fill="#E4B45C"/>
+    </svg>
+    <h2>Your pattern is already <span class="serif-em">working.</span></h2>
+    <p>The question is whether it's working for you — or against you. Five minutes to find out.</p>
+    <a href="#" class="btn btn-gold" data-open-quiz>Discover your MoneyPattern <span class="arr">→</span></a>
+    <div class="cta-badges">
+      <div class="cta-badge">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="10" r="7.5"/><path d="M10 6 v4 l2.5 2" stroke-linecap="round"/></svg>
+        Built on behavioral science
+      </div>
+      <div class="cta-badge">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2 L12 7.5 L18 8 L13.5 11.8 L15 17.5 L10 14.3 L5 17.5 L6.5 11.8 L2 8 L8 7.5 Z"/></svg>
+        Trusted by thousands
+      </div>
+      <div class="cta-badge">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2 L16 4.5 V10 c0 4 -2.6 6.6 -6 8 -3.4 -1.4 -6 -4 -6 -8 V4.5 Z"/></svg>
+        Private &amp; secure
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container foot">
+    <div class="foot-brand">
+      <svg class="brand-mark" style="width:22px;height:22px" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
+        <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
+        <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+      </svg>
+      <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
+    </div>
+    <div class="foot-powered">
+      Powered by MoneyMind Profile
+    </div>
+    <div class="foot-links">
+      <a href="Privacy Policy.html">Privacy</a>
+      <a href="Terms of Use.html">Terms</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /wrap -->
+
+<!-- QUIZ OVERLAY -->
+<div class="quiz" id="quiz" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Discover your MoneyPattern">
+  <div class="quiz-scrim" data-close-quiz></div>
+  <div class="quiz-modal">
+    <button class="quiz-close" data-close-quiz aria-label="Close">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3 L13 13 M13 3 L3 13" stroke-linecap="round"/></svg>
+    </button>
+    <div class="qdots" id="quiz-dots"></div>
+    <div id="quiz-stage"></div>
+  </div>
+</div>
+
+<script src="moneypattern.js"></script>
+
+</body>
+</html>
