@@ -45,7 +45,7 @@
             tw: 0.0005 + Math.random() * 0.0013,
             ph: Math.random() * Math.PI * 2,
             depth: L.depth,
-            col: isGold ? '228,180,92' : (Math.random() < 0.2 ? '200,218,255' : '255,255,255'),
+            col: isGold ? '232,75,138' : (Math.random() < 0.2 ? '212,110,150' : '246,185,210'),
             glow: L.depth > 0.5 && Math.random() < 0.3
           });
         }
@@ -101,8 +101,8 @@
           var ex = sh.x - Math.cos(sh.ang) * sh.len;
           var ey = sh.y - Math.sin(sh.ang) * sh.len;
           var grad = ctx.createLinearGradient(sh.x, sh.y, ex, ey);
-          grad.addColorStop(0, 'rgba(244,220,160,' + (0.6 * fade) + ')');
-          grad.addColorStop(1, 'rgba(244,220,160,0)');
+          grad.addColorStop(0, 'rgba(232,75,138,' + (0.6 * fade) + ')');
+          grad.addColorStop(1, 'rgba(232,75,138,0)');
           ctx.strokeStyle = grad; ctx.lineWidth = 1.6; ctx.lineCap = 'round';
           ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(ex, ey); ctx.stroke();
           if (sh.life >= sh.max || sh.x > W + 60 || sh.y > H + 60) shooters.splice(i, 1);
@@ -358,13 +358,13 @@
         '<div class="qeyebrow">A first glimpse of your pattern</div>' +
         '<div class="qresult-mark">' +
           '<svg viewBox="0 0 120 120" width="92" height="92" fill="none" aria-hidden="true">' +
-            '<g stroke="#E4B45C" stroke-width="1" opacity="0.85">' +
+            '<g stroke="#E84B8A" stroke-width="1" opacity="0.85">' +
               '<line x1="60" y1="14" x2="92" y2="44"/><line x1="92" y1="44" x2="80" y2="92"/>' +
               '<line x1="80" y1="92" x2="40" y2="92"/><line x1="40" y1="92" x2="28" y2="44"/>' +
               '<line x1="28" y1="44" x2="60" y2="14"/><line x1="28" y1="44" x2="80" y2="92"/>' +
               '<line x1="92" y1="44" x2="40" y2="92"/>' +
             '</g>' +
-            '<g fill="#F4DCA0">' +
+            '<g fill="#F6B9D2">' +
               '<circle cx="60" cy="14" r="3.4"/><circle cx="92" cy="44" r="3"/><circle cx="80" cy="92" r="3.4"/>' +
               '<circle cx="40" cy="92" r="2.6"/><circle cx="28" cy="44" r="3"/>' +
             '</g>' +

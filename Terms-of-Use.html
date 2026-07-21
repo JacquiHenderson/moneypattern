@@ -13,23 +13,23 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 :root{
-  --navy:#0A1020;
-  --navy-deep:#06090F;
-  --card:rgba(255,255,255,0.025);
-  --card-2:rgba(255,255,255,0.04);
-  --gold:#E4B45C;
-  --gold-pale:#F4DCA0;
-  --gold-deep:#C2954A;
-  --blue-light:#5298BF;
-  --blue-mid:#3C7AA8;
-  --blue-deep:#1D4A75;
-  --blue-200:#9cc1da;
-  --fg-1:#EEF0F8;
-  --fg-2:#C3C9DE;
-  --fg-3:#8E96B6;
-  --fg-4:#5C6488;
-  --hair:rgba(238,240,248,0.08);
-  --hair-soft:rgba(238,240,248,0.15);
+  --navy:#FFF5F7;
+  --navy-deep:#FBE7EE;
+  --card:rgba(255,255,255,0.55);
+  --card-2:rgba(255,255,255,0.85);
+  --gold:#E84B8A;
+  --gold-pale:#C13A70;
+  --gold-deep:#B03270;
+  --blue-light:#E84B8A;
+  --blue-mid:#D14B84;
+  --blue-deep:#A62E68;
+  --blue-200:#C13A70;
+  --fg-1:#6E243F;
+  --fg-2:#5A3A46;
+  --fg-3:#8A6675;
+  --fg-4:#B58AA0;
+  --hair:rgba(122,46,74,0.10);
+  --hair-soft:rgba(122,46,74,0.18);
   --serif:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --ease:cubic-bezier(0.22,1,0.36,1);
@@ -37,8 +37,8 @@ html{scroll-behavior:smooth}
 body{background:var(--navy);color:var(--fg-2);font-family:var(--sans);font-weight:400;font-size:16px;
   line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .sky{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(1100px 760px at 50% -8%, rgba(36,62,108,0.20), transparent 60%),
-    radial-gradient(900px 600px at 92% 8%, rgba(82,152,191,0.07), transparent 55%)}
+  background:radial-gradient(1100px 760px at 50% -8%, rgba(232,75,138,0.10), transparent 60%),
+    radial-gradient(900px 600px at 92% 8%, rgba(232,75,138,0.07), transparent 55%)}
 .wrap{position:relative;z-index:1}
 
 h1,h2,h3,h4{font-family:var(--serif);color:var(--fg-1);letter-spacing:-0.02em;line-height:1.18;text-wrap:balance}
@@ -46,7 +46,7 @@ a{color:inherit}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:18px 40px;background:rgba(8,12,22,0.78);backdrop-filter:blur(18px) saturate(1.2);
+  padding:18px 40px;background:rgba(255,245,248,0.85);backdrop-filter:blur(18px) saturate(1.2);
   border-bottom:1px solid var(--hair)}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
 .brand-mark{width:26px;height:26px;flex-shrink:0}
@@ -72,9 +72,9 @@ h1{font-size:clamp(2.3rem,5.4vw,3.4rem);font-weight:400}
 .callout{border-radius:14px;padding:20px 22px;margin:30px 0;font-size:14px;line-height:1.65}
 .callout .clabel{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
   display:block;margin-bottom:9px}
-.callout.draft{background:rgba(228,180,92,0.07);border:1px solid rgba(228,180,92,0.28);color:var(--fg-2)}
+.callout.draft{background:rgba(232,75,138,0.07);border:1px solid rgba(232,75,138,0.28);color:var(--fg-2)}
 .callout.draft .clabel{color:var(--gold)}
-.ph{color:var(--gold-pale);background:rgba(228,180,92,0.10);border-radius:4px;padding:0 5px;font-style:normal}
+.ph{color:var(--gold-pale);background:rgba(232,75,138,0.10);border-radius:4px;padding:0 5px;font-style:normal}
 
 /* INTRO */
 .intro{font-size:17px;color:var(--fg-2);line-height:1.7;margin-bottom:50px;padding-bottom:6px}
@@ -89,7 +89,7 @@ p{margin-bottom:16px;max-width:68ch}
 p:last-child{margin-bottom:0}
 strong{color:var(--fg-1);font-weight:600}
 em{font-style:italic;color:var(--fg-2)}
-a.inline{color:var(--blue-200);text-decoration:underline;text-decoration-color:rgba(156,193,218,0.4);text-underline-offset:2px}
+a.inline{color:var(--blue-200);text-decoration:underline;text-decoration-color:rgba(193,58,112,0.40);text-underline-offset:2px}
 a.inline:hover{text-decoration-color:var(--blue-200)}
 
 /* FOOTER */
@@ -120,9 +120,9 @@ footer{border-top:1px solid var(--hair);padding:40px 0}
 <nav class="nav">
   <a href="MoneyPattern.html" class="brand" aria-label="MoneyPattern home">
     <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
-      <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
-      <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+      <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#F4A9C8"/>
+      <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#E05A97"/>
+      <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#FBD6E5"/>
     </svg>
     <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
   </a>
@@ -210,9 +210,9 @@ footer{border-top:1px solid var(--hair);padding:40px 0}
   <div class="foot">
     <div class="foot-brand">
       <svg class="brand-mark" style="width:22px;height:22px" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
-        <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
-        <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+        <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#F4A9C8"/>
+        <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#E05A97"/>
+        <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#FBD6E5"/>
       </svg>
       <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
     </div>
