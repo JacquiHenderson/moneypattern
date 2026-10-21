@@ -2,381 +2,1031 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MoneyPattern — Privacy Policy</title>
-<meta name="description" content="How MoneyPattern collects, uses, shares, and protects your personal information.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Privacy Policy — MoneyPattern</title>
+<meta name="description" content="How MoneyPattern collects, uses, and protects your personal information — and the rights you have over it.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-:root{
-  --navy:#0A1020;
-  --navy-deep:#06090F;
-  --card:rgba(255,255,255,0.025);
-  --card-2:rgba(255,255,255,0.04);
-  --gold:#E4B45C;
-  --gold-pale:#F4DCA0;
-  --gold-deep:#C2954A;
-  --blue-light:#5298BF;
-  --blue-mid:#3C7AA8;
-  --blue-deep:#1D4A75;
-  --blue-200:#9cc1da;
-  --fg-1:#EEF0F8;
-  --fg-2:#C3C9DE;
-  --fg-3:#8E96B6;
-  --fg-4:#5C6488;
-  --hair:rgba(238,240,248,0.08);
-  --hair-soft:rgba(238,240,248,0.15);
-  --serif:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --ease:cubic-bezier(0.22,1,0.36,1);
-}
-body{background:var(--navy);color:var(--fg-2);font-family:var(--sans);font-weight:400;font-size:16px;
-  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.sky{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(1100px 760px at 50% -8%, rgba(36,62,108,0.20), transparent 60%),
-    radial-gradient(900px 600px at 92% 8%, rgba(82,152,191,0.07), transparent 55%)}
-.wrap{position:relative;z-index:1}
-
-h1,h2,h3,h4{font-family:var(--serif);color:var(--fg-1);letter-spacing:-0.02em;line-height:1.18;text-wrap:balance}
-a{color:inherit}
-
-/* NAV */
-.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:18px 40px;background:rgba(8,12,22,0.78);backdrop-filter:blur(18px) saturate(1.2);
-  border-bottom:1px solid var(--hair)}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
-.brand-mark{width:26px;height:26px;flex-shrink:0}
-.brand-name{font-family:'DM Sans',var(--sans);font-size:20px;font-weight:600;color:var(--fg-1);letter-spacing:-0.01em;
-  display:inline-flex;align-items:flex-start}
-.brand-name .tm{font-style:normal;font-size:9px;font-weight:500;color:var(--fg-3);margin-left:2px;margin-top:2px}
-.back{font-family:var(--sans);font-size:13.5px;color:var(--fg-3);text-decoration:none;display:flex;align-items:center;gap:8px;
-  transition:color .18s var(--ease)}
-.back:hover{color:var(--fg-1)}
-.back .arr{transition:transform .2s var(--ease)}
-.back:hover .arr{transform:translateX(-3px)}
-
-/* LAYOUT */
-.page{max-width:820px;margin:0 auto;padding:0 28px 120px}
-.titleblock{padding:78px 0 30px;border-bottom:1px solid var(--hair);margin-bottom:46px}
-.eyebrow{font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--blue-light);margin-bottom:20px}
-h1{font-size:clamp(2.3rem,5.4vw,3.4rem);font-weight:400}
-.meta{font-family:var(--sans);font-size:13.5px;color:var(--fg-4);margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.meta .dot{width:3px;height:3px;border-radius:50%;background:var(--fg-4)}
-
-/* CALLOUTS */
-.callout{border-radius:14px;padding:20px 22px;margin:30px 0;font-size:14px;line-height:1.65}
-.callout .clabel{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
-  display:block;margin-bottom:9px}
-.callout.draft{background:rgba(228,180,92,0.07);border:1px solid rgba(228,180,92,0.28);color:var(--fg-2)}
-.callout.draft .clabel{color:var(--gold)}
-.callout.review{background:rgba(82,152,191,0.07);border:1px solid rgba(82,152,191,0.30);color:var(--fg-2)}
-.callout.review .clabel{color:var(--blue-light)}
-.ph{color:var(--gold-pale);background:rgba(228,180,92,0.10);border-radius:4px;padding:0 5px;font-style:normal}
-
-/* TOC */
-.toc{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:30px 32px;margin-bottom:64px}
-.toc h2{font-size:13px;font-family:var(--sans);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--fg-3);margin-bottom:22px}
-.toc ol{list-style:none;counter-reset:toc;columns:2;column-gap:48px}
-.toc li{counter-increment:toc;break-inside:avoid;margin-bottom:13px}
-.toc a{font-size:14px;color:var(--fg-2);text-decoration:none;display:flex;gap:12px;transition:color .16s var(--ease)}
-.toc a::before{content:counter(toc,decimal-leading-zero);font-family:var(--sans);font-size:12px;color:var(--blue-light);
-  font-weight:600;flex-shrink:0;width:22px}
-.toc a:hover{color:var(--fg-1)}
-
-/* SECTIONS */
-section{margin-bottom:52px;scroll-margin-top:90px}
-section > h2{font-size:clamp(1.4rem,2.6vw,1.85rem);font-weight:500;margin-bottom:20px;padding-bottom:0;
-  display:flex;gap:16px;align-items:baseline}
-section > h2 .sn{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--blue-light);letter-spacing:0.04em;
-  flex-shrink:0;padding-top:6px}
-h3{font-size:1.08rem;font-weight:500;color:var(--fg-1);margin:30px 0 12px;letter-spacing:-0.01em}
-p{margin-bottom:16px;max-width:68ch}
-p:last-child,ul:last-child{margin-bottom:0}
-strong{color:var(--fg-1);font-weight:600}
-em{font-style:italic;color:var(--fg-2)}
-ul{list-style:none;margin:0 0 16px;padding:0}
-ul li{position:relative;padding-left:22px;margin-bottom:11px;max-width:66ch}
-ul li::before{content:'';position:absolute;left:4px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.8}
-a.inline{color:var(--blue-200);text-decoration:underline;text-decoration-color:rgba(156,193,218,0.4);text-underline-offset:2px}
-a.inline:hover{text-decoration-color:var(--blue-200)}
-.lead{font-size:17px;color:var(--fg-2);line-height:1.7}
-
-/* FOOTER */
-footer{border-top:1px solid var(--hair);padding:40px 0}
-.foot{max-width:820px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;
-  gap:24px;flex-wrap:wrap}
-.foot-brand{display:flex;align-items:center;gap:10px}
-.foot-brand .brand-name{font-size:16px}
-.foot-links{display:flex;gap:26px}
-.foot-links a{font-family:var(--sans);font-size:13px;color:var(--fg-3);text-decoration:none;transition:color .18s var(--ease)}
-.foot-links a:hover{color:var(--fg-1)}
-
-@media(max-width:680px){
-  .nav{padding:15px 20px}
-  .page{padding:0 20px 84px}
-  .titleblock{padding:52px 0 26px;margin-bottom:36px}
-  .toc{padding:24px 22px;margin-bottom:48px}
-  .toc ol{columns:1}
-  .back span.txt{display:none}
-  section > h2{gap:11px}
-  section > h2 .sn{padding-top:4px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-<div class="sky"></div>
-<div class="wrap">
-
-<nav class="nav">
-  <a href="MoneyPattern.html" class="brand" aria-label="MoneyPattern home">
-    <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
-      <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
-      <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
+<!-- NAV -->
+<header class="nav" id="nav" data-tone="light">
+  <a href="index.html" class="brand" aria-label="MoneyPattern home">
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="currentColor"/>
+      <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#ffb883"/>
+      <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="currentColor" opacity=".5"/>
     </svg>
-    <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
+    <span>MoneyPattern<sup>™</sup></span>
   </a>
-  <a href="MoneyPattern.html" class="back"><span class="arr">←</span><span class="txt">Back to home</span></a>
-</nav>
+  <nav class="pill" aria-label="Primary">
+    <button data-banner="pm" aria-expanded="false" aria-controls="pm" aria-haspopup="dialog">Products</button>
+    <button data-banner="am" aria-expanded="false" aria-controls="am" aria-haspopup="dialog">About</button>
+  </nav>
+  <div class="nav-right">
+    <a href="https://au.moneymindprofile.com/user_link/9Ris7koRd7ylxxGPboxem3oO9dlMR3xMRy0M0xySKK8/new_profile" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Discover yours</a>
+  </div>
+</header>
+<a href="https://au.moneymindprofile.com/user_link/9Ris7koRd7ylxxGPboxem3oO9dlMR3xMRy0M0xySKK8/new_profile" class="btn m-cta" target="_blank" rel="noopener noreferrer"><span class="led"></span>Discover your MoneyPattern</a>
 
-<div class="page">
-
-  <div class="titleblock">
-    <div class="eyebrow">Legal</div>
-    <h1>Privacy Policy</h1>
-    <div class="meta">
-      <span>Document version 1.0</span><span class="dot"></span>
-      <span>Effective date: 4 June 2026</span>
+<!-- PRODUCT BANNER -->
+<div class="pm" id="pm" role="dialog" aria-modal="true" aria-label="Products" aria-hidden="true">
+  <button class="pm-close" data-close aria-label="Close products">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="pm-inner">
+    <div class="pm-grid pair">
+      <a class="pm-card" href="product-moneypattern.html">
+        <span class="pm-asset t1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4.5Q10 13 18.5 13Q10 13 10 21.5Q10 13 1.5 13Q10 13 10 4.5Z"/><path d="M18 1.5Q18 5 21.5 5Q18 5 18 8.5Q18 5 14.5 5Q18 5 18 1.5Z" opacity=".55"/></svg></span>
+        <span class="pm-txt"><b>MoneyPattern</b><small>Your financial horoscope in 5 minutes</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="product-daily-plan.html">
+        <span class="pm-asset t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></svg></span>
+        <span class="pm-txt"><b>Daily Plan</b><small>A small, daily practice tailored to your own MoneyPattern and life goals.</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="product-action.html">
+        <span class="pm-asset t3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span>
+        <span class="pm-txt"><b>Action</b><small>Turn insights into habits that stick with your AI money coach.</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="learn.html">
+        <span class="pm-asset t5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5-10 4.5Z"/><path d="M6 11.5v4.5c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9.5v5"/></svg></span>
+        <span class="pm-txt"><b>Learn</b><small>Unlock Your Wealth Codes — a six-module course</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="product-pricing.html">
+        <span class="pm-asset t4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5V4a1 1 0 0 1 1-1h8.5l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-7.4 7.4a1.5 1.5 0 0 1-2.1 0Z"/><circle cx="8" cy="8" r="1.4"/></svg></span>
+        <span class="pm-txt"><b>Plans &amp; Pricing</b><small>Find the plan that fits you</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
     </div>
   </div>
+</div>
 
-  <!-- TOC -->
-  <nav class="toc" aria-label="Table of contents">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#s1">Introduction</a></li>
-      <li><a href="#s2">Scope and Application</a></li>
-      <li><a href="#s3">Definitions</a></li>
-      <li><a href="#s4">Our Role as Data Controller</a></li>
-      <li><a href="#s5">Personal Information We Collect</a></li>
-      <li><a href="#s6">How We Collect Personal Information</a></li>
-      <li><a href="#s7">How We Use Personal Information</a></li>
-      <li><a href="#s8">Legal Bases for Processing</a></li>
-      <li><a href="#s9">How We Share and Disclose</a></li>
-      <li><a href="#s10">International Data Transfers</a></li>
-      <li><a href="#s11">Aggregated and De-Identified Data</a></li>
-      <li><a href="#s12">Data Security</a></li>
-      <li><a href="#s13">Data Retention</a></li>
-      <li><a href="#s14">Your Privacy Rights</a></li>
-      <li><a href="#s15">Cookies and Tracking</a></li>
-      <li><a href="#s16">Third-Party Links and Services</a></li>
-      <li><a href="#s17">Children's Privacy</a></li>
-      <li><a href="#s18">Data Breach Notification</a></li>
-      <li><a href="#s19">Changes to This Policy</a></li>
-      <li><a href="#s20">Jurisdiction-Specific Information</a></li>
-    </ol>
-  </nav>
-
-  <section id="s1">
-    <h2><span class="sn">01</span>Introduction</h2>
-    <p class="lead">MoneyMind Profile Pty Ltd ABN 33 672 152 073 ("MoneyMind Profile," "we," "us," or "our") values your privacy. MoneyPattern is software you use directly to understand your own financial behaviour. We are committed to protecting your personal information and being transparent about how we handle it.</p>
-    <p>This Privacy Policy explains:</p>
-    <ul>
-      <li>What personal information we collect and why</li>
-      <li>How we use, share, and protect that information</li>
-      <li>Your rights regarding your personal information</li>
-      <li>How to contact us with privacy questions or concerns</li>
-    </ul>
-    <p>We serve individuals only in Australia, the United Kingdom, the United States, and Canada — these are the only countries in which we operate. This Privacy Policy is designed to comply with applicable data protection laws in each of these jurisdictions, including:</p>
-    <ul>
-      <li><strong>Australia:</strong> Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs)</li>
-      <li><strong>United Kingdom:</strong> UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018</li>
-      <li><strong>United States:</strong> California Consumer Privacy Act (CCPA/CPRA), Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), and other applicable state privacy laws</li>
-      <li><strong>Canada:</strong> Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws (including Quebec's Law 25, Alberta's PIPA, and British Columbia's PIPA)</li>
-    </ul>
-  </section>
-
-  <section id="s2">
-    <h2><span class="sn">02</span>Scope and Application</h2>
-    <h3>2.1 What This Policy Covers</h3>
-    <p>This Privacy Policy applies to personal information we collect, use, and disclose when you visit our websites, create a MoneyPattern account, use the MoneyPattern software and services, or otherwise communicate with us.</p>
-    <h3>2.2 About MoneyPattern</h3>
-    <p>MoneyPattern is a direct-to-consumer product. You use it yourself to complete a financial assessment to understand your behaviors toward saving, spending, investing and risk, to generate a personal financial profile and insights. You interact with us directly: there is no financial advisor, advisory firm, or other organisation sitting between you and us in providing the Service to you.</p>
-    <p>If you later choose to share your results with a financial professional or another person, you do so at your own direction, and their handling of your information is governed by their own privacy practices, not this Policy.</p>
-    <h3>2.3 We Are the Data Controller for Your Information</h3>
-    <p>Because you use MoneyPattern directly, MoneyPattern is the data controller for the personal information you provide and that we collect about you. This means we determine the purposes and means of processing your personal information, and we are responsible for handling it in accordance with this Policy and applicable law.</p>
-  </section>
-
-  <section id="s3">
-    <h2><span class="sn">03</span>Definitions</h2>
-    <p>For purposes of this Privacy Policy, key terms include: <strong>"Applicable Data Protection Laws"</strong> means all applicable data protection and privacy laws; <strong>"Controller"</strong> means the entity that determines the purposes and means of processing personal information; <strong>"Personal Information"</strong> means any information that identifies or is reasonably capable of being associated with an identified natural person; <strong>"Sensitive Information"</strong> means personal information that receives heightened protection under Applicable Data Protection Laws, which may include information about your financial circumstances; <strong>"Services"</strong> means the MoneyPattern software, websites, and related services; and <strong>"you"</strong> or <strong>"your"</strong> means the individual who uses the Services.</p>
-  </section>
-
-  <section id="s4">
-    <h2><span class="sn">04</span>Our Role as Data Controller</h2>
-    <p>We are the data controller for the personal information of everyone who interacts with us, including people who create an account and use the Services, website visitors, newsletter subscribers, event attendees, and people who contact us.</p>
-    <p>We process your personal information only for the purposes described in this Policy and on a lawful basis. We do not use third parties to make decisions about your personal information on our behalf except as described in Section 9 (service providers), and those parties act only on our instructions.</p>
-  </section>
-
-  <section id="s5">
-    <h2><span class="sn">05</span>Personal Information We Collect</h2>
-    <h3>5.1 Information You Give Us When You Create an Account and Use the Services</h3>
-    <p>When you register and use MoneyPattern, we may collect:</p>
-    <ul>
-      <li><strong>Identity and contact information:</strong> name, email address, phone number, and, where relevant, date of birth or other details needed to provide the Service.</li>
-      <li><strong>Account and authentication information:</strong> username, password, and multi-factor authentication (MFA) credentials.</li>
-      <li><strong>Financial behaviour information you provide:</strong> the responses, inputs, goals, attitudes, and preferences you choose to enter so that the Service can generate your profile, insights, and reports. This is information about you, provided by you, for your own use of the Service.</li>
-      <li><strong>Usage and activity information:</strong> login history, features accessed, and device information.</li>
-      <li><strong>Communications and billing information:</strong> support requests and, where the Service is paid, payment method details processed by our third-party payment processor.</li>
-    </ul>
-    <h3>5.2 Information We Collect Automatically</h3>
-    <p>When you visit our website or use the Service, we may automatically collect your IP address and approximate geolocation, browser type and version, operating system, referring website, pages visited, links clicked, and in-app activity and diagnostic data.</p>
-    <h3>5.3 Information From Third Parties</h3>
-    <p>We may receive personal information from service providers and integration partners; from publicly available sources; and, if you choose to sign in using a third-party provider (for example, a Google or Apple sign-in) or to connect a third-party account, from those providers as authorised by you.</p>
-    <h3>5.4 Sensitive Information</h3>
-    <p>Some of the information you enter to use MoneyPattern — particularly information about your financial circumstances and attitudes — may be treated as Sensitive Information under Applicable Data Protection Laws. We collect this information only to provide the Service to you, and only where you choose to provide it. Where Applicable Data Protection Laws require it, we rely on your explicit consent to process Sensitive Information, and you may withdraw that consent at any time (see Section 8). We do not require you to provide more sensitive information than is necessary to deliver the features you use.</p>
-  </section>
-
-  <section id="s6">
-    <h2><span class="sn">06</span>How We Collect Personal Information</h2>
-    <p>We collect personal information directly (when you provide it through registration, the assessment or questionnaire, forms, or communications), automatically (through cookies, web and app logs, and analytics tools), and from third-party sources (service providers, third-party sign-in or account providers you choose to use, and publicly available sources).</p>
-  </section>
-
-  <section id="s7">
-    <h2><span class="sn">07</span>How We Use Personal Information</h2>
-    <p>We use personal information to:</p>
-    <ul>
-      <li><strong>Provide and maintain the Services:</strong> create and manage your account, authenticate you, generate your financial profile, insights, and reports, provide customer support, and maintain backups.</li>
-      <li><strong>Improve and develop the Services:</strong> usage analytics, feature development, and research, using de-identified data wherever practicable (see Section 11).</li>
-      <li><strong>Operate our business:</strong> payment processing, accounting, and vendor management.</li>
-      <li><strong>Communicate with you and market our Services:</strong> send transactional and service messages, and — with your consent where required — newsletters and product updates. You may opt out of marketing communications at any time.</li>
-      <li><strong>Protect security and prevent fraud.</strong></li>
-      <li><strong>Comply with our legal obligations.</strong></li>
-    </ul>
-  </section>
-
-  <section id="s8">
-    <h2><span class="sn">08</span>Legal Bases for Processing (International Users)</h2>
-    <p>For users in jurisdictions requiring a legal basis for processing (such as the UK and EU under GDPR), we rely on: performance of a contract (providing the Service you have signed up for); legitimate interests (improving the Services, security, and fraud prevention — for which we conduct balancing tests); legal obligations; consent (including explicit consent for processing Sensitive Information and for marketing, which you may withdraw at any time); and vital interests in rare emergency circumstances.</p>
-  </section>
-
-  <section id="s9">
-    <h2><span class="sn">09</span>How We Share and Disclose Personal Information</h2>
-    <p>We do not sell, rent, or lease personal information to third parties, and we do not share your personal information with financial advisors or other third parties for their own purposes unless you direct us to.</p>
-    <p>We share personal information:</p>
-    <ul>
-      <li>with service providers and subprocessors bound by contractual obligations, for infrastructure, payment processing, analytics, security, and marketing;</li>
-      <li>within the MoneyPattern group for administration and business operations;</li>
-      <li>in connection with a business transfer (merger, acquisition, or asset sale), with prior notice; and</li>
-      <li>as required by law or to establish, exercise, or defend legal claims.</li>
-    </ul>
-    <p>We may share aggregated, anonymised, or de-identified information that cannot identify you (see Section 11).</p>
-  </section>
-
-  <section id="s10">
-    <h2><span class="sn">10</span>International Data Transfers</h2>
-    <p>MoneyPattern may transfer personal information to Australia (primary operations), the United States (cloud hosting infrastructure), the United Kingdom (offices), and other countries where our service providers operate. When transferring to countries not recognised as providing adequate protection, we implement Standard Contractual Clauses (SCCs), the UK International Data Transfer Agreement (IDTA), and supplementary measures including encryption in transit and at rest, strict access controls, and data minimisation.</p>
-  </section>
-
-  <section id="s11">
-    <h2><span class="sn">11</span>Aggregated and De-Identified Data</h2>
-    <p>We create aggregated, anonymised, and de-identified data to improve the Services, conduct research, and generate benchmarks. We remove all direct identifiers, apply statistical techniques to prevent re-identification, and ensure the data cannot reasonably be linked back to you. We apply our Data Aggregation and De-Identification Policy (supplied upon request).</p>
-    <div class="callout review">
-      <span class="clabel">Review note</span>
-      Because MoneyPattern aggregates consumers' own financial information (rather than firm-supplied client data), confirm that the de-identification standard and any consent disclosures here meet the bar required for sensitive financial data in each jurisdiction.
+<!-- ABOUT BANNER -->
+<div class="pm pm-alt" id="am" role="dialog" aria-modal="true" aria-label="About" aria-hidden="true">
+  <button class="pm-close" data-close aria-label="Close about">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="pm-inner">
+    <div class="pm-grid">
+      <a class="pm-card" href="company.html">
+        <span class="pm-asset u1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6.5L12 3l8 3.5V21"/><path d="M2.5 21h19M9 21v-5h6v5M8.5 9.5h.01M12 9.5h.01M15.5 9.5h.01M8.5 13h.01M12 13h.01M15.5 13h.01"/></svg></span>
+        <span class="pm-txt"><b>Company</b><small>The story and science behind MoneyPattern</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="#">
+        <span class="pm-asset u2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg></span>
+        <span class="pm-txt"><b>Podcast</b><small>Conversations on money, mindset and behaviour</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="#">
+        <span class="pm-asset u3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8Z" fill="currentColor"/></svg></span>
+        <span class="pm-txt"><b>Videos</b><small>Ideas and research on the psychology and tech of money</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
+      <a class="pm-card" href="#">
+        <span class="pm-asset u4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2Z"/><path d="M17 9h3v9a2 2 0 0 1-4 0M8 9h5M8 13h5M8 17h3"/></svg></span>
+        <span class="pm-txt"><b>Media</b><small>The latest from MoneyPattern</small></span>
+        <span class="pm-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section id="s12">
-    <h2><span class="sn">12</span>Data Security</h2>
-    <p>We implement comprehensive administrative, technical, and physical safeguards including: encryption (TLS 1.2+ in transit, industry-standard encryption at rest); access controls (MFA, role-based access control, least privilege, regular access reviews); network security (firewalls, intrusion detection, DDoS protection, penetration testing); and application security (secure SDLC, code reviews, OWASP Top 10 protection). Our infrastructure is hosted in secure, certified data centres with 24/7 monitoring.</p>
-    <p><strong>No absolute security.</strong> Despite our efforts, no security measures are perfect. We cannot guarantee the absolute security of personal information. Internet transmissions are never completely private or secure.</p>
-  </section>
+<main class="legal">
 
-  <section id="s13">
-    <h2><span class="sn">13</span>Data Retention</h2>
-    <p>We retain personal information only as long as necessary. We retain your information for as long as your account is active, plus up to 30 days after you close it. Closed accounts are deleted or anonymised within 30 days (backups retained for an additional 90 days). Financial and transaction records are retained for 7 years. Support tickets are retained for 3 years. Server logs are retained for 90 days. Aggregated and anonymised analytics data may be retained indefinitely. You may request deletion of your personal information, or close your account, at any time, subject to our legal obligations.</p>
-  </section>
+<header class="legal-head">
+  <span class="t-mono">Legal</span>
+  <h1 class="t-display">Privacy Policy</h1>
+  <p class="t-body">How MoneyPattern collects, uses, and protects your personal information — and the rights you have over it.</p>
+  <div class="legal-meta"><span><strong>Effective Date:</strong> 14 May 2026</span><span><strong>Version:</strong> 3.0</span></div>
+</header>
 
-  <section id="s14">
-    <h2><span class="sn">14</span>Your Privacy Rights</h2>
-    <h3>14.1 Rights Under Australian Privacy Law</h3>
-    <p>If you are in Australia, you have the right to access the personal information we hold about you, request correction of inaccurate information, and lodge a complaint with us about our handling of your personal information.</p>
-    <h3>14.2 Rights Under UK GDPR</h3>
-    <p>If you are in the UK or EU, you have the right to access, rectification, erasure, restriction of processing, data portability, objection to processing, and to lodge a complaint with the Information Commissioner's Office (ICO).</p>
-    <h3>14.3 Rights Under US Privacy Laws</h3>
-    <p>If you are in California, Virginia, Colorado, or another state with consumer privacy rights, you have the right to know what personal information we collect, request deletion, request correction, opt out of sale/sharing (note: we do not sell or share), limit the use of Sensitive Information, and not be discriminated against for exercising your rights.</p>
-    <h3>14.4 How to Exercise Your Rights</h3>
-    <p>To exercise any of these rights, please contact us at <em class="ph">[contact@moneypattern.ai]</em>. We may need to verify your identity before responding to your request.</p>
-  </section>
+<div class="legal-grid">
+    <details class="legal-toc">
+      <summary>Contents</summary>
+      <ol>
+        <li><a href="#section-1">Introduction</a></li>
+        <li><a href="#section-2">Scope and Application</a></li>
+        <li><a href="#section-3">Definitions</a></li>
+        <li><a href="#section-4">Our Role as Data Controller</a></li>
+        <li><a href="#section-5">Personal Information We Collect</a></li>
+        <li><a href="#section-6">How We Collect Personal Information</a></li>
+        <li><a href="#section-7">How We Use Personal Information</a></li>
+        <li><a href="#section-8">Legal Bases for Processing (International Users)</a></li>
+        <li><a href="#section-9">How We Share and Disclose Personal Information</a></li>
+        <li><a href="#section-10">International Data Transfers</a></li>
+        <li><a href="#section-11">Aggregated and De-Identified Data</a></li>
+        <li><a href="#section-12">Data Security</a></li>
+        <li><a href="#section-13">Data Retention</a></li>
+        <li><a href="#section-14">Your Privacy Rights</a></li>
+        <li><a href="#section-15">Cookies and Tracking Technologies</a></li>
+        <li><a href="#section-16">Third-Party Links and Services</a></li>
+        <li><a href="#section-17">Children's Privacy</a></li>
+        <li><a href="#section-18">Data Breach Notification</a></li>
+        <li><a href="#section-19">Changes to This Privacy Policy</a></li>
+        <li><a href="#section-20">Jurisdiction-Specific Information</a></li>
+        <li><a href="#section-21">Contact Us</a></li>
+      </ol>
+    </details>
+  <article class="legal-body">
+<section id="section-1">
+  <h2>1. Introduction</h2>
+  <p>MoneyPattern (operated by MoneyMind Profile Pty Ltd, ABN 33 672 152 073 — referred to in this policy as "MoneyPattern," "we," "us," or "our") values the privacy of everyone who uses our website and Services. We are committed to protecting your Personal Information and being transparent about how we handle it.</p>
 
-  <section id="s15">
-    <h2><span class="sn">15</span>Cookies and Tracking Technologies</h2>
-    <p>We use essential cookies (necessary for the Services to function — cannot be disabled), performance and analytics cookies (analytics and error tracking), functionality cookies (preferences, A/B testing), and marketing and advertising cookies (campaign tracking, retargeting). You can manage cookies through your browser settings or our Cookie Preference Center. Our Services do not currently respond to Do Not Track signals.</p>
-  </section>
+<p>This Privacy Policy explains:</p>
+<ul>
+  <li>What Personal Information we collect and why</li>
+  <li>How we use, share, and protect that information</li>
+  <li>Your rights regarding your Personal Information</li>
+  <li>How to contact us with privacy questions or concerns</li>
+</ul>
 
-  <section id="s16">
-    <h2><span class="sn">16</span>Third-Party Links and Services</h2>
-    <p>Our Services may contain links to third-party websites not operated or controlled by MoneyPattern. We are not responsible for the privacy practices or content of external sites. When you click on a third-party link, their privacy policy applies. We encourage you to read their privacy policy before providing personal information.</p>
-  </section>
+<p>We operate globally, serving users in Australia, the United Kingdom, and the United States. This Privacy Policy is designed to comply with applicable data protection laws in all jurisdictions where we operate, including:</p>
+<ul>
+  <li><strong>Australia:</strong> Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs)</li>
+  <li><strong>United Kingdom:</strong> UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018</li>
+  <li><strong>United States:</strong> California Consumer Privacy Act (CCPA/CPRA), Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), and other applicable state privacy laws</li>
+</ul>
+</section>
+<section id="section-2">
+  <h2>2. Scope and Application</h2>
+  <h3>2.1 What This Policy Covers</h3>
+<p>This Privacy Policy applies to Personal Information we collect, use, and disclose when you:</p>
+<ul>
+  <li>Visit our websites (including www.moneymindprofile.com and related domains)</li>
+  <li>Use our MoneyPattern Profile assessment and related services ("Services")</li>
+  <li>Communicate with us via email, chat, or other channels</li>
+  <li>Attend our events, webinars, or training sessions</li>
+  <li>Subscribe to our newsletter or other communications</li>
+</ul>
 
-  <section id="s17">
-    <h2><span class="sn">17</span>Children's Privacy</h2>
-    <p>Our Services are not directed to children under the age of 18. If we become aware that we have collected personal information from a child under 18 without parental consent, we will delete the information, terminate any associated account, and prevent future collection. If you are a parent or guardian and believe your child has provided personal information to us, please contact us at <em class="ph">[contact@moneypattern.ai]</em> with the subject "Children's Privacy Concern."</p>
-  </section>
+<h3>2.2 Our Business Model</h3>
+<p>MoneyPattern is a direct-to-consumer platform. We provide an AI-powered psychological assessment that helps you understand your unique relationship with money — the patterns shaping how you save, invest, plan for retirement, and respond when markets get messy. Our Services include:</p>
+<ul>
+  <li>The MoneyPattern™ Profile assessment</li>
+  <li>Personalised results, archetype analysis, and behavioural insights</li>
+  <li>Educational content and tools to help you act on your results</li>
+  <li>Optional access to certified coaches and additional resources</li>
+</ul>
+<p>We collect information directly from you so we can deliver and improve these Services.</p>
+</section>
+<section id="section-3">
+  <h2>3. Definitions</h2>
+  <p>For purposes of this Privacy Policy:</p>
 
-  <section id="s18">
-    <h2><span class="sn">18</span>Data Breach Notification</h2>
-    <p>In the event of a data breach affecting personal information, we are committed to transparency and prompt action. Our incident response process covers detection and verification, containment and mitigation, assessment of affected individuals and compromised information, notification as required by law, and remediation to prevent recurrence.</p>
-    <p><strong>Notification timing:</strong> UK/EU GDPR — ICO within 72 hours; Australia — OAIC as soon as practicable and within 72 hours; United States — state attorneys general as required by state breach notification laws (typically 30–90 days). To report a security vulnerability, contact <em class="ph">[contact@moneypattern.ai]</em> with the subject "Security Incident Report."</p>
-  </section>
+<p><strong>"Applicable Data Protection Laws"</strong> means all applicable data protection and privacy laws, including: (i) in Australia, the Privacy Act 1988 (Cth) and the Australian Privacy Principles; (ii) in the United Kingdom, the UK GDPR and the Data Protection Act 2018; (iii) in the United States, the CCPA (as amended by the CPRA), VCDPA, CPA, and other applicable state privacy laws; and (iv) any other applicable data protection or privacy laws.</p>
 
-  <section id="s19">
-    <h2><span class="sn">19</span>Changes to This Privacy Policy</h2>
-    <p>For material changes, we will provide prominent notice through email notification to users with an account at least 30 days before the effective date, a prominent banner on our website, and an in-app notification. By continuing to use our Services after changes become effective, you accept the updated Privacy Policy. If you disagree with the changes, you may stop using the Services or close your account.</p>
-  </section>
+<p><strong>"Controller"</strong> (or "Business" under US laws) means the entity that determines the purposes and means of processing Personal Information. We act as the Controller of your Personal Information.</p>
 
-  <section id="s20">
-    <h2><span class="sn">20</span>Jurisdiction-Specific Information</h2>
-    <h3>20.1 Australia</h3>
-    <p>Our data practices comply with the Privacy Act 1988 (Cth) and the Australian Privacy Principles. The Australian privacy regulator is the Office of the Australian Information Commissioner (OAIC) — <a class="inline" href="https://oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>. We comply with the Notifiable Data Breaches (NDB) scheme.</p>
-    <h3>20.2 United Kingdom</h3>
-    <p>Our data practices comply with the UK GDPR and the EU GDPR. The supervisory authority is the Information Commissioner's Office (ICO) — <a class="inline" href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>. When transferring personal data outside the UK/EEA, we use Standard Contractual Clauses (SCCs) and supplementary measures.</p>
-    <h3>20.3 United States</h3>
-    <p>We comply with the CCPA (as amended by the CPRA), Virginia CDPA, Colorado Privacy Act, and other applicable state privacy laws. We do not sell or share personal information as defined by the CCPA/CPRA. You may designate an authorised agent and appeal our decisions by contacting <em class="ph">[contact@moneypattern.ai]</em>.</p>
-    <h3>20.4 Canada</h3>
-    <p>Our data practices comply with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws (including Quebec's Law 25, Alberta's PIPA, and British Columbia's PIPA). If you are in Canada, you have the right to access the personal information we hold about you, request correction, and withdraw consent, subject to legal and contractual restrictions. The federal regulator is the Office of the Privacy Commissioner of Canada (OPC) — <a class="inline" href="https://priv.gc.ca" target="_blank" rel="noopener">priv.gc.ca</a>.</p>
-    <h3>20.5 Countries We Cover</h3>
-    <p>We operate only in Australia, the United Kingdom, the United States, and Canada. We do not offer the Services in, or tailor this Privacy Policy to, any other country. If you contact us from outside these four countries, please <a class="inline" href="#s14">get in touch</a> for jurisdiction-specific information.</p>
-  </section>
+<p><strong>"Data Subject"</strong> (or "Consumer" under US laws) means an identified or identifiable natural person whose Personal Information is processed.</p>
 
-</div><!-- /page -->
+<p><strong>"Personal Information"</strong> (or "Personal Data") means any information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with an identified or identifiable natural person. This includes information defined as "personal information" under the Privacy Act 1988 (Cth), "personal data" under the UK GDPR, and "personal information" under the CCPA.</p>
 
-<footer>
-  <div class="foot">
-    <div class="foot-brand">
-      <svg class="brand-mark" style="width:22px;height:22px" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-        <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="#9AC9E3"/>
-        <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#4E8FBE"/>
-        <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="#C6E2F2"/>
-      </svg>
-      <span class="brand-name">MoneyPattern<i class="tm">™</i></span>
+<p><strong>"Processing"</strong> means any operation performed on Personal Information, including collection, recording, organisation, structuring, storage, adaptation, retrieval, consultation, use, disclosure, transmission, erasure, or destruction.</p>
+
+<p><strong>"Sensitive Personal Information"</strong> includes information revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, health information, sex life or sexual orientation, and in some jurisdictions, financial account information, Social Security numbers, precise geolocation, and contents of communications.</p>
+
+<p><strong>"Services"</strong> means the MoneyPattern platform, the MoneyPattern™ Profile assessment, applications, tools, features, and related services we provide.</p>
+
+<p><strong>"You"</strong> and <strong>"User"</strong> mean the individual using our Services or visiting our websites.</p>
+</section>
+<section id="section-4">
+  <h2>4. Our Role as Data Controller</h2>
+  <p>We are the data controller (or business, under US laws) for all Personal Information we collect through our Services and through your interactions with us.</p>
+<p>This means we determine the purposes and means of processing your Personal Information, and we are responsible for honouring your rights under Applicable Data Protection Laws. Section 14 explains those rights in detail and how to exercise them.</p>
+</section>
+<section id="section-5">
+  <h2>5. Personal Information We Collect</h2>
+  <p>The Personal Information we collect depends on how you interact with us and which Services you use.</p>
+
+<h3>5.1 Account and Identity Information</h3>
+<p>When you create an account or use our Services, we may collect:</p>
+<ul>
+  <li>Full name</li>
+  <li>Email address</li>
+  <li>Phone number (optional)</li>
+  <li>Date of birth or age range (for assessment context and age verification)</li>
+  <li>Country and approximate location</li>
+  <li>Username and account ID</li>
+  <li>Password (stored in encrypted/hashed form)</li>
+  <li>Multi-factor authentication credentials</li>
+</ul>
+
+<h3>5.2 Assessment Responses</h3>
+<p>The MoneyPattern™ Profile is an assessment about your relationship with money. When you take it, you provide responses to questions about your beliefs, habits, emotions, and financial behaviours. We use these responses to generate your profile, your primary archetype, and your personalised insights.</p>
+
+<h3>5.3 Financial and Billing Information</h3>
+<ul>
+  <li>Billing name and address</li>
+  <li>Payment method details (processed and stored by our third-party payment processor; we do not store full credit card numbers)</li>
+  <li>Purchase history and transaction records</li>
+  <li>Subscription plan details (where applicable)</li>
+</ul>
+
+<h3>5.4 Communications</h3>
+<ul>
+  <li>Support requests and help-desk interactions</li>
+  <li>Chat messages and correspondence</li>
+  <li>Feedback and survey responses</li>
+  <li>Training, event, and webinar participation</li>
+</ul>
+
+<h3>5.5 Automatically Collected Information</h3>
+<p>When you visit our website or use our Services, we collect certain information automatically:</p>
+<ul>
+  <li>IP address and approximate geolocation</li>
+  <li>Browser type and version</li>
+  <li>Operating system and device identifiers</li>
+  <li>Referring website</li>
+  <li>Pages visited, time spent, and links clicked</li>
+  <li>Login history and session data</li>
+  <li>Features accessed and navigation patterns</li>
+  <li>Timestamps and duration of use</li>
+</ul>
+
+<h3>5.6 Sensitive Personal Information</h3>
+<p>Some of the information you choose to share with us through the assessment — for example, your responses about money attitudes, financial anxieties, or financial circumstances — may be considered Sensitive Personal Information in some jurisdictions. We process this information only to provide your profile and the related Services, and we apply enhanced protections (see Section 12). We do not require Sensitive Personal Information beyond what is reasonably needed to deliver the assessment.</p>
+
+<h3>5.7 Information From Third Parties</h3>
+<p>We may receive Personal Information about you from:</p>
+<ul>
+  <li><strong>Payment processors</strong> — confirmation that your payment was successful, partial card details, billing information</li>
+  <li><strong>Analytics providers</strong> — aggregated usage data</li>
+  <li><strong>Identity verification services</strong> — where age or identity verification is required</li>
+  <li><strong>Social sign-in providers</strong> — if you choose to register or log in using a third-party identity provider, that provider may share basic profile information with us (e.g., name and email address)</li>
+</ul>
+</section>
+<section id="section-6">
+  <h2>6. How We Collect Personal Information</h2>
+  <h3>6.1 Direct Collection</h3>
+<p>We collect information directly from you when you:</p>
+<ul>
+  <li>Register and create an account</li>
+  <li>Complete the assessment or otherwise input information into the Services</li>
+  <li>Complete forms, questionnaires, or surveys</li>
+  <li>Communicate with our support team</li>
+  <li>Subscribe to newsletters or marketing communications</li>
+  <li>Attend events or webinars</li>
+  <li>Apply for employment or contractor positions</li>
+</ul>
+
+<h3>6.2 Automatic Collection</h3>
+<p>We use the following technologies to collect information automatically:</p>
+<ul>
+  <li>Cookies and similar tracking technologies (see Section 15)</li>
+  <li>Web server logs</li>
+  <li>Analytics tools</li>
+  <li>Session recording for quality assurance and product improvement (with notice)</li>
+</ul>
+
+<h3>6.3 Third-Party Sources</h3>
+<p>We may receive information from service providers we engage on your behalf (payment processors, analytics services, identity verification providers) and from publicly available sources.</p>
+
+<h3>6.4 Anonymous and Pseudonymous Use</h3>
+<p><strong>Website:</strong> You may visit our website anonymously. However, certain features and interactive elements may not be available without providing some Personal Information.</p>
+<p><strong>Services:</strong> Due to the nature of our Services (which require secure authentication and personalised functionality), anonymous use is not practical. You may use a pseudonym for certain communications where lawful and practicable.</p>
+</section>
+<section id="section-7">
+  <h2>7. How We Use Personal Information</h2>
+  <p>We use Personal Information for the purposes described below and only where we have a lawful basis to do so (see Section 8).</p>
+
+<h3>7.1 To Provide and Maintain the Services</h3>
+<ul>
+  <li>Creating and managing your account</li>
+  <li>Authenticating you and preventing unauthorised access</li>
+  <li>Delivering the assessment and generating your results</li>
+  <li>Providing access to features, reports, and tailored content</li>
+  <li>Storing your responses and profile</li>
+  <li>Providing customer support and technical assistance</li>
+  <li>Troubleshooting and resolving issues</li>
+  <li>Performing backups and ensuring business continuity</li>
+</ul>
+
+<h3>7.2 To Improve and Develop the Services</h3>
+<ul>
+  <li>Understanding how users interact with our Services</li>
+  <li>Analysing usage patterns and trends</li>
+  <li>Identifying areas for improvement</li>
+  <li>Developing new features and functionality</li>
+  <li>Conducting research and analytics</li>
+  <li>Testing new products and beta features</li>
+  <li>Refining our assessment, scoring, and archetype models</li>
+</ul>
+
+<h3>7.3 For Business Operations</h3>
+<ul>
+  <li>Processing payments and managing subscriptions</li>
+  <li>Maintaining internal records</li>
+  <li>Performing accounting, auditing, and financial analysis</li>
+  <li>Managing vendor and service-provider relationships</li>
+  <li>Conducting due diligence for business transactions</li>
+  <li>Protecting our business interests and enforcing our rights</li>
+</ul>
+
+<h3>7.4 For Communication and Marketing</h3>
+<ul>
+  <li>Sending transactional emails (account notifications, results, service updates, billing statements)</li>
+  <li>Providing customer support via email or chat</li>
+  <li>Sending newsletters and marketing communications (with consent where required)</li>
+  <li>Inviting you to events, webinars, and training sessions</li>
+  <li>Conducting surveys and requesting feedback</li>
+  <li>Sharing product updates and feature announcements</li>
+</ul>
+<p>You may opt out of marketing communications at any time using the unsubscribe link in our emails or by contacting us.</p>
+
+<h3>7.5 For Security and Fraud Prevention</h3>
+<ul>
+  <li>Detecting and preventing fraud, abuse, and unauthorised access</li>
+  <li>Investigating security incidents and policy violations</li>
+  <li>Monitoring for malicious activity and threats</li>
+  <li>Maintaining the security and integrity of our systems</li>
+  <li>Enforcing our Terms of Use and Acceptable Use Policy</li>
+  <li>Protecting against legal liability</li>
+</ul>
+
+<h3>7.6 For Compliance and Legal Obligations</h3>
+<ul>
+  <li>Complying with applicable laws, regulations, and legal process</li>
+  <li>Responding to lawful requests from authorities</li>
+  <li>Defending legal claims and protecting legal rights</li>
+  <li>Maintaining records as required by law</li>
+  <li>Conducting internal audits and compliance reviews</li>
+  <li>Meeting regulatory reporting obligations</li>
+</ul>
+
+<h3>7.7 With Your Consent</h3>
+<p>Where required by applicable law, we will obtain your consent before using Personal Information for purposes not covered above.</p>
+</section>
+<section id="section-8">
+  <h2>8. Legal Bases for Processing (International Users)</h2>
+  <p>For users in jurisdictions requiring a legal basis for processing (such as the UK and EU under GDPR), we rely on the following legal bases:</p>
+
+<h3>8.1 Contract Performance</h3>
+<p>We process Personal Information to perform our contract with you, including:</p>
+<ul>
+  <li>Providing access to the Services</li>
+  <li>Delivering your assessment results</li>
+  <li>Providing customer support</li>
+  <li>Processing payments</li>
+</ul>
+
+<h3>8.2 Legitimate Interests</h3>
+<p>We process Personal Information for our legitimate business interests, including:</p>
+<ul>
+  <li>Improving and developing the Services</li>
+  <li>Conducting marketing and business development</li>
+  <li>Preventing fraud and enhancing security</li>
+  <li>Analysing usage and performance</li>
+  <li>Managing business operations</li>
+</ul>
+<p>We conduct balancing assessments to ensure our legitimate interests do not override your rights and interests.</p>
+
+<h3>8.3 Legal Obligations</h3>
+<p>We process Personal Information to comply with legal and regulatory obligations, including:</p>
+<ul>
+  <li>Responding to lawful requests</li>
+  <li>Meeting record-keeping requirements</li>
+  <li>Complying with tax and financial regulations</li>
+</ul>
+
+<h3>8.4 Consent</h3>
+<p>Where required or appropriate, we process Personal Information based on your consent, including:</p>
+<ul>
+  <li>Marketing communications (where consent is required)</li>
+  <li>Certain cookie uses</li>
+  <li>Processing Sensitive Personal Information (where applicable)</li>
+</ul>
+<p>You may withdraw consent at any time without affecting the lawfulness of processing based on consent before withdrawal.</p>
+
+<h3>8.5 Vital Interests</h3>
+<p>In rare circumstances, we may process Personal Information to protect vital interests (yours or another person's), such as in emergency situations.</p>
+</section>
+<section id="section-9">
+  <h2>9. How We Share and Disclose Personal Information</h2>
+  <p><strong>We do not sell, rent, or lease Personal Information to third parties.</strong> We share Personal Information only as described below.</p>
+
+<h3>9.1 Service Providers and Subprocessors</h3>
+<p>We engage trusted third-party service providers to perform functions on our behalf, including:</p>
+<p><strong>Infrastructure and hosting:</strong></p>
+<ul>
+  <li>Cloud hosting providers (data centres and servers)</li>
+  <li>Content delivery networks</li>
+  <li>Data backup and disaster recovery services</li>
+</ul>
+<p><strong>Payment processing:</strong></p>
+<ul>
+  <li>Payment gateways and processors</li>
+  <li>Billing and invoicing platforms</li>
+</ul>
+<p><strong>Communication and support:</strong></p>
+<ul>
+  <li>Email delivery services</li>
+  <li>Chat and messaging platforms</li>
+  <li>Customer relationship management systems</li>
+  <li>Help-desk and ticketing systems</li>
+</ul>
+<p><strong>Analytics and performance:</strong></p>
+<ul>
+  <li>Website and application analytics</li>
+  <li>Performance monitoring and error tracking</li>
+  <li>User-behaviour analysis</li>
+</ul>
+<p><strong>Security and fraud prevention:</strong></p>
+<ul>
+  <li>Identity verification services</li>
+  <li>Fraud detection and prevention tools</li>
+  <li>Security monitoring services</li>
+</ul>
+<p><strong>Marketing and outreach:</strong></p>
+<ul>
+  <li>Email marketing platforms</li>
+  <li>Event management systems</li>
+  <li>Webinar and video-conferencing tools</li>
+</ul>
+<p>All service providers are bound by contractual obligations to:</p>
+<ul>
+  <li>Use Personal Information only for the specified purposes</li>
+  <li>Implement appropriate security measures</li>
+  <li>Comply with Applicable Data Protection Laws</li>
+  <li>Not use Personal Information for their own purposes</li>
+</ul>
+
+<h3>9.2 Within the MoneyPattern Organisation</h3>
+<p>We may share Personal Information among MoneyPattern entities and affiliates for:</p>
+<ul>
+  <li>Internal administration and reporting</li>
+  <li>Customer support and service delivery</li>
+  <li>Business operations and management</li>
+  <li>Product development and improvement</li>
+</ul>
+<p>All internal sharing is subject to appropriate data-protection safeguards.</p>
+
+<h3>9.3 Business Transfers</h3>
+<p>If we are involved in a merger, acquisition, asset sale, reorganisation, bankruptcy, or similar transaction, Personal Information may be transferred as part of that transaction. We will:</p>
+<ul>
+  <li>Provide notice before Personal Information is transferred</li>
+  <li>Ensure the receiving party maintains protections at least as protective as this Privacy Policy</li>
+  <li>Provide you with choices regarding the use of your Personal Information</li>
+</ul>
+
+<h3>9.4 Legal and Regulatory Requirements</h3>
+<p>We may disclose Personal Information when required or permitted by law, including:</p>
+<p><strong>To comply with legal obligations:</strong></p>
+<ul>
+  <li>Court orders, subpoenas, or other legal process</li>
+  <li>Regulatory investigations and examinations</li>
+  <li>Tax authorities and financial regulators</li>
+  <li>Law-enforcement requests (where lawful)</li>
+</ul>
+<p><strong>To protect rights and interests:</strong></p>
+<ul>
+  <li>Defending legal claims</li>
+  <li>Enforcing our Terms of Use and policies</li>
+  <li>Protecting against fraud, abuse, or illegal activity</li>
+  <li>Safeguarding the security and integrity of our Services</li>
+  <li>Protecting the safety of individuals</li>
+</ul>
+<p><strong>With your consent or direction:</strong></p>
+<ul>
+  <li>When you authorise us to share your information</li>
+  <li>When you direct us to integrate with third-party services</li>
+  <li>When you participate in co-sponsored events or programs</li>
+</ul>
+<p>We will notify you of legal requests for your Personal Information unless prohibited by law or where notice would be counterproductive.</p>
+
+<h3>9.5 Aggregated and De-Identified Information</h3>
+<p>We may share aggregated, anonymised, or de-identified information that cannot reasonably be used to identify you, including:</p>
+<ul>
+  <li>Aggregated assessment data</li>
+  <li>Statistical data and research findings</li>
+  <li>Industry benchmarks and trends</li>
+  <li>Usage analytics and performance metrics</li>
+</ul>
+<p>Such information is not Personal Information and is not subject to this Privacy Policy.</p>
+
+<h3>9.6 No Sale of Personal Information</h3>
+<p>We do not sell Personal Information. Under California law (CCPA), "sale" has a broad meaning that includes sharing for monetary or other valuable consideration. We do not engage in such activities.</p>
+</section>
+<section id="section-10">
+  <h2>10. International Data Transfers</h2>
+  <h3>10.1 Global Operations</h3>
+<p>MoneyPattern operates globally and may transfer Personal Information to countries other than where you are located, including:</p>
+<ul>
+  <li>Australia (where our primary operations are based)</li>
+  <li>United States (where our cloud hosting infrastructure is located)</li>
+  <li>United Kingdom (where we maintain offices)</li>
+  <li>Other countries where our service providers operate</li>
+</ul>
+
+<h3>10.2 Adequacy Decisions</h3>
+<p>Where possible, we transfer Personal Information to countries recognised as providing adequate protection. The European Commission has recognised certain countries (including the UK, post-Brexit) as providing adequate protection for personal data.</p>
+
+<h3>10.3 Safeguards for International Transfers</h3>
+<p>When transferring Personal Information to countries not recognised as providing adequate protection, we implement appropriate safeguards, including:</p>
+<p><strong>Standard Contractual Clauses (SCCs):</strong></p>
+<ul>
+  <li>We use the European Commission's Standard Contractual Clauses for transfers from the EU/EEA</li>
+  <li>We use the UK International Data Transfer Agreement (IDTA) or Addendum for transfers from the UK</li>
+  <li>These clauses provide contractual protections for your Personal Information</li>
+</ul>
+<p><strong>Supplementary measures:</strong></p>
+<ul>
+  <li>Encryption in transit and at rest</li>
+  <li>Strict access controls and authentication</li>
+  <li>Regular security assessments</li>
+  <li>Data-minimisation practices</li>
+</ul>
+
+<h3>10.4 Your Consent</h3>
+<p>By using our Services or providing Personal Information, you acknowledge and consent (where required by law) to the transfer of your Personal Information to countries that may have different data-protection laws than your country of residence.</p>
+</section>
+<section id="section-11">
+  <h2>11. Aggregated and De-Identified Data</h2>
+  <h3>11.1 Our Use of Aggregated Data</h3>
+<p>We create aggregated, anonymised, and de-identified data from user information to:</p>
+<ul>
+  <li>Improve the Services and develop new features</li>
+  <li>Conduct research and analytics</li>
+  <li>Generate industry insights and benchmarks</li>
+  <li>Produce statistical reports and trends</li>
+  <li>Enhance our assessment, scoring, and archetype models</li>
+</ul>
+
+<h3>11.2 De-Identification Process</h3>
+<p>When we aggregate and de-identify data:</p>
+<ul>
+  <li>We remove all direct identifiers (names, email addresses, account IDs)</li>
+  <li>We apply statistical techniques to prevent re-identification</li>
+  <li>We ensure the data cannot reasonably be linked back to individuals</li>
+  <li>We combine data from multiple users to prevent identification</li>
+</ul>
+
+<h3>11.3 No Re-Identification</h3>
+<p>We commit to not attempting to re-identify aggregated or de-identified data and to implementing measures to prevent others from doing so.</p>
+</section>
+<section id="section-12">
+  <h2>12. Data Security</h2>
+  <h3>12.1 Our Commitment to Security</h3>
+<p>We take data security seriously and implement comprehensive administrative, technical, and physical safeguards to protect Personal Information against unauthorised access, use, disclosure, alteration, or destruction.</p>
+
+<h3>12.2 Technical Safeguards</h3>
+<p><strong>Encryption:</strong></p>
+<ul>
+  <li>Data in transit is encrypted using Transport Layer Security (TLS 1.2 or higher)</li>
+  <li>Data at rest is encrypted using industry-standard encryption algorithms</li>
+  <li>Database encryption protects stored information</li>
+  <li>Password storage uses strong cryptographic hashing</li>
+</ul>
+<p><strong>Access controls:</strong></p>
+<ul>
+  <li>Multi-factor authentication (MFA) for user access</li>
+  <li>Role-based access controls (RBAC) limiting access to authorised personnel</li>
+  <li>Least-privilege principle (users have only necessary access)</li>
+  <li>Regular access reviews and revocations</li>
+  <li>Secure API authentication and authorisation</li>
+</ul>
+<p><strong>Network security:</strong></p>
+<ul>
+  <li>Firewalls and intrusion detection/prevention systems</li>
+  <li>Network segmentation and isolation</li>
+  <li>DDoS protection and mitigation</li>
+  <li>Regular security patching and updates</li>
+  <li>Vulnerability scanning and penetration testing</li>
+</ul>
+<p><strong>Application security:</strong></p>
+<ul>
+  <li>Secure software development lifecycle (SDLC)</li>
+  <li>Code reviews and security testing</li>
+  <li>Input validation and sanitisation</li>
+  <li>Protection against common vulnerabilities (OWASP Top 10)</li>
+  <li>Security headers and configurations</li>
+</ul>
+
+<h3>12.3 Administrative Safeguards</h3>
+<p><strong>Policies and procedures:</strong></p>
+<ul>
+  <li>Comprehensive information-security policies</li>
+  <li>Data classification and handling procedures</li>
+  <li>Incident response and disaster recovery plans</li>
+  <li>Vendor management and due diligence</li>
+  <li>Regular policy reviews and updates</li>
+</ul>
+<p><strong>Personnel:</strong></p>
+<ul>
+  <li>Background checks for employees with access to Personal Information</li>
+  <li>Confidentiality and non-disclosure agreements</li>
+  <li>Security awareness training and education</li>
+  <li>Clear roles and responsibilities</li>
+  <li>Separation of duties</li>
+</ul>
+<p><strong>Monitoring and auditing:</strong></p>
+<ul>
+  <li>Security information and event management (SIEM)</li>
+  <li>Log monitoring and analysis</li>
+  <li>Regular security assessments and audits</li>
+  <li>Third-party security certifications (SOC 2, ISO 27001 in progress)</li>
+  <li>Continuous compliance monitoring</li>
+</ul>
+
+<h3>12.4 Physical Safeguards</h3>
+<p>Our infrastructure is hosted in secure, certified data centres with physical access controls, environmental controls, redundant power and network connectivity, and 24/7 security monitoring. Our offices employ access controls, visitor management, secure disposal of physical media, and clean-desk policies.</p>
+
+<h3>12.5 Your Responsibilities</h3>
+<p>Security is a shared responsibility. We encourage you to:</p>
+<ul>
+  <li>Use a strong, unique password</li>
+  <li>Enable multi-factor authentication</li>
+  <li>Keep your login credentials confidential</li>
+  <li>Log out when finished using the Services</li>
+  <li>Report suspicious activity immediately</li>
+  <li>Keep your devices and software up to date</li>
+  <li>Use secure networks when accessing the Services</li>
+  <li>Be cautious of phishing attempts</li>
+</ul>
+
+<h3>12.6 No Absolute Security</h3>
+<p>Despite our efforts, no security measures are perfect or impenetrable. We cannot guarantee absolute security of Personal Information. Internet transmissions are never completely private or secure, and any information you transmit may be intercepted by others.</p>
+
+<h3>12.7 Security Incidents</h3>
+<p>In the event of a data breach or security incident affecting Personal Information, we will promptly investigate and contain the incident, notify affected individuals as required by applicable law, notify relevant regulatory authorities, take steps to prevent recurrence, and cooperate with investigations. See Section 18 for more detail.</p>
+</section>
+<section id="section-13">
+  <h2>13. Data Retention</h2>
+  <h3>13.1 Retention Principles</h3>
+<p>We retain Personal Information only for as long as necessary to fulfil the purposes for which it was collected, comply with legal obligations, resolve disputes, and enforce our agreements.</p>
+
+<h3>13.2 Retention Periods</h3>
+<p><strong>Account and assessment information:</strong></p>
+<ul>
+  <li>Active accounts: For the duration of your relationship with us, plus up to 30 days after account closure to allow for reactivation</li>
+  <li>Closed accounts: Deleted or anonymised within 30 days of account closure, unless longer retention is required by law</li>
+  <li>Backup copies: Retained for an additional 90 days in backup systems, then permanently deleted</li>
+</ul>
+<p><strong>Financial and transaction records:</strong></p>
+<ul>
+  <li>Billing and payment information: Retained for 7 years to comply with tax and accounting requirements</li>
+  <li>Invoice records: Retained for 7 years</li>
+</ul>
+<p><strong>Communications and support:</strong></p>
+<ul>
+  <li>Support tickets and correspondence: Retained for 3 years</li>
+  <li>Chat logs: Retained for 1 year</li>
+  <li>Marketing communications: Until you unsubscribe, then deleted within 30 days</li>
+</ul>
+<p><strong>Website analytics and logs:</strong></p>
+<ul>
+  <li>Server logs: Retained for 90 days</li>
+  <li>Aggregated and anonymised analytics data may be retained indefinitely</li>
+</ul>
+<p><strong>Legal and compliance:</strong></p>
+<ul>
+  <li>Records required by law: Retained for the period required by applicable law</li>
+  <li>Litigation hold: Personal Information relevant to legal proceedings retained until the matter is resolved</li>
+</ul>
+
+<h3>13.3 Secure Deletion</h3>
+<p>When Personal Information is no longer needed, we delete it from production systems, overwrite or degauss physical media, ensure backups are purged according to retention schedules, and use secure deletion methods to prevent recovery.</p>
+
+<h3>13.4 Requesting Deletion</h3>
+<p>You may request deletion of your Personal Information at any time (see Section 14). We will honour such requests subject to:</p>
+<ul>
+  <li>Legal obligations requiring retention</li>
+  <li>Legitimate business needs (e.g., fraud prevention)</li>
+  <li>Technical limitations (e.g., backup retention cycles)</li>
+</ul>
+
+<h3>13.5 Exceptions</h3>
+<p>We may retain Personal Information longer than standard retention periods when required by applicable law or regulation, necessary for legal claims or disputes, needed for audit or compliance purposes, or subject to a litigation hold or investigation.</p>
+</section>
+<section id="section-14">
+  <h2>14. Your Privacy Rights</h2>
+  <p>Depending on your jurisdiction, you may have various rights regarding your Personal Information. We respect these rights and provide mechanisms to exercise them.</p>
+
+<h3>14.1 Rights Under Australian Privacy Law</h3>
+<p>If you are in Australia, you have the right to:</p>
+<ul>
+  <li><strong>Access:</strong> Request access to the Personal Information we hold about you. We will provide access unless an exception applies under the Privacy Act.</li>
+  <li><strong>Correction:</strong> Request correction of inaccurate, outdated, incomplete, or misleading Personal Information.</li>
+  <li><strong>Complaints:</strong> Lodge a complaint with us about our handling of your Personal Information. We will investigate and respond in accordance with the APPs.</li>
+</ul>
+
+<h3>14.2 Rights Under UK GDPR</h3>
+<p>If you are in the UK or EU, you have the right to:</p>
+<ul>
+  <li><strong>Access:</strong> Request a copy of the Personal Data we process about you (subject access request).</li>
+  <li><strong>Rectification:</strong> Request correction of inaccurate or incomplete Personal Data.</li>
+  <li><strong>Erasure:</strong> Request deletion of your Personal Data in certain circumstances (right to be forgotten).</li>
+  <li><strong>Restriction:</strong> Request that we restrict processing of your Personal Data in certain circumstances.</li>
+  <li><strong>Portability:</strong> Request to receive your Personal Data in a structured, commonly used, machine-readable format and transmit it to another controller.</li>
+  <li><strong>Object:</strong> Object to processing based on legitimate interests or for direct marketing purposes.</li>
+  <li><strong>Automated decision-making:</strong> Not be subject to decisions based solely on automated processing that produce legal or similarly significant effects (our Services do not make fully automated decisions with such effects).</li>
+  <li><strong>Withdraw consent:</strong> Where processing is based on consent, withdraw that consent at any time.</li>
+  <li><strong>Complain:</strong> Lodge a complaint with a supervisory authority (e.g., the Information Commissioner's Office in the UK).</li>
+</ul>
+
+<h3>14.3 Rights Under US Privacy Laws (CCPA, VCDPA, CPA, etc.)</h3>
+<p>If you are in California, Virginia, Colorado, or another state with consumer privacy rights, you have the right to:</p>
+<ul>
+  <li><strong>Know:</strong> Request information about the categories and specific pieces of Personal Information we collect, use, and disclose about you.</li>
+  <li><strong>Delete:</strong> Request deletion of your Personal Information, subject to certain exceptions.</li>
+  <li><strong>Correct:</strong> Request correction of inaccurate Personal Information (in some states).</li>
+  <li><strong>Opt out:</strong> Opt out of the "sale" or "sharing" of Personal Information (we do not sell or share Personal Information as defined by these laws).</li>
+  <li><strong>Limit use of Sensitive Personal Information:</strong> Limit the use of Sensitive Personal Information to certain permitted purposes (in some states).</li>
+  <li><strong>Non-discrimination:</strong> Not receive discriminatory treatment for exercising your privacy rights.</li>
+  <li><strong>Authorised agent:</strong> Designate an authorised agent to make requests on your behalf.</li>
+  <li><strong>Appeal:</strong> Appeal our decision regarding your privacy request (in some states).</li>
+</ul>
+
+<h3>14.4 How to Exercise Your Rights</h3>
+<p>To exercise any of these rights, please contact us at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a>. We will respond to your request within the timeframes required by applicable law. We may need to verify your identity before fulfilling your request.</p>
+</section>
+<section id="section-15">
+  <h2>15. Cookies and Tracking Technologies</h2>
+  <h3>15.1 What Are Cookies?</h3>
+<p>Cookies are small text files placed on your device when you visit a website. They help websites remember information about your visit, such as your preferences and login status.</p>
+
+<h3>15.2 Types of Cookies We Use</h3>
+<p><strong>Essential cookies</strong> — necessary for the Services to function properly and cannot be disabled:</p>
+<ul>
+  <li>Authentication cookies (to keep you logged in)</li>
+  <li>Security cookies (to detect authentication abuse and fraud)</li>
+  <li>Session cookies (to maintain your session state)</li>
+  <li>Load-balancing cookies (to distribute traffic efficiently)</li>
+</ul>
+<p><strong>Performance and analytics cookies</strong> — help us understand how visitors interact with our Services:</p>
+<ul>
+  <li>Google Analytics (website traffic and usage patterns)</li>
+  <li>Application performance monitoring</li>
+  <li>Error tracking and debugging</li>
+  <li>Heat mapping and session recording (with notice)</li>
+</ul>
+<p><strong>Functionality cookies</strong> — enable enhanced functionality and personalisation:</p>
+<ul>
+  <li>User preference settings</li>
+  <li>Language and region preferences</li>
+  <li>Feature toggles and A/B testing</li>
+  <li>Customised interface settings</li>
+</ul>
+<p><strong>Marketing and advertising cookies</strong> — track your activity across websites to deliver relevant marketing content:</p>
+<ul>
+  <li>Marketing-campaign tracking</li>
+  <li>Conversion tracking</li>
+  <li>Retargeting and remarketing</li>
+  <li>Social-media integration</li>
+</ul>
+
+<h3>15.3 Third-Party Cookies</h3>
+<p>We use cookies from trusted third-party service providers, including Google Analytics, HubSpot, Intercom, LinkedIn Insights, and Stripe (payment processing). These third parties may use cookies to collect information about your online activities over time and across different websites.</p>
+
+<h3>15.4 Other Tracking Technologies</h3>
+<ul>
+  <li><strong>Web beacons (pixels):</strong> small graphic images embedded in emails or web pages to track opens, clicks, and conversions.</li>
+  <li><strong>Local storage:</strong> HTML5 local storage and session storage to store preferences and application state.</li>
+  <li><strong>Device fingerprinting:</strong> collection of device and browser characteristics for fraud prevention and security purposes.</li>
+</ul>
+
+<h3>15.5 Managing Cookies and Tracking</h3>
+<p>You have control over cookies and tracking technologies:</p>
+<p><strong>Browser settings:</strong> Most browsers allow you to block all cookies, block third-party cookies only, delete cookies after each session, or receive notifications before cookies are stored. Blocking essential cookies may prevent you from using certain features of our Services.</p>
+<p><strong>Cookie preference centre:</strong> When you first visit our website, you can manage your cookie preferences through our cookie banner. You can update your preferences at any time by clicking the "Cookie Settings" link in the website footer.</p>
+<p><strong>Opt-out tools:</strong></p>
+<ul>
+  <li>Google Analytics Opt-Out: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a></li>
+  <li>Network Advertising Initiative: <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">optout.networkadvertising.org</a></li>
+  <li>Digital Advertising Alliance: <a href="https://optout.aboutads.info/" target="_blank" rel="noopener">optout.aboutads.info</a></li>
+</ul>
+<p><strong>Do Not Track (DNT):</strong> Our Services do not currently respond to Do Not Track signals because there is no industry standard for compliance. We continue to monitor developments in DNT technology.</p>
+<p><strong>Mobile-app tracking:</strong> For mobile applications, you can control tracking through your device settings (iOS: Settings &gt; Privacy &gt; Tracking; Android: Settings &gt; Google &gt; Ads &gt; Opt out of Ads Personalisation).</p>
+
+<h3>15.6 Cookie Retention</h3>
+<p>Session cookies are deleted when you close your browser. Persistent cookies remain until expiration date or manual deletion — our cookies typically expire between 30 days and 2 years.</p>
+</section>
+<section id="section-16">
+  <h2>16. Third-Party Links and Services</h2>
+  <h3>16.1 Links to External Websites</h3>
+<p>Our Services and website may contain links to third-party websites, applications, and services that are not operated or controlled by MoneyPattern.</p>
+
+<h3>16.2 No Responsibility for Third-Party Practices</h3>
+<p>We are not responsible for the privacy practices of third-party websites, the content or accuracy of external sites, the security of information you provide to third parties, third-party terms of use or privacy policies, or products or services offered by third parties.</p>
+
+<h3>16.3 Third-Party Privacy Policies Apply</h3>
+<p>When you click on a link to a third-party website or use a third-party service, you leave our Services and their privacy policy applies. We encourage you to read their privacy policy before providing Personal Information.</p>
+
+<h3>16.4 Social-Media Features</h3>
+<p>Our Services may include social-media features and widgets (e.g., LinkedIn share button, Twitter feed). These features may collect your IP address and which page you are visiting, set cookies to enable proper functionality, and be hosted by the social-media platform or directly on our Services. Your interactions with these features are governed by the privacy policy of the company providing them.</p>
+
+<h3>16.5 Embedded Content</h3>
+<p>We may embed content from third-party services (e.g., YouTube videos, surveys). Embedded content may place cookies on your device, track your interaction with the content, collect analytics data, and be subject to the third party's privacy policy.</p>
+
+<h3>16.6 No Endorsement</h3>
+<p>Links to third-party sites do not imply endorsement of those sites, their content, products, or services. We provide links for convenience and informational purposes only.</p>
+</section>
+<section id="section-17">
+  <h2>17. Children's Privacy</h2>
+  <h3>17.1 Age Restrictions</h3>
+<p>Our Services are not directed to, and we do not knowingly collect Personal Information from, children under the age of 18 (or the applicable age of majority in their jurisdiction). MoneyPattern is designed for adults.</p>
+
+<h3>17.2 No Intentional Collection from Children</h3>
+<p>We do not knowingly collect Personal Information from children under 18, market our Services to children, allow children to create accounts, or knowingly allow children to use our Services.</p>
+
+<h3>17.3 Parental Rights</h3>
+<p>If we become aware that we have collected Personal Information from a child under 18 without parental consent, we will delete the information as soon as possible, terminate any associated account, prevent future collection from that individual, and notify the parent or guardian if contact information is available.</p>
+
+<h3>17.4 Parent or Guardian Notice</h3>
+<p>If you are a parent or guardian and believe your child has provided Personal Information to us, please contact us immediately at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a> with subject "Children's Privacy Concern" and include your name and contact information, your child's name and age, a description of the information provided, and any relevant account details. We will promptly investigate and take appropriate action.</p>
+
+<h3>17.5 Age Verification</h3>
+<p>While we do not specifically verify the age of users, we require users to represent that they are at least 18 years old, include age restrictions in our Terms of Use, reserve the right to request age verification, and will terminate accounts if we learn the user is under 18.</p>
+
+<h3>17.6 Compliance with Children's Privacy Laws</h3>
+<p>We comply with applicable children's privacy laws, including the Children's Online Privacy Protection Act (COPPA) in the United States, age-appropriate design code in the United Kingdom, and similar laws in other jurisdictions where we operate.</p>
+</section>
+<section id="section-18">
+  <h2>18. Data Breach Notification</h2>
+  <h3>18.1 Our Commitment to Security</h3>
+<p>While we implement comprehensive security measures (see Section 12), we recognise that no system is completely secure. In the event of a data breach affecting Personal Information, we are committed to transparency and prompt action.</p>
+
+<h3>18.2 What Constitutes a Data Breach</h3>
+<p>A data breach includes unauthorised access to Personal Information, accidental or unlawful destruction of Personal Information, loss, alteration, or disclosure of Personal Information, any compromise of security leading to Personal Information exposure, ransomware or malware incidents affecting Personal Information, and insider threats or unauthorised employee access.</p>
+
+<h3>18.3 Our Incident-Response Process</h3>
+<p><strong>Detection and verification:</strong> continuous monitoring for security incidents, rapid investigation of potential breaches, verification of incident scope and impact, and documentation of all findings.</p>
+<p><strong>Containment and mitigation:</strong> immediate steps to stop the breach, isolation of affected systems, prevention of further unauthorised access, and preservation of evidence for investigation.</p>
+<p><strong>Assessment:</strong> determination of affected individuals, identification of compromised Personal Information, evaluation of potential harm, and assessment of legal notification obligations.</p>
+<p><strong>Notification:</strong> notification of affected individuals as required by law, reporting to relevant regulatory authorities, and public disclosure if required.</p>
+<p><strong>Remediation:</strong> steps to prevent recurrence, security improvements and updates, enhanced monitoring and controls, and review and update of security policies.</p>
+
+<h3>18.4 Notification to Individuals</h3>
+<p>If a data breach is likely to result in a risk to your rights and freedoms, we will notify you without undue delay. Our notification will include:</p>
+<ul>
+  <li>Description of the nature of the breach</li>
+  <li>Categories and approximate number of individuals affected</li>
+  <li>Categories and approximate number of records affected</li>
+  <li>Likely consequences of the breach</li>
+  <li>Measures we have taken or propose to take to address the breach</li>
+  <li>Contact information for questions and further information</li>
+  <li>Recommended steps you should take to protect yourself</li>
+</ul>
+<p><strong>Method of notification:</strong> email to the address on file, prominent notice on our website, direct communication through the Services, postal mail if email is not available, or other appropriate means based on the circumstances.</p>
+<p><strong>Timing:</strong> without undue delay after discovery, within 72 hours where required by law (UK GDPR), as soon as practicable (Australian Privacy Act), or without unreasonable delay (US state laws). Specific timelines vary by jurisdiction.</p>
+
+<h3>18.5 Notification to Regulatory Authorities</h3>
+<p><strong>UK and EU (GDPR):</strong> Information Commissioner's Office (ICO) in the UK within 72 hours of becoming aware; other EU supervisory authorities if applicable; documentation of breaches regardless of notification requirement.</p>
+<p><strong>Australia:</strong> Office of the Australian Information Commissioner (OAIC) if an eligible data breach, as soon as practicable after becoming aware, where serious harm is likely.</p>
+<p><strong>United States:</strong> state attorneys general as required by state breach-notification laws, Federal Trade Commission for certain breaches, and other regulatory bodies based on industry and data type. Timelines vary by state (typically 30–90 days).</p>
+
+<h3>18.6 Exceptions to Notification</h3>
+<p>We may delay or not provide notification if law enforcement requests delay for investigation purposes, notification would impede a criminal investigation, a competent authority determines notification is not necessary, the breach is unlikely to result in risk to individuals (after risk assessment), or appropriate technical and organisational measures render data unintelligible (e.g., strong encryption). We document the reasoning for any decision not to notify.</p>
+
+<h3>18.7 Your Responsibilities After a Breach</h3>
+<p>If we notify you of a data breach, we recommend you change your password immediately, enable multi-factor authentication if not already enabled, monitor your accounts for suspicious activity, review account statements and transaction history, be alert for phishing attempts exploiting the breach, consider placing fraud alerts or credit freezes (if applicable), and contact us if you notice any suspicious activity.</p>
+
+<h3>18.8 Reporting a Security Concern</h3>
+<p>If you discover or suspect a security vulnerability or data breach, contact us immediately at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a> with subject "Security Incident Report." Please include a description of the issue or incident, steps to reproduce (if applicable), potential impact, and any evidence or supporting information.</p>
+<p>Please do not publicly disclose the vulnerability before we have addressed it, access or modify data beyond what is necessary to demonstrate the issue, or disrupt our Services or other users. We appreciate responsible disclosure and will work with security researchers to address reported vulnerabilities.</p>
+</section>
+<section id="section-19">
+  <h2>19. Changes to This Privacy Policy</h2>
+  <h3>19.1 Right to Modify</h3>
+<p>We reserve the right to modify, update, or change this Privacy Policy at any time to reflect changes in our Services or business practices, new legal or regulatory requirements, feedback from users and stakeholders, industry best practices and standards, technological developments, or organisational changes.</p>
+
+<h3>19.2 Types of Changes</h3>
+<p><strong>Material changes</strong> significantly affect your rights or how we handle Personal Information, including new categories of Personal Information collected, new purposes for processing, new categories of third parties with whom we share information, significant changes to retention periods, changes to your rights or how to exercise them, and transfers to new countries or regions.</p>
+<p><strong>Non-material changes</strong> include clarifications or corrections, updates to contact information, formatting or organisational improvements, addition of examples or explanations, and updates to reflect current practices without substantive change.</p>
+
+<h3>19.3 How We Notify You of Changes</h3>
+<p><strong>For material changes:</strong> email notification to registered users (at least 30 days before effective date), prominent banner on our website and in the Services, in-app notification upon next login, update to the "Effective Date" at the top of this Policy, and a summary of key changes in the notification.</p>
+<p><strong>For non-material changes:</strong> update to the "Effective Date" at the top of this Policy. Changes are reflected in the posted Privacy Policy with no separate notification required.</p>
+
+<h3>19.4 Advance Notice Period</h3>
+<p>For material changes, we will provide at least 30 days' notice before the changes take effect, allowing you time to review the changes and make decisions about continued use. You may object to material changes or close your account during this period.</p>
+
+<h3>19.5 Your Acceptance of Changes</h3>
+<p>By continuing to use our Services after changes become effective, you accept the updated Privacy Policy. If you disagree with changes, you may stop using the Services, close your account, or exercise your privacy rights (deletion, data portability, etc.). You will not be penalised for objecting to changes.</p>
+
+<h3>19.6 Legal Requirements</h3>
+<p>Some changes may be required by law or regulatory mandate. In such cases, we will implement changes as required by applicable law, may have limited ability to provide advance notice, will explain the legal basis for the change, and your continued use may be subject to the updated terms.</p>
+
+<h3>19.7 Consulting Previous Versions</h3>
+<p>To request a copy of a previous version of this Privacy Policy, contact us at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a> with subject "Privacy Policy Previous Version Request" and include the version number or effective date requested. We will provide the requested version within 14 days.</p>
+</section>
+<section id="section-20">
+  <h2>20. Jurisdiction-Specific Information</h2>
+  <p>This section provides additional information for individuals in specific jurisdictions. These provisions supplement the rest of this Privacy Policy.</p>
+
+<h3>20.1 Australia</h3>
+<p><strong>Governing law:</strong> This Privacy Policy and our data practices comply with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs).</p>
+<p><strong>Australian Privacy Commissioner:</strong> Office of the Australian Information Commissioner (OAIC). Website: <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>. Phone: 1300 363 992. Email: enquiries@oaic.gov.au.</p>
+<p><strong>Your rights:</strong> right to access your Personal Information (APP 12), right to correct your Personal Information (APP 13), and right to make a privacy complaint (APP 1).</p>
+<p><strong>Overseas disclosure:</strong> We may disclose Personal Information to overseas recipients, including cloud service providers in the United States and service providers in various jurisdictions (see Section 10 for safeguards we implement). You acknowledge and consent to such overseas disclosure. We take reasonable steps to ensure overseas recipients comply with the APPs.</p>
+<p><strong>Direct marketing:</strong> We may use your Personal Information for direct marketing where you would reasonably expect us to do so, we provide a simple opt-out mechanism, or you have consented (for sensitive information).</p>
+<p><strong>Complaints process:</strong> If you have a privacy complaint, contact us using the details in Section 21. We will acknowledge your complaint within 7 days and investigate and respond within 30 days. If you are not satisfied, you may contact the OAIC.</p>
+<p><strong>Notifiable Data Breaches:</strong> We comply with the Notifiable Data Breaches (NDB) scheme. We will assess data breaches for likelihood of serious harm and notify you and the OAIC of eligible data breaches as soon as practicable.</p>
+<p><strong>Australian Consumer Law:</strong> Nothing in this Privacy Policy excludes, restricts, or modifies any rights you have under the Australian Consumer Law or other Australian consumer-protection laws.</p>
+
+<h3>20.2 United Kingdom</h3>
+<p><strong>Governing law:</strong> Our data practices comply with the UK General Data Protection Regulation (UK GDPR) and the EU General Data Protection Regulation (EU GDPR).</p>
+<p><strong>Supervisory authority (United Kingdom):</strong> Information Commissioner's Office (ICO). Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>. Phone: 0303 123 1113. Email: casework@ico.org.uk.</p>
+<p><strong>European Economic Area:</strong> Contact your local Data Protection Authority. Website: <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener">edpb.europa.eu</a>.</p>
+<p><strong>Your rights:</strong> You have the rights described in Section 14.2, including access (Article 15), rectification (Article 16), erasure (Article 17), restriction of processing (Article 18), data portability (Article 20), object (Article 21), and rights related to automated decision-making (Article 22).</p>
+<p><strong>Legal bases:</strong> We process your Personal Data based on performance of contract (Article 6(1)(b)), legitimate interests (Article 6(1)(f)), legal obligations (Article 6(1)(c)), consent (Article 6(1)(a)), and vital interests (Article 6(1)(d)). See Section 8 for detailed information.</p>
+<p><strong>International transfers:</strong> When we transfer Personal Data outside the UK/EEA, we use Standard Contractual Clauses (SCCs), implement supplementary measures as needed, and conduct transfer impact assessments. See Section 10 for more information.</p>
+<p><strong>Complaints:</strong> You have the right to lodge a complaint with the ICO or your local supervisory authority at any time.</p>
+<p><strong>Automated decision-making:</strong> Our Services do not make solely automated decisions that produce legal or similarly significant effects about you.</p>
+
+<h3>20.3 United States</h3>
+<p><strong>State-specific privacy laws:</strong> We comply with applicable state privacy laws, including the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA), Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), Connecticut Data Privacy Act (CTDPA), Utah Consumer Privacy Act (UCPA), and other state privacy laws.</p>
+<p><strong>Your rights:</strong> Depending on your state, you may have the rights described in Section 14.3, including the right to know what Personal Information we collect, the right to delete Personal Information, the right to correct inaccurate Personal Information, the right to opt out of sale/sharing, the right to limit use of Sensitive Personal Information, and the right to non-discrimination.</p>
+<p><strong>California-specific information:</strong> Under the CCPA/CPRA, California residents have specific rights regarding their Personal Information. We collect the categories described in Section 5, which may include identifiers (name, email, IP address), commercial information (purchase history, subscription details), internet/network activity (usage data, browsing history), and inferences (preferences, characteristics). We do not sell or share Personal Information as defined by the CCPA/CPRA. See Section 13 for retention periods. We do not use or disclose Sensitive Personal Information for purposes other than those permitted under CCPA Section 1798.121.</p>
+<p><strong>Shine the Light Law:</strong> California Civil Code Section 1798.83 permits California residents to request information about our disclosure of Personal Information to third parties for their direct-marketing purposes. We do not disclose Personal Information to third parties for their direct-marketing purposes.</p>
+<p><strong>California minor rights:</strong> If you are under 18 and a registered user, you may request removal of content you posted publicly. Contact us using the information in Section 21.</p>
+<p><strong>Virginia, Colorado, Connecticut, Utah:</strong> Residents of these states have similar rights under their respective state privacy laws. You may exercise these rights using the methods described in Section 14.4.</p>
+<p><strong>Do Not Sell My Personal Information:</strong> We do not sell Personal Information. If our practices change, we will update this Privacy Policy and provide an opt-out mechanism.</p>
+<p><strong>Financial incentives:</strong> We do not offer financial incentives in exchange for Personal Information.</p>
+<p><strong>Authorised agents:</strong> You may designate an authorised agent to make privacy requests on your behalf. The agent must provide proof of authorisation.</p>
+<p><strong>Appeal rights:</strong> If we deny your privacy request, you may appeal by contacting us at <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a>. We will respond to appeals within the timeframe required by applicable law.</p>
+
+<h3>20.4 Other Jurisdictions</h3>
+<p><strong>Canada:</strong> We comply with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws.</p>
+<p><strong>New Zealand:</strong> We comply with the Privacy Act 2020.</p>
+<p><strong>Other countries:</strong> If you are located in a jurisdiction not specifically mentioned, we will comply with applicable local data-protection laws. Contact us for jurisdiction-specific information.</p>
+
+<h3>20.5 Conflicts</h3>
+<p>If there is a conflict between the general provisions of this Privacy Policy and the jurisdiction-specific provisions, the jurisdiction-specific provisions control for individuals in that jurisdiction, the more protective provision applies if ambiguity exists, and we interpret this Privacy Policy in accordance with applicable law.</p>
+
+<h3>20.6 Translation</h3>
+<p>This Privacy Policy is provided in English. If we provide translations, the English version is the authoritative version, translations are provided for convenience only, and in case of discrepancies the English version prevails.</p>
+</section>
+<section id="section-21">
+  <h2>21. Contact Us</h2>
+  <p>For privacy questions, requests, or concerns — including to exercise any of the rights described in Section 14 — please contact us:</p>
+<p><strong>Email:</strong> <a href="mailto:support@moneymindprofile.com">support@moneymindprofile.com</a></p>
+<p><strong>Postal mail:</strong> MoneyMind Profile Pty Ltd (trading as MoneyPattern)<br/>ABN 33 672 152 073</p>
+<p>We will respond to your inquiry as soon as practicable and within the timeframes required by applicable law.</p>
+</section>
+  </article>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-top">
+      <div>
+        <span class="brand">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M18 12 Q18 27 33 27 Q18 27 18 42 Q18 27 3 27 Q18 27 18 12 Z" fill="currentColor"/>
+            <path d="M35 5.5 Q35 13 42.5 13 Q35 13 35 20.5 Q35 13 27.5 13 Q35 13 35 5.5 Z" fill="#ffb883"/>
+            <path d="M36 31 Q36 37 42 37 Q36 37 36 43 Q36 37 30 37 Q36 37 36 31 Z" fill="currentColor" opacity=".5"/>
+          </svg>
+          <span>MoneyPattern<sup>™</sup></span>
+        </span>
+        <p class="foot-tag">Your money has a pattern. Meet it.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Product</h6>
+        <a href="product-moneypattern.html">MoneyPattern</a>
+        <a href="product-daily-plan.html">Daily Plan</a>
+        <a href="product-action.html">Action</a>
+        <a href="product-pricing.html">Plans &amp; Pricing</a>
+        <a href="learn.html">Learn</a>
+      </div>
+      <div class="foot-col">
+        <h6>Explore</h6>
+        <a href="index.html#what">What it is</a>
+        <a href="index.html#dimensions">Dimensions</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#archetypes">Archetypes</a>
+      </div>
+      <div class="foot-col">
+        <h6>Company</h6>
+        <a href="company.html">Company</a>
+        <a href="index.html#faq">FAQs</a>
+        <span>Powered by MoneyMind Profile</span>
+      </div>
+      <div class="foot-col">
+        <h6>Policies</h6>
+        <a href="Privacy-Policy.html">Privacy</a>
+        <a href="Terms-of-Use.html">Terms</a>
+      </div>
     </div>
-    <div class="foot-links">
-      <a href="Privacy Policy.html">Privacy</a>
-      <a href="Terms of Use.html">Terms</a>
-      <a href="MoneyPattern.html#top">Home</a>
+    <div class="foot-word" aria-hidden="true">MoneyPattern</div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> MoneyPattern™. All rights reserved.</span>
+      <span>Powered by MoneyMind Profile</span>
     </div>
   </div>
 </footer>
 
-</div><!-- /wrap -->
+<script src="assets/site.js"></script>
 </body>
 </html>
