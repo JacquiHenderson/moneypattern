@@ -170,10 +170,15 @@ body{
 .im-vis svg{width:58%;max-width:180px;color:var(--cocoa);opacity:.85}
 .im-card h3{margin-bottom:12px}
 .im-card p{font-size:15px;line-height:1.38;color:var(--cocoa-60);text-wrap:pretty}
-.im-1{background:linear-gradient(200deg,#fff3eb 0%,#ffd2b3 100%)}
-.im-2{background:linear-gradient(200deg,#f3f9ec 0%,#cfe5c4 100%)}
-.im-3{background:linear-gradient(200deg,#f1f0ff 0%,#d2d2f5 100%)}
-.im-4{background:linear-gradient(200deg,#fbeef2 0%,#f2c6d6 100%)}
+/* monochrome wine scale, darkest → lightest (matches the Products banner) */
+.im-1{background:linear-gradient(200deg,#5a2224 0%,#2a0f10 100%);color:#fbe9e0}
+.im-2{background:linear-gradient(200deg,#8a4544 0%,#5a2426 100%);color:#fdeee8}
+.im-3{background:linear-gradient(200deg,#e2c2ba 0%,#c79891 100%)}
+.im-4{background:linear-gradient(200deg,#faf0ec 0%,#ecd5cd 100%)}
+.im-1 .t-mono,.im-2 .t-mono{color:rgba(253,238,232,.6)}
+.im-1 p,.im-2 p{color:rgba(253,238,232,.72)}
+.im-1 .im-vis svg{color:var(--apricot)}
+.im-2 .im-vis svg{color:#fdeee8}
 @media (max-width:1100px){.immersive{grid-template-columns:repeat(2,1fr)}.im-card{aspect-ratio:4/5}
   .im-card:nth-child(1){border-bottom-left-radius:var(--r-md)}.im-card:nth-child(4){border-bottom-right-radius:var(--r-md)}
   .im-card:nth-child(3){border-bottom-left-radius:0}}
@@ -229,6 +234,10 @@ body{
 .mock-step{display:flex;gap:14px;align-items:flex-start}
 .mock-step .ico{flex:none;width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:var(--peach);color:var(--cocoa)}
 .mock-step .ico svg{width:20px;height:20px}
+/* monochrome wine tiles, matching the Products banner */
+.mock-step .ico-1{background:linear-gradient(200deg,#8a4544,#5a2426);color:#f6dcd3}
+.mock-step .ico-2{background:linear-gradient(200deg,#c2918a,#9a625d);color:#fff1ec}
+.mock-step .ico-3{background:linear-gradient(200deg,#f5e7e2,#e3c8bf);color:#5a2224}
 .mock-step h5{font-size:16px;font-weight:450;margin-bottom:4px}
 .mock-step p{font-size:14px;line-height:1.35;color:var(--cocoa-60)}
 
@@ -312,6 +321,11 @@ body{
 .g-card:first-child{border-bottom-left-radius:0}
 .g-card:last-child{border-bottom-right-radius:0}
 .g-ico{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:var(--blush)}
+/* monochrome wine scale, matching the Products banner */
+.g-ico.gi-1{background:linear-gradient(200deg,#5a2224,#1c0a0a);color:var(--apricot)}
+.g-ico.gi-2{background:linear-gradient(200deg,#8a4544,#5a2426);color:#f6dcd3}
+.g-ico.gi-3{background:linear-gradient(200deg,#c2918a,#9a625d);color:#fff1ec}
+.g-ico.gi-4{background:linear-gradient(200deg,#f5e7e2,#e3c8bf);color:#5a2224}
 .g-ico svg{width:24px;height:24px}
 .g-card h4{margin-bottom:10px}
 .g-card p{font-size:15px;line-height:1.38;color:var(--cocoa-60)}
