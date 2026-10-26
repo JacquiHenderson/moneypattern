@@ -175,7 +175,6 @@ body{
 @media (min-width:900px){.hl-content{grid-template-columns:1.4fr 1fr;align-items:end}.hl-content p{justify-self:end}}
 
 .hl-what .hl-bg{background:
-  radial-gradient(60% 70% at 78% 30%, rgba(255,184,131,.55), transparent 65%),
   radial-gradient(70% 80% at 10% 90%, rgba(232,75,138,.45), transparent 70%),
   linear-gradient(160deg,#6b2a2c 0%,#3d1619 55%,#1e0b0b 100%)}
 
@@ -773,7 +772,13 @@ section[id],.prod{scroll-margin-top:84px}
 .story-ph{color:var(--cocoa-60)}
 .story-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;opacity:0;transition:opacity .6s}
 .story-video.ready{opacity:1}
-.story-photo--video .story-video{object-fit:contain;opacity:1}
+.story-photo--video .story-video{object-fit:cover;opacity:1;transform:scale(.96);transform-origin:50% 50%}
+/* feather the video's edges so the phone's shadow fades out instead of ending in a hard line */
+.story-photo--video .story-video{
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 92.2%,transparent 93.8%),linear-gradient(to right,transparent 18%,#000 25.5%,#000 78.5%,transparent 85%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 92.2%,transparent 93.8%),linear-gradient(to right,transparent 18%,#000 25.5%,#000 78.5%,transparent 85%);
+  mask-composite:intersect}
 .story-photo--video{background:#fff}
 @media (prefers-reduced-motion:reduce){.story-video{display:none}}
 .story-photo{border-radius:var(--r-md);border-bottom-left-radius:0;min-height:560px}
@@ -796,29 +801,15 @@ section[id],.prod{scroll-margin-top:84px}
 }
 
 
-/* ═════════ MONEYPATTERN BRAIN (animated) ═════════ */
-.mp-visual{position:absolute;z-index:-1;right:4%;top:50%;width:min(46%,560px);aspect-ratio:1;transform:translateY(-50%)}
-.mp-brain{width:100%;height:100%;overflow:visible}
-.hl-what .hl-content{grid-template-columns:1fr;max-width:min(54%,700px)}
+/* ═════════ MONEYPATTERN HEX PATTERN (brand animation, from the Decision Profile canvas) ═════════ */
+.mp-visual{position:absolute;z-index:-1;right:4%;top:50%;width:min(48%,620px);transform:translateY(-50%)}
+.mp-pattern{display:block;width:100%;height:auto;overflow:visible}
+.hl-what .hl-content{grid-template-columns:1fr;max-width:min(52%,700px)}
 .hl-what .hl-content p{justify-self:start}
-.bf{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.6)}
-.hx{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2)}
-.hx.off{fill:rgba(20,6,8,.55);stroke:rgba(255,220,230,.08);stroke-width:.8}
-.mp-visual.play .bf{animation:bfIn .7s var(--ease-out) var(--d) forwards}
-.mp-visual.play .hx.off{animation:hxOff .6s var(--ease-out) var(--d) forwards}
-.mp-visual.play .hx.on{animation:hxOn .6s var(--ease-out) var(--d) forwards,hxGlow 4.5s ease-in-out calc(var(--d) + 1.2s) infinite}
-@keyframes bfIn{to{opacity:1;transform:none}}
-@keyframes hxOff{to{opacity:1;transform:none}}
-@keyframes hxOn{to{opacity:var(--o,1);transform:none}}
-@keyframes hxGlow{0%,100%{opacity:var(--o,1)}50%{opacity:calc(var(--o,1) * .45)}}
-@media (prefers-reduced-motion:reduce){
-  .bf,.hx{opacity:1;transform:none}
-  .hx.on{opacity:var(--o,1)}
-  .mp-visual.play .bf,.mp-visual.play .hx{animation:none}
-}
+/* hold the build until the card is on screen */
+.mp-visual:not(.play) .mph,.mp-visual:not(.play) .mpl{animation-play-state:paused}
 @media (max-width:899px){
   .hl-what{display:flex;flex-direction:column}
-  .mp-visual{position:relative;z-index:0;top:auto;right:auto;transform:none;width:min(78%,360px);margin:36px auto 0}
-  .hl-what .hl-content{max-width:none}
-  .hl-what .hl-content{min-height:0!important;padding-top:16px}
+  .mp-visual{position:relative;z-index:0;top:auto;right:auto;transform:none;width:min(86%,420px);margin:40px auto 0}
+  .hl-what .hl-content{max-width:none;min-height:0!important;padding-top:16px}
 }
