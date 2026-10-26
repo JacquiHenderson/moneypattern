@@ -63,6 +63,23 @@
     d.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ if (!window.matchMedia('(min-width:901px)').matches) d.open = false; }); });
   });
 
+  /* story videos: fade in once playable; remove if the file is missing so the image shows */
+  document.querySelectorAll('.story-video').forEach(function(v){
+    var src = v.querySelector('source');
+    v.addEventListener('canplay', function(){ v.classList.add('ready'); });
+    if (src) src.addEventListener('error', function(){ v.remove(); });
+    if (reduce) { v.pause(); }
+  });
+
+  /* MoneyPattern brain: build the animation when the card scrolls into view */
+  var mpv = document.getElementById('mp-visual');
+  if (mpv) {
+    if (reduce || !('IntersectionObserver' in window)) mpv.classList.add('play');
+    else new IntersectionObserver(function(en, ob){
+      if (en[0].isIntersecting) { mpv.classList.add('play'); ob.disconnect(); }
+    }, {threshold:.3}).observe(mpv);
+  }
+
   /* reveals */
   var els = document.querySelectorAll('.rv');
   if ('IntersectionObserver' in window && !reduce) {
