@@ -563,11 +563,13 @@ body{
 .plan.feat{background:var(--cocoa-deep);color:var(--bone)}
 .plan .t-mono{color:var(--cocoa-40)}
 .plan.feat .t-mono{color:rgba(248,246,242,.5)}
+.plan-tag{font-size:clamp(20px,1.8vw,24px);font-weight:400;letter-spacing:-.02em;margin-top:-16px}
 .plan-price{font-size:clamp(48px,5vw,72px);font-weight:300;letter-spacing:-.04em;line-height:1}
 .plan-price small{font-size:16px;letter-spacing:0;opacity:.55;margin-left:6px}
 .plan p{font-size:16px;line-height:1.4;color:var(--cocoa-60)}
 .plan.feat p{color:rgba(248,246,242,.65)}
-.plan .p-list{margin:0;flex:1}
+.plan .p-list{margin:0;flex:1;align-content:start;gap:2px}
+.plan .p-list li{line-height:1.4}
 .plan.feat .p-list li::before{background-color:var(--apricot)}
 .plan .btn{justify-content:center}
 .plan.feat .btn{background:var(--bone);color:var(--cocoa)}
